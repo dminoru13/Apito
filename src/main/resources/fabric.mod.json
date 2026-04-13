@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "apito",
+	"version": "${version}",
+	"name": "Apito",
+	"description": "Apitos e mega estruturas",
+	"authors": [
+		"Notridani :P"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/apito/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.notridani.apito.Apito"
+		],
+		"fabric-datagen": [
+			"net.notridani.apito.ApitoDataGenerator"
+		],
+		"client": [
+			"net.notridani.apito.ApitoClient"
+		]
+	},
+	"mixins": [
+		"apito.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.1",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
