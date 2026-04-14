@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.InstrumentTags;
 import net.minecraft.util.Identifier;
 import net.notridani.apito.Apito;
 import net.notridani.apito.item.custom.WhistleItem;
@@ -13,7 +14,7 @@ public class ModItems {
     public static final Item FOSSILIZED_SCRAP = registerItem("fossilized_scrap", new Item(new Item.Settings()));
     public static final Item ROSELITA = registerItem("roselita", new Item(new Item.Settings()));
 
-    public static final Item WHISTLE = registerItem("whistle", new WhistleItem(new Item.Settings().maxDamage(32)));
+    public static final Item WHISTLE = registerItem("whistle", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Apito.MOD_ID, name), item);
