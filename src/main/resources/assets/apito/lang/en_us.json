@@ -1,4 +1,10 @@
 {
   "item.apito.fossilized_scrap": "Fossilized Scrap",
-  "item.apito.roselita": "Roselita"
+  "item.apito.roselita": "Roselita",
+  "item.apito.whistle": "Whistle",
+
+  "block.apito.roselita_block": "Roselita Block",
+  "block.apito.scrap_ore": "Scrap Ore",
+
+  "itemgroup.apito.apito_group": "Apito"
 }
