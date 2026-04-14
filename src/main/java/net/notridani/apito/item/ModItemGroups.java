@@ -13,7 +13,7 @@ import net.notridani.apito.block.ModBlocks;
 public class ModItemGroups {
     public static final ItemGroup APITO_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Apito.MOD_ID, "apito_group"),
-            FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.ROSELITA_BLOCK))
+            FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.WHISTLE))
                     .displayName(Text.translatable("itemgroup.apito.apito_group"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.FOSSILIZED_SCRAP);
