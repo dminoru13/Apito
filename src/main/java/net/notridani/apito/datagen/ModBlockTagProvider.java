@@ -17,7 +17,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.ROSELITA_BLOCK)
-                .add(ModBlocks.SCRAP_ORE);
+                .add(ModBlocks.SCRAP_ORE)
+                .add(ModBlocks.FELPS_LAMP);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.SCRAP_ORE);

@@ -1,12 +1,20 @@
-// 1.21	2026-04-14T22:48:39.5068439	Apito/Model Definitions
+// 1.21	2026-04-15T10:39:49.5120359	Apito/Model Definitions
+bdbbe0f5728e45155183a6d9827919e675aeead0 assets\apito\models\block\felps_lamp4.json
 311fc75eb761f9ddfd029bcf2d827a50331c9d83 assets\apito\blockstates\roselita_block.json
+02aa3e1e16ee343c442a53c3c3e783ccc8f06474 assets\apito\models\block\felps_lamp1.json
+a98ea8d1175eacd9cc442e176b2d6190ba667c19 assets\apito\models\item\roselita.json
+2c7a724d650de1371a6152c540b2cc2e91ede7ce assets\apito\blockstates\felps_lamp.json
+bd7e416d68ccfcb83e4a0f6341f3c27213dc9d09 assets\apito\blockstates\scrap_ore.json
+106048a3e0f4bb6c7a7c07356ecfbe039a713dab assets\apito\models\item\felps_lamp.json
+338d94bead6a7b8f27fe33af1a8e41bc2a28ea10 assets\apito\models\block\felps_lamp3.json
+34936cba59bcf59b7e4499ae9aac4837468c6ec1 assets\apito\models\item\golbo_nugget.json
+64e4850793dc326ca18c93487555741ccc7b2718 assets\apito\models\item\scrap_ore.json
+55a9054a3e47551ec766104babd1a3766f3bcb37 assets\apito\models\block\felps_lamp5.json
 9bf50a165cc23fd0868cd3c70cd57067ba977ff3 assets\apito\models\block\roselita_block.json
 558abf2c4c420da8c604ac1eebe06150543b2103 assets\apito\models\item\roselita_block.json
-a98ea8d1175eacd9cc442e176b2d6190ba667c19 assets\apito\models\item\roselita.json
+0800176205f0138fb93d6ab34a0798ae9e228ab3 assets\apito\models\block\felps_lamp2.json
 99ff19435699da9de825066dab9a9e6508e42c97 assets\apito\models\item\raw_golbo_leg.json
-bd7e416d68ccfcb83e4a0f6341f3c27213dc9d09 assets\apito\blockstates\scrap_ore.json
 aef39fad9b209455a52125546b24e7b28601677c assets\apito\models\item\whistle.json
-34936cba59bcf59b7e4499ae9aac4837468c6ec1 assets\apito\models\item\golbo_nugget.json
+75d5ff31120b87d8d427019d08c27c6777c70790 assets\apito\models\block\felps_lamp.json
 33694f18cde6bfe20a604d69f6b8382715708b60 assets\apito\models\block\scrap_ore.json
-64e4850793dc326ca18c93487555741ccc7b2718 assets\apito\models\item\scrap_ore.json
 d1213e439a29be5d4111038a2fe60c64585fe741 assets\apito\models\item\fossilized_scrap.json

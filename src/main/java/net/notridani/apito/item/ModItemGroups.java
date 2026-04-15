@@ -23,6 +23,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLBO_NUGGET);
                         entries.add(ModBlocks.ROSELITA_BLOCK);
                         entries.add(ModBlocks.SCRAP_ORE);
+                        entries.add(ModBlocks.FELPS_LAMP);
 
 
                     }).build());

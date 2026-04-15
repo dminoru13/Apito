@@ -27,6 +27,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(ModBlocks.ROSELITA_BLOCK);
+        addDrop(ModBlocks.FELPS_LAMP);
 
         addDrop(ModBlocks.SCRAP_ORE, oreDrops(ModBlocks.SCRAP_ORE, ModItems.FOSSILIZED_SCRAP));
     }

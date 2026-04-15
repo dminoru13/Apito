@@ -20,6 +20,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.notridani.apito.component.ModDataComponentTypes;
 
 import java.util.Iterator;
 import java.util.List;
@@ -40,6 +41,13 @@ public class WhistleItem extends Item {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.apito.whistle." + tipo));
         super.appendTooltip(stack, context, tooltip, type);
+
+        if(stack.get(ModDataComponentTypes.CORDINATES) != null) {
+            tooltip.add(Text.literal("Cordenadas da porta: " + stack.get(ModDataComponentTypes.CORDINATES)));
+        }
+        if(stack.get(ModDataComponentTypes.PLAYER_NAME) != null) {
+            tooltip.add(Text.literal("Utimo_usuario: " + stack.get(ModDataComponentTypes.PLAYER_NAME)));
+        }
     }
 
     private static final Map<String, SoundEvent> TIPO_APITO =
@@ -69,6 +77,14 @@ public class WhistleItem extends Item {
             playSound(world, user, instrument);
             user.getItemCooldownManager().set(this, instrument.useDuration());
             user.incrementStat(Stats.USED.getOrCreateStat(this));
+
+
+            //NBT
+
+            itemStack.set(ModDataComponentTypes.CORDINATES, user.getBlockPos());
+            itemStack.set(ModDataComponentTypes.PLAYER_NAME, user.getName().getString());
+
+
             return TypedActionResult.consume(itemStack);
         } else {
             return TypedActionResult.fail(itemStack);
