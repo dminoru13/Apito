@@ -1,0 +1,12 @@
+// 1.21	2026-04-14T22:48:39.5068439	Apito/Model Definitions
+311fc75eb761f9ddfd029bcf2d827a50331c9d83 assets\apito\blockstates\roselita_block.json
+9bf50a165cc23fd0868cd3c70cd57067ba977ff3 assets\apito\models\block\roselita_block.json
+558abf2c4c420da8c604ac1eebe06150543b2103 assets\apito\models\item\roselita_block.json
+a98ea8d1175eacd9cc442e176b2d6190ba667c19 assets\apito\models\item\roselita.json
+99ff19435699da9de825066dab9a9e6508e42c97 assets\apito\models\item\raw_golbo_leg.json
+bd7e416d68ccfcb83e4a0f6341f3c27213dc9d09 assets\apito\blockstates\scrap_ore.json
+aef39fad9b209455a52125546b24e7b28601677c assets\apito\models\item\whistle.json
+34936cba59bcf59b7e4499ae9aac4837468c6ec1 assets\apito\models\item\golbo_nugget.json
+33694f18cde6bfe20a604d69f6b8382715708b60 assets\apito\models\block\scrap_ore.json
+64e4850793dc326ca18c93487555741ccc7b2718 assets\apito\models\item\scrap_ore.json
+d1213e439a29be5d4111038a2fe60c64585fe741 assets\apito\models\item\fossilized_scrap.json
