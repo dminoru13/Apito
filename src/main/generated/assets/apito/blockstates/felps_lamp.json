@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "cara=0": {
+      "model": "apito:block/felps_lamp"
+    },
+    "cara=1": {
+      "model": "apito:block/felps_lamp1"
+    },
+    "cara=2": {
+      "model": "apito:block/felps_lamp2"
+    },
+    "cara=3": {
+      "model": "apito:block/felps_lamp3"
+    },
+    "cara=4": {
+      "model": "apito:block/felps_lamp4"
+    },
+    "cara=5": {
+      "model": "apito:block/felps_lamp5"
+    }
+  }
+}
