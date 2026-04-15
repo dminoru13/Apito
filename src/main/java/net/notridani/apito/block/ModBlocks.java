@@ -50,10 +50,7 @@ public class ModBlocks {
 
     public static void registerModBlocks() {
         Apito.LOGGER.info("Registering Mod Blocks for " + Apito.MOD_ID);
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
-            entries.add(ModBlocks.ROSELITA_BLOCK);
-        });
+        
     }
 
 }

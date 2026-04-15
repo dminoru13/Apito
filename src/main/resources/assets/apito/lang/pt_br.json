@@ -2,6 +2,10 @@
   "item.apito.fossilized_scrap": "Sucata Fossilizada",
   "item.apito.roselita": "Roselita",
   "item.apito.whistle": "Apito",
+  "tooltip.apito.whistle.palido": "§7Palido§r",
+  "tooltip.apito.whistle.cobre": "§vCobre§r",
+  "item.apito.raw_golbo_leg": "Perna de Golbo Crua",
+  "item.apito.golbo_nugget": "Nugget de Golbo",
 
   "block.apito.roselita_block": "Bloco de Roselita",
   "block.apito.scrap_ore": "Minerio de Sucata",

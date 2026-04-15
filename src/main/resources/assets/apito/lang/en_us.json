@@ -2,6 +2,10 @@
   "item.apito.fossilized_scrap": "Fossilized Scrap",
   "item.apito.roselita": "Roselita",
   "item.apito.whistle": "Whistle",
+  "tooltip.apito.whistle.palido": "§r7Pale§r",
+  "tooltip.apito.whistle.cobre": "§vCopper§r",
+  "item.apito.raw_golbo_leg": "Raw Golbo Leg",
+  "item.apito.golbo_nugget": "Golbo Nugget",
 
   "block.apito.roselita_block": "Roselita Block",
   "block.apito.scrap_ore": "Scrap Ore",

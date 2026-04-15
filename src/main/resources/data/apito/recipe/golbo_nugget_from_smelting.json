@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 150,
+  "experience": 0.2,
+  "group": "golbo_nugget",
+  "ingredient": {
+    "item": "apito:raw_golbo_leg"
+  },
+  "result": {
+    "id": "apito:golbo_nugget"
+  }
+}

@@ -8,45 +8,45 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
-import net.minecraft.util.Util;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class WhistleItem extends Item {
     private final TagKey<Instrument> instrumentTag;
+    private final String tipo;
 
-    public WhistleItem(Settings settings, TagKey<Instrument> instrumentTag) {
+    public WhistleItem(Settings settings, TagKey<Instrument> instrumentTag, String tipo) {
         super(settings);
         this.instrumentTag = instrumentTag;
+        this.tipo = tipo;
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("tooltip.apito.whistle." + tipo));
         super.appendTooltip(stack, context, tooltip, type);
-        Optional<RegistryKey<Instrument>> optional = this.getInstrument(stack).flatMap(RegistryEntry::getKey);
-        if (optional.isPresent()) {
-            MutableText mutableText = Text.translatable(Util.createTranslationKey("instrument", ((RegistryKey)optional.get()).getValue()));
-            tooltip.add(mutableText.formatted(Formatting.GRAY));
-        }
     }
+
+    private static final Map<String, SoundEvent> TIPO_APITO =
+            Map.of(
+                    "palido", SoundEvents.ENTITY_GHAST_SCREAM,
+                    "cobre", SoundEvents.ENTITY_GHAST_SHOOT
+            );
 
     public static ItemStack getStackForInstrument(Item item, RegistryEntry<Instrument> instrument) {
         ItemStack itemStack = new ItemStack(item);
@@ -75,14 +75,6 @@ public class WhistleItem extends Item {
         }
     }
 
-    private static void playSound(World world, PlayerEntity player, Instrument instrument) {
-        SoundEvent soundEvent = instrument.soundEvent().value();
-        float f = instrument.range() / 16.0F;
-        world.playSound(
-                null, player.getPos().getX(), player.getPos().getY(), player.getPos().getZ(), SoundEvents.ENTITY_GHAST_SCREAM, SoundCategory.PLAYERS, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F)
-        );
-    }
-
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         Optional<RegistryEntry<Instrument>> optional = this.getInstrument(stack);
@@ -104,5 +96,11 @@ public class WhistleItem extends Item {
         return UseAction.TOOT_HORN;
     }
 
-
+    private void playSound(World world, PlayerEntity player, Instrument instrument) {
+        SoundEvent soundEvent = instrument.soundEvent().value();
+        float f = instrument.range() / 16.0F;
+        world.playSound(
+                null, player.getPos().getX(), player.getPos().getY(), player.getPos().getZ(), TIPO_APITO.get(tipo), SoundCategory.PLAYERS, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F)
+        );
+    }
 }

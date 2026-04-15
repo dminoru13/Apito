@@ -19,6 +19,8 @@ public class ModItemGroups {
                         entries.add(ModItems.FOSSILIZED_SCRAP);
                         entries.add(ModItems.ROSELITA);
                         entries.add(ModItems.WHISTLE);
+                        entries.add(ModItems.RAW_GOLBO_LEG);
+                        entries.add(ModItems.GOLBO_NUGGET);
                         entries.add(ModBlocks.ROSELITA_BLOCK);
                         entries.add(ModBlocks.SCRAP_ORE);
 
