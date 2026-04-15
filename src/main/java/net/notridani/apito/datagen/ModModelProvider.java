@@ -4,7 +4,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 import net.notridani.apito.block.ModBlocks;
+import net.notridani.apito.block.custom.Chalk;
 import net.notridani.apito.block.custom.FelpsLamp;
 import net.notridani.apito.item.ModItems;
 
@@ -25,7 +27,8 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier FelpsLamp4 = blockStateModelGenerator.createSubModel(ModBlocks.FELPS_LAMP, "4", Models.CUBE_ALL, TextureMap::all);
         Identifier FelpsLamp5 = blockStateModelGenerator.createSubModel(ModBlocks.FELPS_LAMP, "5", Models.CUBE_ALL, TextureMap::all);
 
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.FELPS_LAMP)
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.FELPS_LAMP)
                 .coordinate(
                         BlockStateVariantMap.create(FelpsLamp.CARA)
                                 .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, FelpsLamp0))
@@ -35,6 +38,22 @@ public class ModModelProvider extends FabricModelProvider {
                                 .register(4, BlockStateVariant.create().put(VariantSettings.MODEL, FelpsLamp4))
                                 .register(5, BlockStateVariant.create().put(VariantSettings.MODEL, FelpsLamp5))
                 ));
+
+        //GIZ
+       Identifier chalkModel = Identifier.of("apito", "block/chalk");
+       Identifier chalkModel1 = Identifier.of("apito", "block/chalk1");
+
+
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.CHALK, BlockStateVariant.create().put(VariantSettings.MODEL, chalkModel))
+                        .coordinate(
+                                BlockStateVariantMap.create(Chalk.FACING)
+                                        .register(Direction.NORTH, BlockStateVariant.create())
+                                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                        )
+        );
     }
 
     @Override
@@ -44,5 +63,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_GOLBO_LEG, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLBO_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROSELITA, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.CHALK.asItem(), Models.GENERATED);
     }
 }

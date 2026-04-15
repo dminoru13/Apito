@@ -1,19 +1,15 @@
 package net.notridani.apito.block;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.ExperienceDroppingBlock;
-import net.minecraft.block.GlowLichenBlock;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.notridani.apito.Apito;
+import net.notridani.apito.block.custom.Chalk;
 import net.notridani.apito.block.custom.FelpsLamp;
 
 public class ModBlocks {
@@ -47,6 +43,8 @@ public class ModBlocks {
             )
     );
 
+
+
     public static final Block SCRAP_ORE = registerBlock("scrap_ore",
             new ExperienceDroppingBlock(UniformIntProvider.create(2,5),
                     AbstractBlock.Settings.create()
@@ -62,6 +60,9 @@ public class ModBlocks {
                     .strength(0.3f)
                     .luminance(state -> state.get(FelpsLamp.CARA)*3)));
 
-
-
+    public static final Block CHALK = registerBlock("chalk",
+            new Chalk(AbstractBlock.Settings.create()
+                    .strength(0.1f)
+                    .nonOpaque()
+                    .noCollision()));
 }

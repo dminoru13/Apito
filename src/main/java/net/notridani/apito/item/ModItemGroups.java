@@ -1,6 +1,7 @@
 package net.notridani.apito.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -24,6 +25,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ROSELITA_BLOCK);
                         entries.add(ModBlocks.SCRAP_ORE);
                         entries.add(ModBlocks.FELPS_LAMP);
+                        entries.add(ModBlocks.CHALK);
+
 
 
                     }).build());

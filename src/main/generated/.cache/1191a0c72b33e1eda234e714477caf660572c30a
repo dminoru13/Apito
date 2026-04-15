@@ -1,7 +1,8 @@
-// 1.21	2026-04-15T10:39:49.5120359	Apito/Model Definitions
+// 1.21	2026-04-15T17:49:49.6107202	Apito/Model Definitions
 bdbbe0f5728e45155183a6d9827919e675aeead0 assets\apito\models\block\felps_lamp4.json
 311fc75eb761f9ddfd029bcf2d827a50331c9d83 assets\apito\blockstates\roselita_block.json
 02aa3e1e16ee343c442a53c3c3e783ccc8f06474 assets\apito\models\block\felps_lamp1.json
+9855ba7a698069921556d90fcf150ff8d6152dfc assets\apito\models\item\chalk.json
 a98ea8d1175eacd9cc442e176b2d6190ba667c19 assets\apito\models\item\roselita.json
 2c7a724d650de1371a6152c540b2cc2e91ede7ce assets\apito\blockstates\felps_lamp.json
 bd7e416d68ccfcb83e4a0f6341f3c27213dc9d09 assets\apito\blockstates\scrap_ore.json
@@ -10,6 +11,7 @@ bd7e416d68ccfcb83e4a0f6341f3c27213dc9d09 assets\apito\blockstates\scrap_ore.json
 34936cba59bcf59b7e4499ae9aac4837468c6ec1 assets\apito\models\item\golbo_nugget.json
 64e4850793dc326ca18c93487555741ccc7b2718 assets\apito\models\item\scrap_ore.json
 55a9054a3e47551ec766104babd1a3766f3bcb37 assets\apito\models\block\felps_lamp5.json
+3461e3c6177fd5cf4c64a38fef4ee02f5846b85e assets\apito\blockstates\chalk.json
 9bf50a165cc23fd0868cd3c70cd57067ba977ff3 assets\apito\models\block\roselita_block.json
 558abf2c4c420da8c604ac1eebe06150543b2103 assets\apito\models\item\roselita_block.json
 0800176205f0138fb93d6ab34a0798ae9e228ab3 assets\apito\models\block\felps_lamp2.json

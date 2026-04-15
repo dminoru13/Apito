@@ -18,7 +18,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.ROSELITA_BLOCK)
                 .add(ModBlocks.SCRAP_ORE)
-                .add(ModBlocks.FELPS_LAMP);
+                .add(ModBlocks.FELPS_LAMP)
+                .add(ModBlocks.CHALK);
+
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.SCRAP_ORE);
