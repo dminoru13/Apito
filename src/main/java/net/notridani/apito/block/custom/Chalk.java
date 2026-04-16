@@ -5,22 +5,28 @@ import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
 public class Chalk extends Block {
     public static final MapCodec<Chalk> CODEC = createCodec(Chalk::new);
-    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    public static final DirectionProperty FACING = Properties.FACING;
     protected static final float field_31106 = 3.0F;
-    protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 3.0, 16.0, 16.0);
-    protected static final VoxelShape WEST_SHAPE = Block.createCuboidShape(13.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-    protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 3.0);
-    protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 13.0, 16.0, 16.0, 16.0);
+    protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 0.1, 16.0, 16.0);
+    protected static final VoxelShape WEST_SHAPE = Block.createCuboidShape(15.9, 0.0, 0.0, 16.0, 16.0, 16.0);
+    protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 0.1);
+    protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 15.9, 16.0, 16.0, 16.0);
+    protected static final VoxelShape CEILING_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 0.1, 16.0);
+    protected static final VoxelShape FLOOR_SHAPE = Block.createCuboidShape(0.0, 15.9, 0.0, 16.0, 16.0, 16.0);
 
     @Override
     public MapCodec<Chalk> getCodec() {
@@ -34,7 +40,11 @@ public class Chalk extends Block {
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch ((Direction)state.get(FACING)) {
+        switch (state.get(FACING)) {
+            case UP:
+                return CEILING_SHAPE;
+            case DOWN:
+                return FLOOR_SHAPE;
             case NORTH:
                 return NORTH_SHAPE;
             case SOUTH:
@@ -51,6 +61,8 @@ public class Chalk extends Block {
         BlockState blockState = world.getBlockState(pos);
         return blockState.isSideSolidFullSquare(world, pos, side);
     }
+
+
 
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
@@ -72,20 +84,42 @@ public class Chalk extends Block {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         for (Direction direction : ctx.getPlacementDirections()) {
-            if (direction.getAxis().isHorizontal()) {
-                Direction opposite = direction.getOpposite();
-                BlockState state = this.getDefaultState().with(FACING, opposite);
+            Direction opposite = direction.getOpposite();
+            BlockState state = this.getDefaultState().with(FACING, opposite);
 
-                if (state.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) {
-                    return state;
-                }
+            if (state.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) {
+                return state;
             }
         }
         return null;
     }
 
+
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
+
+    @Override
+    protected BlockState getStateForNeighborUpdate(
+            BlockState state,
+            Direction direction,
+            BlockState neighborState,
+            WorldAccess world,
+            BlockPos pos,
+            BlockPos neighborPos
+    ) {
+        Direction facing = state.get(FACING);
+
+        // Se o bloco que mudou é o de suporte
+        if (direction == facing.getOpposite()) {
+            if (!state.canPlaceAt(world, pos)) {
+                return Blocks.AIR.getDefaultState();
+            }
+        }
+
+        return state;
+    }
+
+
 }

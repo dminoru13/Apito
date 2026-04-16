@@ -2,8 +2,8 @@
   "render_type": "minecraft:cutout",
   "parent": "minecraft:block/orientable",
   "textures": {
-    "texture": "apito:block/chalk_block",
-    "particle": "apito:block/chalk_block"
+    "texture": "apito:block/pocket_portal",
+    "particle": "apito:block/pocket_portal"
 
   },
   "elements": [

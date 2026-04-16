@@ -2,6 +2,7 @@ package net.notridani.apito.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -17,16 +18,25 @@ public class ModItemGroups {
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.WHISTLE))
                     .displayName(Text.translatable("itemgroup.apito.apito_group"))
                     .entries((displayContext, entries) -> {
-                        entries.add(ModItems.FOSSILIZED_SCRAP);
-                        entries.add(ModItems.ROSELITA);
-                        entries.add(ModItems.WHISTLE);
-                        entries.add(ModItems.RAW_GOLBO_LEG);
-                        entries.add(ModItems.GOLBO_NUGGET);
+                        //blocos
+                        entries.add(ModBlocks.CHALK);
                         entries.add(ModBlocks.ROSELITA_BLOCK);
                         entries.add(ModBlocks.SCRAP_ORE);
                         entries.add(ModBlocks.FELPS_LAMP);
-                        entries.add(ModBlocks.CHALK);
 
+                        //ingredientes
+                        entries.add(ModItems.FOSSILIZED_SCRAP);
+                        entries.add(ModItems.ROSELITA);
+
+                        //comidas
+                        entries.add(ModItems.RAW_GOLBO_LEG);
+                        entries.add(ModItems.GOLBO_NUGGET);
+
+                        //ferramentas
+                        entries.add(ModItems.WHISTLE);
+
+                        //armaduras
+                        entries.add(ModItems.MECHA_AZAZETH_CROWN);
 
 
                     }).build());

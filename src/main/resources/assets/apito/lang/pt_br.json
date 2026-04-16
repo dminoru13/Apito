@@ -1,17 +1,24 @@
 {
+  "itemgroup.apito.apito_group": "Apito",
+
+  "block.apito.scrap_ore": "Minério de Sucata Fossilizada",
+  "block.apito.roselita_block": "Bloco de Roselita",
+  "block.apito.felps_lamp": "Felpo Lâmpada",
+  "block.apito.chalk": "Giz",
+  "block.apito.pocket_portal": "Poratal de bolso",
+
   "item.apito.fossilized_scrap": "Sucata Fossilizada",
   "item.apito.roselita": "Roselita",
-  "item.apito.whistle": "Apito",
-  "tooltip.apito.whistle.palido": "§7Palido§r",
-  "tooltip.apito.whistle.cobre": "§vCobre§r",
+
   "item.apito.raw_golbo_leg": "Perna de Golbo Crua",
   "item.apito.golbo_nugget": "Nugget de Golbo",
 
-  "block.apito.roselita_block": "Bloco de Roselita",
-  "block.apito.scrap_ore": "Minerio de Sucata",
-  "block.apito.felps_lamp": "Felpo-Lampada",
-  "block.apito.chalk": "Giz",
+  "item.apito.whistle": "Apito",
+  "tooltip.apito.whistle.palido": "§r7Palido§r",
+  "tooltip.apito.whistle.cobre": "§vCobre§r",
 
-
-  "itemgroup.apito.apito_group": "Apito"
+  "item.apito.mecha_azazeth_crown": "Coroa de Mecha Azazeth",
+  "item.apito.mecha_azazeth_chestplate": "Peitoral de Mecha Azazeth",
+  "item.apito.mecha_azazeth_leggings": "Claças de Mecha Azazeth",
+  "item.apito.mecha_azazeth_boots": "Botas de Mecha Azazeth"
 }

@@ -3,11 +3,13 @@ package net.notridani.apito.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.block.custom.Chalk;
 import net.notridani.apito.block.custom.FelpsLamp;
+import net.notridani.apito.block.custom.PocketPortal;
 import net.notridani.apito.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -41,7 +43,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         //GIZ
        Identifier chalkModel = Identifier.of("apito", "block/chalk");
-       Identifier chalkModel1 = Identifier.of("apito", "block/chalk1");
 
 
         blockStateModelGenerator.blockStateCollector.accept(
@@ -52,6 +53,24 @@ public class ModModelProvider extends FabricModelProvider {
                                         .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R90))
                                         .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R180))
                                         .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.X, VariantSettings.Rotation.R270))
+                                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.X, VariantSettings.Rotation.R90))
+                        )
+        );
+
+        Identifier pocketPortalModel = Identifier.of("apito", "block/pocket_portal");
+
+
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.POCKET_PORTAL, BlockStateVariant.create().put(VariantSettings.MODEL, pocketPortalModel))
+                        .coordinate(
+                                BlockStateVariantMap.create(PocketPortal.FACING)
+                                        .register(Direction.NORTH, BlockStateVariant.create())
+                                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.X, VariantSettings.Rotation.R270))
+                                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.X, VariantSettings.Rotation.R90))
                         )
         );
     }
@@ -64,5 +83,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GOLBO_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROSELITA, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.CHALK.asItem(), Models.GENERATED);
+
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CROWN));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_BOOTS));
     }
 }

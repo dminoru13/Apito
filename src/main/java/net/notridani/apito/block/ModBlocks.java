@@ -11,6 +11,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.notridani.apito.Apito;
 import net.notridani.apito.block.custom.Chalk;
 import net.notridani.apito.block.custom.FelpsLamp;
+import net.notridani.apito.block.custom.PocketPortal;
 
 public class ModBlocks {
 
@@ -65,4 +66,12 @@ public class ModBlocks {
                     .strength(0.1f)
                     .nonOpaque()
                     .noCollision()));
+
+    public static final Block POCKET_PORTAL = registerBlock("pocket_portal",
+            new PocketPortal(AbstractBlock.Settings.create()
+                    .strength(0.1f)
+                    .nonOpaque()
+                    .noCollision()
+                    .luminance(state -> 10)));
+
 }
