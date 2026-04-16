@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "apito:item/mecha_azazeth_crown",
+    "layer1": "minecraft:trims/items/helmet_trim_diamond"
+  }
+}

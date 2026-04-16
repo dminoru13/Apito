@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "apito:block/pocket_portal",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "apito:block/pocket_portal",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "apito:block/pocket_portal"
+    },
+    "facing=south": {
+      "model": "apito:block/pocket_portal",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "apito:block/pocket_portal",
+      "x": 270
+    },
+    "facing=west": {
+      "model": "apito:block/pocket_portal",
+      "y": 270
+    }
+  }
+}
