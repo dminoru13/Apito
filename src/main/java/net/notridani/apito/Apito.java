@@ -6,6 +6,7 @@ import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.component.ModDataComponentTypes;
 import net.notridani.apito.item.ModItemGroups;
 import net.notridani.apito.item.ModItems;
+import net.notridani.apito.sound.ModSounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,5 +21,6 @@ public class Apito implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModDataComponentTypes.registerDataComponentTypes();
+		ModSounds.registerSounds();
 	}
 }
