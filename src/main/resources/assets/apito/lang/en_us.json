@@ -14,8 +14,19 @@
   "item.apito.golbo_nugget": "Golbo Nugget",
 
   "item.apito.whistle": "Whistle",
+  "item.apito.whistle2": "Whistle2",
+  "item.apito.whistle3": "Whistle3",
+  "item.apito.whistle4": "Whistle4",
+  "item.apito.whistle5": "Whistle5",
   "tooltip.apito.whistle.palido": "§r7Pale§r",
   "tooltip.apito.whistle.cobre": "§vCopper§r",
+  "tooltip.apito.whistle.macabro": "§r7Spooky§r",
+  "tooltip.apito.whistle.assombrado": "§r7Haunted§r",
+  "tooltip.apito.whistle.fiu_fiu": "§r7fiu fiu§r",
+
+  "item.apito.endless_embrace_music_disc": "Endless Embrace Music Disc",
+  "item.apito.endless_embrace_music_disc.desc": "Jake Eaw - Endless Embrace",
+
 
   "item.apito.mecha_azazeth_crown": "Mecha Azazeth Crown",
   "item.apito.mecha_azazeth_chestplate": "Mecha Azazeth Chestplate",

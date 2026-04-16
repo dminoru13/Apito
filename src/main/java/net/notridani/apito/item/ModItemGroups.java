@@ -33,7 +33,12 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLBO_NUGGET);
 
                         //ferramentas
+
+                        //apitos
                         entries.add(ModItems.WHISTLE);
+
+                        //discos de musica
+                        entries.add(ModItems.ENDLESS_EMBRACE_MUSIC_DISC);
 
                         //armaduras
                         entries.add(ModItems.MECHA_AZAZETH_CROWN);

@@ -31,6 +31,7 @@ import net.notridani.apito.block.custom.Chalk;
 import net.notridani.apito.block.custom.PocketPortal;
 import net.notridani.apito.component.ModDataComponentTypes;
 import net.notridani.apito.item.ModItems;
+import net.notridani.apito.sound.ModSounds;
 
 import java.util.*;
 
@@ -77,8 +78,11 @@ public class WhistleItem extends Item {
 
     private static final Map<String, SoundEvent> TIPO_APITO =
             Map.of(
-                    "palido", SoundEvents.ENTITY_GHAST_SCREAM,
-                    "cobre", SoundEvents.ENTITY_GHAST_SHOOT
+                    "palido", ModSounds.W_ASSOBIO,
+                    "cobre", ModSounds.W_TCHU_TCHU,
+                    "macabro", ModSounds.W_MACABRO,
+                    "assombrado", ModSounds.W_fantasma,
+                    "fiu_fiu", ModSounds.W_FIU_FIU
             );
 
     @Override

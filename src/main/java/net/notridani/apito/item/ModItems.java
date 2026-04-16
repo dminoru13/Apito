@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import net.notridani.apito.Apito;
 import net.notridani.apito.item.custom.ModArmorItem;
 import net.notridani.apito.item.custom.WhistleItem;
+import net.notridani.apito.sound.ModSounds;
 
 public class ModItems {
     private static Item registerItem(String name, Item item) {
@@ -27,7 +28,18 @@ public class ModItems {
     public static  final Item RAW_GOLBO_LEG = registerItem("raw_golbo_leg", new Item(new Item.Settings().food(ModFoodComponents.RAW_GOLBO_LEG)));
     public static  final Item GOLBO_NUGGET = registerItem("golbo_nugget", new Item(new Item.Settings().food(ModFoodComponents.GOLBO_NUGGET)));
 
+    //APITOS
     public static final Item WHISTLE = registerItem("whistle", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "palido", 4));
+    public static final Item WHISTLE2 = registerItem("whistle2", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "cobre", 4));
+    public static final Item WHISTLE3 = registerItem("whistle3", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "macabro", 4));
+    public static final Item WHISTLE4 = registerItem("whistle4", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "assombrado", 4));
+    public static final Item WHISTLE5 = registerItem("whistle5", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "fiu_fiu", 4));
+
+    //DISCOS DE MUSICA
+
+    public static final Item ENDLESS_EMBRACE_MUSIC_DISC = registerItem("endless_embrace_music_disc",
+            new Item(new Item.Settings().jukeboxPlayable(ModSounds.D_ENDLESS_EMBRACE_KEY).maxCount(1)));
+
 
     //MECHA AZAZETH
     public static final Item MECHA_AZAZETH_CROWN = registerItem("mecha_azazeth_crown" ,

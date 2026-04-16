@@ -77,12 +77,24 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.WHISTLE, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.CHALK.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.FOSSILIZED_SCRAP, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSELITA, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.RAW_GOLBO_LEG, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLBO_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ROSELITA, Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.CHALK.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.WHISTLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WHISTLE2, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WHISTLE3, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WHISTLE4, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WHISTLE5, Models.GENERATED);
+
+
+        itemModelGenerator.register(ModItems.ENDLESS_EMBRACE_MUSIC_DISC, Models.GENERATED);
+
+
+
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CROWN));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CHESTPLATE));

@@ -1,32 +1,41 @@
 {
-  "wsound1": {
-    "subtitle": "sounds.apito.wsound1",
+  "w_assobio": {
+    "subtitle": "sounds.apito.w_assobio",
     "sounds": [
-      "tutorialmod:wsound1"
+      "apito:w_assobio"
     ]
   },
-  "wsound2": {
-    "subtitle": "sounds.apito.wsound1",
+  "w_fantasma": {
+    "subtitle": "sounds.apito.w_fantasma",
     "sounds": [
-      "tutorialmod:wsound1"
+      "apito:w_fantasma"
     ]
   },
-  "wsound3": {
-    "subtitle": "sounds.apito.wsound1",
+  "w_fiu_fiu": {
+    "subtitle": "sounds.apito.w_fiu_fiu",
     "sounds": [
-      "tutorialmod:wsound1"
+      "apito:w_fiu_fiu"
     ]
   },
-  "wsound4": {
-    "subtitle": "sounds.apito.wsound1",
+  "w_macabro": {
+    "subtitle": "sounds.apito.w_macabro",
     "sounds": [
-      "tutorialmod:wsound1"
+      "apito:w_macabro"
     ]
   },
-  "wsound5": {
-    "subtitle": "sounds.apito.wsound1",
+  "w_tchu_tchu": {
+    "subtitle": "sounds.apito.w_tchu_tchu",
     "sounds": [
-      "tutorialmod:wsound1"
+      "apito:w_tchu_tchu"
+    ]
+  },
+
+  "d_endless_embrace": {
+    "sounds": [
+      {
+        "name": "apito:d_endless_embrace",
+        "stream": true
+      }
     ]
   }
 }

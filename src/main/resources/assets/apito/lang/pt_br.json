@@ -14,8 +14,19 @@
   "item.apito.golbo_nugget": "Nugget de Golbo",
 
   "item.apito.whistle": "Apito",
+  "item.apito.whistle2": "Whistle2",
+  "item.apito.whistle3": "Whistle3",
+  "item.apito.whistle4": "Whistle4",
+  "item.apito.whistle5": "Whistle5",
   "tooltip.apito.whistle.palido": "§r7Palido§r",
   "tooltip.apito.whistle.cobre": "§vCobre§r",
+  "tooltip.apito.whistle.macabro": "§r7Macabro§r",
+  "tooltip.apito.whistle.assombrado": "§r7Assombrado§r",
+  "tooltip.apito.whistle.fiu_fiu": "§r7fiu fiu§r",
+
+  "item.apito.endless_embrace_music_disc": "Endless Embrace",
+  "item.apito.endless_embrace_music_disc.desc": "Jake Eaw - Endless Embrace",
+
 
   "item.apito.mecha_azazeth_crown": "Coroa de Mecha Azazeth",
   "item.apito.mecha_azazeth_chestplate": "Peitoral de Mecha Azazeth",
