@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "apito:item/endless_embrace_music_disc"
+  }
+}
