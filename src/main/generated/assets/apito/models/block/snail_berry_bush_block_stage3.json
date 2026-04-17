@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "apito:block/snail_berry_bush_block_stage3"
+  }
+}
