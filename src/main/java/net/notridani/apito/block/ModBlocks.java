@@ -9,9 +9,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.notridani.apito.Apito;
-import net.notridani.apito.block.custom.Chalk;
-import net.notridani.apito.block.custom.FelpsLamp;
-import net.notridani.apito.block.custom.PocketPortal;
+import net.notridani.apito.block.custom.*;
 
 public class ModBlocks {
 
@@ -32,7 +30,20 @@ public class ModBlocks {
 
     }
 
+    public static final Block SNAIL_BERRY_BUSH_BLOCK = registerBlock("snail_berry_bush_block",
+            new SnailBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
 
+    public static final Block VAMPIRIC_BERRY_BUSH_BLOCK = registerBlock("vampiric_berry_bush_block",
+            new VampiricBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+
+    public static final Block SCRAP_ORE = registerBlock("scrap_ore",
+            new ExperienceDroppingBlock(UniformIntProvider.create(2,5),
+                    AbstractBlock.Settings.create()
+                            .strength(3f)
+                            .requiresTool()
+                            .sounds(BlockSoundGroup.STONE)
+                            .luminance(state -> 3)
+            ));
 
 
     public static final Block ROSELITA_BLOCK = registerBlock("roselita_block",
@@ -41,18 +52,6 @@ public class ModBlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.METAL)
                     .luminance(state -> 10)
-            )
-    );
-
-
-
-    public static final Block SCRAP_ORE = registerBlock("scrap_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(2,5),
-                    AbstractBlock.Settings.create()
-                    .strength(3f)
-                    .requiresTool()
-                    .sounds(BlockSoundGroup.DEEPSLATE)
-                    .luminance(state -> 3)
             )
     );
 

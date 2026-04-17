@@ -12,9 +12,13 @@
 
   "item.apito.fossilized_scrap": "Sucata Fossilizada",
   "item.apito.roselita": "Roselita",
+  "block.apito.snail_berry": "Arbusto de Frutinha Caracol",
+  "block.apito.vampiric_berry": "Arbusto de Frutinha Vampírica",
 
   "item.apito.raw_golbo_leg": "Perna de Golbo Crua",
   "item.apito.golbo_nugget": "Nugget de Golbo",
+  "item.apito.snail_berry": "Frutinha Caracol",
+  "item.apito.vampiric_berry": "Frutinha Vampírica",
 
   "item.apito.whistle": "Apito",
   "item.apito.whistle2": "Whistle2",

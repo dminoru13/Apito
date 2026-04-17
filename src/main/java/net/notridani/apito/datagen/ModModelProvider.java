@@ -10,6 +10,7 @@ import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.block.custom.Chalk;
 import net.notridani.apito.block.custom.FelpsLamp;
 import net.notridani.apito.block.custom.PocketPortal;
+import net.notridani.apito.block.custom.SnailBerryBushBlock;
 import net.notridani.apito.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -73,6 +74,12 @@ public class ModModelProvider extends FabricModelProvider {
                                         .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.X, VariantSettings.Rotation.R90))
                         )
         );
+
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.SNAIL_BERRY_BUSH_BLOCK, BlockStateModelGenerator.TintType.NOT_TINTED,
+                SnailBerryBushBlock.AGE, 0,1,2,3);
+
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.VAMPIRIC_BERRY_BUSH_BLOCK, BlockStateModelGenerator.TintType.NOT_TINTED,
+                SnailBerryBushBlock.AGE, 0,1,2,3);
     }
 
     @Override

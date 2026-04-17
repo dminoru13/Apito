@@ -45,6 +45,8 @@ public class ModItemGroups {
                         //comidas
                         entries.add(ModItems.RAW_GOLBO_LEG);
                         entries.add(ModItems.GOLBO_NUGGET);
+                        entries.add(ModItems.SNAIL_BERRY);
+                        entries.add(ModItems.VAMPIRIC_BERRY);
 
                         //ferramentas
 
