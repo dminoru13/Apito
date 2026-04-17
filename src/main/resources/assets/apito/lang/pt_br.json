@@ -7,6 +7,9 @@
   "block.apito.chalk": "Giz",
   "block.apito.pocket_portal": "Poratal de bolso",
 
+  "painting.apito.galinha_galinha.title": "Galinha Galinha",
+  "painting.apito.galinha_galinha.author": "Notridani",
+
   "item.apito.fossilized_scrap": "Sucata Fossilizada",
   "item.apito.roselita": "Roselita",
 
@@ -31,5 +34,13 @@
   "item.apito.mecha_azazeth_crown": "Coroa de Mecha Azazeth",
   "item.apito.mecha_azazeth_chestplate": "Peitoral de Mecha Azazeth",
   "item.apito.mecha_azazeth_leggings": "Claças de Mecha Azazeth",
-  "item.apito.mecha_azazeth_boots": "Botas de Mecha Azazeth"
+  "item.apito.mecha_azazeth_boots": "Botas de Mecha Azazeth",
+
+  "item.apito.potion.effect.bloodlust_potion": "Poção de Sede de Sangue",
+  "item.apito.splash_potion.effect.bloodlust_potion": "Poção arremessável Sede de Sangue",
+  "item.apito.lingering_potion.effect.bloodlust_potion": "poção seilaoque de Sede de Sangue",
+
+  "effect.apito.bloodlust": "Sede de Sangue",
+
+  "enchantment.apito.lightning_striker": "Deflagração de energia"
 }

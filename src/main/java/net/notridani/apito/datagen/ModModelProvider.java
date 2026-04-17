@@ -90,11 +90,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WHISTLE4, Models.GENERATED);
         itemModelGenerator.register(ModItems.WHISTLE5, Models.GENERATED);
 
-
         itemModelGenerator.register(ModItems.ENDLESS_EMBRACE_MUSIC_DISC, Models.GENERATED);
-
-
-
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CROWN));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CHESTPLATE));

@@ -7,6 +7,9 @@
   "block.apito.chalk": "Chalk",
   "block.apito.pocket_portal": "Pocket Portal",
 
+  "painting.apito.galinha_galinha.title": "Galinha Galinha",
+  "painting.apito.galinha_galinha.author": "Notridani",
+
   "item.apito.fossilized_scrap": "Fossilized Scrap",
   "item.apito.roselita": "Roselita",
 
@@ -31,5 +34,13 @@
   "item.apito.mecha_azazeth_crown": "Mecha Azazeth Crown",
   "item.apito.mecha_azazeth_chestplate": "Mecha Azazeth Chestplate",
   "item.apito.mecha_azazeth_leggings": "Mecha Azazeth Leggins",
-  "item.apito.mecha_azazeth_boots": "Mecha Azazeth Boots"
+  "item.apito.mecha_azazeth_boots": "Mecha Azazeth Boots",
+
+  "item.apito.potion.effect.bloodlust_potion": "Bloodlust Potion",
+  "item.apito.splash_potion.effect.bloodlust_potion": "Bloodlust Splash Potion",
+  "item.apito.lingering_potion.effect.bloodlust_potion": "Bloodlust Lingering Potion",
+
+  "effect.apito.bloodlust": "Blood Lust",
+
+  "enchantment.apito.lightning_striker": "Lightning Striker"
 }

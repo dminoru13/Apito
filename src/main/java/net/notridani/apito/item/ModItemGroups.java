@@ -1,16 +1,18 @@
 package net.notridani.apito.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.notridani.apito.Apito;
 import net.notridani.apito.block.ModBlocks;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
+import net.minecraft.item.Items;
 
 public class ModItemGroups {
     public static final ItemGroup APITO_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -23,6 +25,18 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ROSELITA_BLOCK);
                         entries.add(ModBlocks.SCRAP_ORE);
                         entries.add(ModBlocks.FELPS_LAMP);
+
+                        //pintura
+
+                        ItemStack paintingStack = new ItemStack(Items.PAINTING);
+
+                        NbtCompound entityData = new NbtCompound();
+                        entityData.putString("id", "minecraft:painting");
+                        entityData.putString("variant", "apito:galinha_galinha");
+
+                        paintingStack.set(DataComponentTypes.ENTITY_DATA, NbtComponent.of(entityData));
+
+                        entries.add(paintingStack);
 
                         //ingredientes
                         entries.add(ModItems.FOSSILIZED_SCRAP);

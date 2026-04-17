@@ -4,8 +4,12 @@ import net.fabricmc.api.ModInitializer;
 
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.component.ModDataComponentTypes;
+import net.notridani.apito.effect.ModEffects;
+import net.notridani.apito.enchantment.ModEnchantments;
+import net.notridani.apito.event.ModEvents;
 import net.notridani.apito.item.ModItemGroups;
 import net.notridani.apito.item.ModItems;
+import net.notridani.apito.potion.ModPotions;
 import net.notridani.apito.sound.ModSounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +21,12 @@ public class Apito implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItemGroups.registerItemGroup();
-
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModPotions.registerPotion();
+		ModEffects.registerEffects();
+		ModEnchantments.registerEnchantmentEffects();
+		ModEvents.registerEvents();
 		ModDataComponentTypes.registerDataComponentTypes();
 		ModSounds.registerSounds();
 	}

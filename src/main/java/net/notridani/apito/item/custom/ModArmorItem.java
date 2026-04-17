@@ -10,6 +10,7 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.World;
+import net.notridani.apito.effect.ModEffects;
 import net.notridani.apito.item.ModArmorMaterials;
 
 import java.util.List;
@@ -19,10 +20,7 @@ public class ModArmorItem extends ArmorItem {
     private static final Map<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.MECHA_AZAZETH_MATERIAL,
-                            List.of(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 5, false, false),
-                                    new StatusEffectInstance(StatusEffects.STRENGTH, 200, 1, false, false),
-                                    new StatusEffectInstance(StatusEffects.SPEED, 200, 2, false, false),
-                                    new StatusEffectInstance(StatusEffects.HUNGER, 200, 5, false, false))).build();
+                            List.of(new StatusEffectInstance(ModEffects.BLOODLUST, 10, 1, false, false))).build();
 
     public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
