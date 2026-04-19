@@ -11,6 +11,7 @@ import net.notridani.apito.item.ModItemGroups;
 import net.notridani.apito.item.ModItems;
 import net.notridani.apito.potion.ModPotions;
 import net.notridani.apito.sound.ModSounds;
+import net.notridani.apito.world.gen.ModWorldGenneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,12 +23,19 @@ public class Apito implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroup();
 		ModItems.registerModItems();
-		ModBlocks.registerModBlocks();
+
 		ModPotions.registerPotion();
 		ModEffects.registerEffects();
+
+		ModWorldGenneration.generateModWorldGen();
+		ModBlocks.registerModBlocks();
+
 		ModEnchantments.registerEnchantmentEffects();
+
 		ModEvents.registerEvents();
+
 		ModDataComponentTypes.registerDataComponentTypes();
+
 		ModSounds.registerSounds();
 	}
 }
