@@ -21,6 +21,7 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.apito.apito_group"))
                     .entries((displayContext, entries) -> {
                         //blocos
+                        entries.add(ModBlocks.PETRIFIED_TREE_SAPLING);
                         entries.add(ModBlocks.CHALK);
                         entries.add(ModBlocks.ROSELITA_BLOCK);
                         entries.add(ModBlocks.SCRAP_ORE);

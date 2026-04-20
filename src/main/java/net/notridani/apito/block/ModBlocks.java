@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.notridani.apito.Apito;
 import net.notridani.apito.block.custom.*;
+import net.notridani.apito.world.tree.ModSaplingGenerators;
 
 public class ModBlocks {
 
@@ -29,6 +30,9 @@ public class ModBlocks {
         Apito.LOGGER.info("Registering Mod Blocks for " + Apito.MOD_ID);
 
     }
+
+    public static final Block PETRIFIED_TREE_SAPLING = registerBlock("petrified_tree_sapling",
+            new PetrifiedSaplingBlock(ModSaplingGenerators.PETRIFIED_TREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     public static final Block SNAIL_BERRY_BUSH_BLOCK = registerBlock("snail_berry_bush_block",
             new SnailBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));

@@ -2,6 +2,7 @@ package net.notridani.apito.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
@@ -37,6 +38,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModBlocks.ROSELITA_BLOCK)
                 .criterion(hasItem(ModBlocks.ROSELITA_BLOCK), conditionsFromItem(ModBlocks.ROSELITA_BLOCK))
                 .offerTo(exporter, Identifier.of(Apito.MOD_ID, "roselita_from_roselita_block"));
+
+
+
+        //basalto
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Blocks.BASALT.asItem(), 4)
+                .input(Blocks.POLISHED_BASALT)
+                .criterion(hasItem(Blocks.POLISHED_BASALT), conditionsFromItem(Blocks.POLISHED_BASALT))
+                .offerTo(exporter, Identifier.of(Apito.MOD_ID, "basalto_from_polished_basalt"));
 
 
         //WHISTLE
