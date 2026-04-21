@@ -43,27 +43,27 @@ public class MininoruModel<T extends MininoruEntity> extends SinglePartEntityMod
 
         ModelPartData body = Control.addChild("body", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-        ModelPartData body_r1 = body.addChild("body_r1", ModelPartBuilder.create().uv(0, 16).cuboid(-2.0F, -4.0F, -2.0F, 6.0F, 8.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -4.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
+        ModelPartData body_r1 = body.addChild("body_r1", ModelPartBuilder.create().uv(0, 36).cuboid(-2.0F, -4.0F, -2.0F, 6.0F, 8.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -4.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
 
-        ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F))
-                .uv(28, 16).cuboid(-5.0F, -9.0F, -5.0F, 10.0F, 10.0F, 10.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -8.0F, -1.0F, 0.0F, 0.0F, 0.0436F));
+        ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(0, 20).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F))
+                .uv(0, 0).cuboid(-5.0F, -9.0F, -5.0F, 10.0F, 10.0F, 10.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -8.0F, -1.0F, 0.0F, 0.0F, 0.0436F));
 
-        ModelPartData arrogue1 = head.addChild("arrogue1", ModelPartBuilder.create().uv(0, 5).cuboid(-0.7758F, -2.8164F, 0.0468F, 3.0F, 3.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -9.0F, -2.0F, -0.2618F, -0.3927F, 0.0F));
+        ModelPartData arrogue1 = head.addChild("arrogue1", ModelPartBuilder.create().uv(40, 8).cuboid(-0.7758F, -2.8164F, 0.0468F, 3.0F, 3.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -9.0F, -2.0F, -0.2618F, -0.3927F, 0.0F));
 
-        ModelPartData headwear = head.addChild("headwear", ModelPartBuilder.create().uv(32, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.5F)), ModelTransform.pivot(0.0F, 0.0F, 1.0F));
+        ModelPartData headwear = head.addChild("headwear", ModelPartBuilder.create().uv(32, 20).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.5F)), ModelTransform.pivot(0.0F, 0.0F, 1.0F));
 
         ModelPartData left_arm = body.addChild("left_arm", ModelPartBuilder.create(), ModelTransform.pivot(3.0F, -7.0F, 0.0F));
 
-        ModelPartData left_arm_r1 = left_arm.addChild("left_arm_r1", ModelPartBuilder.create().uv(20, 16).cuboid(0.0F, -1.0F, -1.0F, 2.0F, 7.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.0873F));
+        ModelPartData left_arm_r1 = left_arm.addChild("left_arm_r1", ModelPartBuilder.create().uv(20, 36).cuboid(0.0F, -1.0F, -1.0F, 2.0F, 7.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.0873F));
 
         ModelPartData right_arm = body.addChild("right_arm", ModelPartBuilder.create(), ModelTransform.pivot(-3.0F, -7.0F, 0.0F));
 
-        ModelPartData right_arm_r1 = right_arm.addChild("right_arm_r1", ModelPartBuilder.create().uv(20, 25).cuboid(-2.0F, -1.0F, -1.0F, 2.0F, 7.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.1745F));
+        ModelPartData right_arm_r1 = right_arm.addChild("right_arm_r1", ModelPartBuilder.create().uv(28, 36).cuboid(-2.0F, -1.0F, -1.0F, 2.0F, 7.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.1745F));
 
-        ModelPartData left_leg = Control.addChild("left_leg", ModelPartBuilder.create().uv(0, 28).cuboid(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(2.0F, 0.0F, 0.0F));
+        ModelPartData left_leg = Control.addChild("left_leg", ModelPartBuilder.create().uv(36, 36).cuboid(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(2.0F, 0.0F, 0.0F));
 
-        ModelPartData right_leg = Control.addChild("right_leg", ModelPartBuilder.create().uv(8, 28).cuboid(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 0.0F, 0.0F));
-        return TexturedModelData.of(modelData, 70, 79);
+        ModelPartData right_leg = Control.addChild("right_leg", ModelPartBuilder.create().uv(40, 0).cuboid(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 0.0F, 0.0F));
+        return TexturedModelData.of(modelData, 64, 64);
     }
 
 
