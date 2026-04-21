@@ -2,8 +2,15 @@ package net.notridani.apito;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.entity.Entity;
 import net.notridani.apito.block.ModBlocks;
+import net.notridani.apito.entity.ModEntities;
+import net.notridani.apito.entity.client.MininoruModel;
+import net.notridani.apito.entity.client.MininoruRender;
 import net.notridani.apito.util.ModModelPredicates;
 
 public class ApitoClient implements ClientModInitializer {
@@ -17,5 +24,8 @@ public class ApitoClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PETRIFIED_TREE_SAPLING, RenderLayer.getCutout());
 
         ModModelPredicates.registerModelPredicates();
+
+        EntityModelLayerRegistry.registerModelLayer(MininoruModel.MININORU, MininoruModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MININORU, MininoruRender::new);
     }
 }

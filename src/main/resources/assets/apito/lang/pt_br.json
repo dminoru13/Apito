@@ -44,7 +44,11 @@
   "item.apito.splash_potion.effect.bloodlust_potion": "Poção arremessável Sede de Sangue",
   "item.apito.lingering_potion.effect.bloodlust_potion": "poção seilaoque de Sede de Sangue",
 
+  "item.apito.mininoru_spawn_egg": "Ovo Gerador de Mininoru",
+
   "effect.apito.bloodlust": "Sede de Sangue",
 
-  "enchantment.apito.lightning_striker": "Deflagração de energia"
+  "enchantment.apito.lightning_striker": "Deflagração de energia",
+
+  "entity.apito.mininoru": "Mininoru"
 }

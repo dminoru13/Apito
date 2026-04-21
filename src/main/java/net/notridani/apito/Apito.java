@@ -2,10 +2,13 @@ package net.notridani.apito;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.component.ModDataComponentTypes;
 import net.notridani.apito.effect.ModEffects;
 import net.notridani.apito.enchantment.ModEnchantments;
+import net.notridani.apito.entity.ModEntities;
+import net.notridani.apito.entity.custom.MininoruEntity;
 import net.notridani.apito.event.ModEvents;
 import net.notridani.apito.item.ModItemGroups;
 import net.notridani.apito.item.ModItems;
@@ -29,6 +32,9 @@ public class Apito implements ModInitializer {
 
 		ModWorldGenneration.generateModWorldGen();
 		ModBlocks.registerModBlocks();
+
+		ModEntities.registerModEntities();
+		FabricDefaultAttributeRegistry.register(ModEntities.MININORU, MininoruEntity.createAttributes());
 
 		ModEnchantments.registerEnchantmentEffects();
 

@@ -60,6 +60,10 @@ public class ModItemGroups {
                         //armaduras
                         entries.add(ModItems.MECHA_AZAZETH_CROWN);
 
+                        //spawneggs
+
+                        entries.add(ModItems.MININORU_SPAWN_EGG);
+
 
                     }).build());
 

@@ -13,6 +13,8 @@ import net.notridani.apito.block.custom.PocketPortal;
 import net.notridani.apito.block.custom.SnailBerryBushBlock;
 import net.notridani.apito.item.ModItems;
 
+import java.util.Optional;
+
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
@@ -106,5 +108,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_BOOTS));
+
+        itemModelGenerator.register(ModItems.MININORU_SPAWN_EGG,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
     }
 }

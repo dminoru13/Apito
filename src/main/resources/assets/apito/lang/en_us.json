@@ -44,7 +44,11 @@
   "item.apito.splash_potion.effect.bloodlust_potion": "Bloodlust Splash Potion",
   "item.apito.lingering_potion.effect.bloodlust_potion": "Bloodlust Lingering Potion",
 
+  "item.apito.mininoru_spawn_egg": "Mininoru Spawn Egg",
+
   "effect.apito.bloodlust": "Blood Lust",
 
-  "enchantment.apito.lightning_striker": "Lightning Striker"
+  "enchantment.apito.lightning_striker": "Lightning Striker",
+
+  "entity.apito.mininoru": "Mininoru"
 }

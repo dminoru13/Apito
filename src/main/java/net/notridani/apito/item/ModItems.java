@@ -3,12 +3,14 @@ package net.notridani.apito.item;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.tag.InstrumentTags;
 import net.minecraft.util.Identifier;
 import net.notridani.apito.Apito;
 import net.notridani.apito.block.ModBlocks;
+import net.notridani.apito.entity.ModEntities;
 import net.notridani.apito.item.custom.ModArmorItem;
 import net.notridani.apito.item.custom.WhistleItem;
 import net.notridani.apito.sound.ModSounds;
@@ -66,5 +68,10 @@ public class ModItems {
     public static final Item MECHA_AZAZETH_BOOTS = registerItem("mecha_azazeth_boots" ,
             new ArmorItem(ModArmorMaterials.MECHA_AZAZETH_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()
                     .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(30))));
+
+    //SPAWNEGGS
+
+    public static final Item MININORU_SPAWN_EGG = registerItem("mininoru_spawn_egg",
+            new SpawnEggItem(ModEntities.MININORU, 0x4d1313, 0xad9d9d, new Item.Settings()));
 
 }
