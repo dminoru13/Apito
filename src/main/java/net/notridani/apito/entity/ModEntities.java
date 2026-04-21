@@ -12,7 +12,7 @@ import net.notridani.apito.entity.custom.MininoruEntity;
 public class ModEntities {
 
     public static final EntityType<MininoruEntity> MININORU = Registry.register(Registries.ENTITY_TYPE, Identifier.of(Apito.MOD_ID, "mininoru"),
-            EntityType.Builder.create(MininoruEntity::new, SpawnGroup.CREATURE).dimensions(1f,1f).build());
+            EntityType.Builder.create(MininoruEntity::new, SpawnGroup.CREATURE).dimensions(0.4f,1.3f).build());
 
     public static void registerModEntities() {
         Apito.LOGGER.info("Registering mod entities for " + Apito.MOD_ID);

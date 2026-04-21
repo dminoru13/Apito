@@ -24,7 +24,7 @@ public class MininoruRender extends MobEntityRenderer<MininoruEntity, MininoruMo
     @Override
     public void render(MininoruEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         if(livingEntity.isBaby()) {
-            matrixStack.scale(0.5f,0.5f,0.5f);
+            matrixStack.scale(0.9f,0.8f,0.9f);
         } else {
             matrixStack.scale(1f,1f,1f);
         }

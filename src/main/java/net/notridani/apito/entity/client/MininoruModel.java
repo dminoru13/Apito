@@ -65,10 +65,32 @@ public class MininoruModel<T extends MininoruEntity> extends SinglePartEntityMod
         ModelPartData right_leg = Control.addChild("right_leg", ModelPartBuilder.create().uv(8, 28).cuboid(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 0.0F, 0.0F));
         return TexturedModelData.of(modelData, 70, 79);
     }
+
+
     @Override
     public void setAngles(MininoruEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.getPart().traverse().forEach(ModelPart::resetTransform);
+
         this.setHeadAngles(netHeadYaw, headPitch);
+
+        if (entity.getVelocity().horizontalLengthSquared() > 1.0E-6) {
+
+            // ANDANDO → só animação de andar
+            this.updateAnimation(
+                    entity.walkAnimationState,
+                    MininoruAnimations.mininoruAnimation.ANIM_MININORU_WALK,
+                    ageInTicks
+            );
+
+        } else {
+
+            // PARADO → só idle
+            this.updateAnimation(
+                    entity.idleAnimationState,
+                    MininoruAnimations.mininoruAnimation.ANIM_MININORU_IDLE,
+                    ageInTicks
+            );
+        }
     }
 
 
@@ -76,8 +98,8 @@ public class MininoruModel<T extends MininoruEntity> extends SinglePartEntityMod
         headYawm = MathHelper.clamp(headYawm, -30.0F, 30.0F);
         headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
 
-        this.head.yaw = headYawm * 0.1745329F;
-        this.head.pitch = headPitch * 0.1745329F;
+        this.head.yaw = headYawm * MathHelper.RADIANS_PER_DEGREE;
+        this.head.pitch = headPitch * MathHelper.RADIANS_PER_DEGREE;
     }
 
     @Override
