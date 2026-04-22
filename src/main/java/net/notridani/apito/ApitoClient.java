@@ -9,6 +9,8 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.Entity;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.entity.ModEntities;
+import net.notridani.apito.entity.client.GolboModel;
+import net.notridani.apito.entity.client.GolboRender;
 import net.notridani.apito.entity.client.MininoruModel;
 import net.notridani.apito.entity.client.MininoruRender;
 import net.notridani.apito.util.ModModelPredicates;
@@ -27,5 +29,8 @@ public class ApitoClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(MininoruModel.MININORU, MininoruModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.MININORU, MininoruRender::new);
+
+        EntityModelLayerRegistry.registerModelLayer(GolboModel.GOLBO, GolboModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.GOLBO, GolboRender::new);
     }
 }

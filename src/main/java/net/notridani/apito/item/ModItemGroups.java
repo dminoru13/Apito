@@ -63,6 +63,7 @@ public class ModItemGroups {
                         //spawneggs
 
                         entries.add(ModItems.MININORU_SPAWN_EGG);
+                        entries.add(ModItems.GOLBO_SPAWN_EGG);
 
 
                     }).build());

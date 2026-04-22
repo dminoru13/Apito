@@ -74,4 +74,7 @@ public class ModItems {
     public static final Item MININORU_SPAWN_EGG = registerItem("mininoru_spawn_egg",
             new SpawnEggItem(ModEntities.MININORU, 0x4d1313, 0xad9d9d, new Item.Settings()));
 
+    public static final Item GOLBO_SPAWN_EGG = registerItem("golbo_spawn_egg",
+            new SpawnEggItem(ModEntities.GOLBO, 0xe7e7e7, 0xf48686, new Item.Settings()));
+
 }

@@ -16,6 +16,7 @@ public class ModSounds {
     public static final SoundEvent W_FIU_FIU = registerSoundEvent("w_fiu_fiu");
     public static final SoundEvent W_MACABRO = registerSoundEvent("w_macabro");
     public static final SoundEvent W_TCHU_TCHU = registerSoundEvent("w_tchu_tchu");
+    public static final SoundEvent GOLBO_CRY = registerSoundEvent("golbo_cry");
 
     //DISCOS DE MUSICA
     public static final SoundEvent D_ENDLESS_EMBRACE = registerSoundEvent("d_endless_embrace");

@@ -1,4 +1,4 @@
-// 1.21	2026-04-21T13:10:37.8928073	Apito/Model Definitions
+// 1.21	2026-04-21T21:02:54.3383838	Apito/Model Definitions
 bdbbe0f5728e45155183a6d9827919e675aeead0 assets\apito\models\block\felps_lamp4.json
 9855ba7a698069921556d90fcf150ff8d6152dfc assets\apito\models\item\chalk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\apito\models\item\mininoru_spawn_egg.json
@@ -13,6 +13,7 @@ af7c760449be0031b32d270042c278717ba4ffea assets\apito\models\block\vampiric_berr
 d5c2cc41cdaf3b6a6ecbc764e8d62876dc908e0a assets\apito\models\block\snail_berry_bush_block_stage2.json
 571546bf8ec54659f8c100495e0aaac692cdc465 assets\apito\blockstates\snail_berry_bush_block.json
 19a8c6712ed38f05283cc92cd3d01e60c7edd3bf assets\apito\models\item\mecha_azazeth_crown_quartz_trim.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\apito\models\item\golbo_spawn_egg.json
 3ecb358cfd893660c17450059297b5d2671b77bf assets\apito\models\item\whistle4.json
 0a39b10a9a508338e1cf35141774a94b3a9e24cd assets\apito\models\item\mecha_azazeth_boots_lapis_trim.json
 b9a7b5cc3d11e9b28b9e725bc5943b2aa5373e7e assets\apito\models\item\pocket_portal.json
@@ -20,8 +21,8 @@ b4e4993a9fcaf60b99ac055be121fd95e7bc3e06 assets\apito\models\item\mecha_azazeth_
 75d5ff31120b87d8d427019d08c27c6777c70790 assets\apito\models\block\felps_lamp.json
 33694f18cde6bfe20a604d69f6b8382715708b60 assets\apito\models\block\scrap_ore.json
 b15e438f6896a7892960a99aae42673a551c8f9d assets\apito\models\block\snail_berry_bush_block_stage1.json
-f26439bf3bd0d67d2f4ddc7b18f8a2daf8bfea54 assets\apito\blockstates\vampiric_berry_bush_block.json
 76644d39c42144745de88bfc5a397d3f35adfc02 assets\apito\models\item\mecha_azazeth_crown_iron_trim.json
+f26439bf3bd0d67d2f4ddc7b18f8a2daf8bfea54 assets\apito\blockstates\vampiric_berry_bush_block.json
 311fc75eb761f9ddfd029bcf2d827a50331c9d83 assets\apito\blockstates\roselita_block.json
 461feabc46bdc35f658ccf19599768164045f876 assets\apito\models\item\mecha_azazeth_boots_iron_trim.json
 e6f830d233fd89ae436d9e0c58f9231bdc5f1f43 assets\apito\models\item\whistle5.json

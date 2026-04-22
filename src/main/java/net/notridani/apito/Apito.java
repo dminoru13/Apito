@@ -8,6 +8,7 @@ import net.notridani.apito.component.ModDataComponentTypes;
 import net.notridani.apito.effect.ModEffects;
 import net.notridani.apito.enchantment.ModEnchantments;
 import net.notridani.apito.entity.ModEntities;
+import net.notridani.apito.entity.custom.GolboEntity;
 import net.notridani.apito.entity.custom.MininoruEntity;
 import net.notridani.apito.event.ModEvents;
 import net.notridani.apito.item.ModItemGroups;
@@ -35,6 +36,7 @@ public class Apito implements ModInitializer {
 
 		ModEntities.registerModEntities();
 		FabricDefaultAttributeRegistry.register(ModEntities.MININORU, MininoruEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.GOLBO, GolboEntity.createAttributes());
 
 		ModEnchantments.registerEnchantmentEffects();
 

@@ -30,6 +30,13 @@
     ]
   },
 
+  "golbo_cry": {
+    "subtitle": "sounds.apito.golbo_cry",
+    "sounds": [
+      "apito:golbo_cry"
+    ]
+  },
+
   "d_endless_embrace": {
     "sounds": [
       {
