@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "apito:item/apito/base_0",
+    "layer1": "apito:item/apito/entalhe_3-0"
+  }
+}

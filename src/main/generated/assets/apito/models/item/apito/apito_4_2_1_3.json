@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "apito:item/apito/base_2",
+    "layer1": "apito:item/apito/entalhe_0-4",
+    "layer2": "apito:item/apito/gema_2"
+  }
+}
