@@ -13,11 +13,12 @@ import net.notridani.apito.block.ModBlocks;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.Items;
+import net.notridani.apito.component.ModDataComponentTypes;
 
 public class ModItemGroups {
     public static final ItemGroup APITO_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Apito.MOD_ID, "apito_group"),
-            FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.WHISTLE))
+            FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.VAMPIRIC_BERRY))
                     .displayName(Text.translatable("itemgroup.apito.apito_group"))
                     .entries((displayContext, entries) -> {
                         //blocos
@@ -52,7 +53,16 @@ public class ModItemGroups {
                         //ferramentas
 
                         //apitos
-                        entries.add(ModItems.WHISTLE);
+                        ItemStack stack = new ItemStack(ModItems.WHISTLE);
+
+                        stack.set(
+                                ModDataComponentTypes.WHISTLE_DATA,
+                                new ModDataComponentTypes.WhistleData(
+                                        2, 1, 4, 3
+                                )
+                        );
+
+                        entries.add(stack);
 
                         //discos de musica
                         entries.add(ModItems.ENDLESS_EMBRACE_MUSIC_DISC);

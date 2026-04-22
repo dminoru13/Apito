@@ -41,11 +41,9 @@ public class ModItems {
     public static  final Item GOLBO_NUGGET = registerItem("golbo_nugget", new Item(new Item.Settings().food(ModFoodComponents.GOLBO_NUGGET)));
 
     //APITOS
-    public static final Item WHISTLE = registerItem("whistle", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "palido", 4));
-    public static final Item WHISTLE2 = registerItem("whistle2", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "cobre", 4));
-    public static final Item WHISTLE3 = registerItem("whistle3", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "macabro", 4));
-    public static final Item WHISTLE4 = registerItem("whistle4", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "assombrado", 4));
-    public static final Item WHISTLE5 = registerItem("whistle5", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), InstrumentTags.GOAT_HORNS, "fiu_fiu", 4));
+    public static final Item WHISTLE = registerItem("whistle", new WhistleItem(new Item.Settings().maxCount(1).maxDamage(32), 4,0, 1, 1));
+
+
 
     //DISCOS DE MUSICA
     public static final Item ENDLESS_EMBRACE_MUSIC_DISC = registerItem("endless_embrace_music_disc",

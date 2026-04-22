@@ -51,10 +51,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         //WHISTLE
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WHISTLE, 1)
-                .input(ModItems.ROSELITA)
-                .criterion(hasItem(ModItems.ROSELITA), conditionsFromItem(ModItems.ROSELITA))
-                .offerTo(exporter, Identifier.of(Apito.MOD_ID, "whistle_from_roselita"));
 
         //GOLBO
         offerSmelting(exporter, List.of(ModItems.RAW_GOLBO_LEG), RecipeCategory.FOOD, ModItems.GOLBO_NUGGET, 0.5f, 150, "golbo");

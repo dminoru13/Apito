@@ -1,11 +1,17 @@
 package net.notridani.apito.datagen;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.notridani.apito.Apito;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.block.custom.Chalk;
 import net.notridani.apito.block.custom.FelpsLamp;
@@ -96,12 +102,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_GOLBO_LEG, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLBO_NUGGET, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.WHISTLE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WHISTLE2, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WHISTLE3, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WHISTLE4, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WHISTLE5, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.ENDLESS_EMBRACE_MUSIC_DISC, Models.GENERATED);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CROWN));
@@ -114,5 +114,141 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.GOLBO_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+
+        //APITOS
+
+        gerarApito(itemModelGenerator, ModItems.WHISTLE);
+
+    }
+
+    private void gerarApito(ItemModelGenerator itemModelGenerator, Item item) {
+        gerarModelosApito(itemModelGenerator);
+        gerarOverridesApito(itemModelGenerator, item);
+    }
+
+    private void gerarModelosApito(ItemModelGenerator itemModelGenerator) {
+
+        for (int tier = 0; tier < 5; tier++) {
+            for (int b = 0; b < 4; b++) {
+                for (int e = -1; e < 5; e++) {
+                    for (int g = -1; g < 5; g++) {
+
+                        int eIndex = e + 1;
+                        int gIndex = g + 1;
+
+                        String name = "apito_" + tier + "_" + b + "_" + eIndex + "_" + gIndex;
+
+                        Identifier modelId = Identifier.of(Apito.MOD_ID, "item/apito/" + name);
+
+                        TextureMap textures = new TextureMap();
+                        textures.put(TextureKey.LAYER0,
+                                Identifier.of(Apito.MOD_ID, "item/apito/base_" + b));
+
+                        Model model;
+
+                        if (e == -1 && g == -1) {
+                            model = new Model(
+                                    Optional.of(Identifier.of("item/generated")),
+                                    Optional.empty(),
+                                    TextureKey.LAYER0
+                            );
+
+                        } else if (g == -1) {
+                            model = new Model(
+                                    Optional.of(Identifier.of("item/generated")),
+                                    Optional.empty(),
+                                    TextureKey.LAYER0,
+                                    TextureKey.LAYER1
+                            );
+
+                            textures.put(TextureKey.LAYER1,
+                                    Identifier.of(Apito.MOD_ID, "item/apito/entalhe_" + e + "-" + tier));
+
+                        } else if (e == -1) {
+                            model = new Model(
+                                    Optional.of(Identifier.of("item/generated")),
+                                    Optional.empty(),
+                                    TextureKey.LAYER0,
+                                    TextureKey.LAYER1
+                            );
+
+                            textures.put(TextureKey.LAYER1,
+                                    Identifier.of(Apito.MOD_ID, "item/apito/gema_" + g));
+
+                        } else {
+                            model = new Model(
+                                    Optional.of(Identifier.of("item/generated")),
+                                    Optional.empty(),
+                                    TextureKey.LAYER0,
+                                    TextureKey.LAYER1,
+                                    TextureKey.LAYER2
+                            );
+
+                            textures.put(TextureKey.LAYER1,
+                                    Identifier.of(Apito.MOD_ID, "item/apito/entalhe_" + e + "-" + tier));
+
+                            textures.put(TextureKey.LAYER2,
+                                    Identifier.of(Apito.MOD_ID, "item/apito/gema_" + g));
+                        }
+
+                        model.upload(modelId, textures, itemModelGenerator.writer);
+                    }
+                }
+            }
+        }
+    }
+
+    private void gerarOverridesApito(ItemModelGenerator itemModelGenerator, Item item) {
+
+        JsonArray overrides = new JsonArray();
+
+        int B = 4;
+        int E = 6;
+        int G = 6;
+
+        for (int tier = 0; tier < 5; tier++) {
+            for (int b = 0; b < B; b++) {
+                for (int e = -1; e < 5; e++) {
+                    for (int g = -1; g < 5; g++) {
+
+                        int eIndex = e + 1;
+                        int gIndex = g + 1;
+
+                        int cmd =
+                                tier * (B * E * G) +
+                                        b * (E * G) +
+                                        eIndex * G +
+                                        gIndex + 1;
+
+                        JsonObject obj = new JsonObject();
+                        JsonObject predicate = new JsonObject();
+
+                        predicate.addProperty("custom_model_data", cmd);
+                        obj.add("predicate", predicate);
+
+                        obj.addProperty("model",
+                                Apito.MOD_ID + ":item/apito/apito_" + tier + "_" + b + "_" + eIndex + "_" + gIndex);
+
+                        overrides.add(obj);
+                    }
+                }
+            }
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("parent", "minecraft:item/generated");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("layer0", Apito.MOD_ID + ":item/apito/base_0");
+        root.add("textures", textures);
+
+        root.add("overrides", overrides);
+
+        Identifier itemId = Registries.ITEM.getId(item);
+
+        itemModelGenerator.writer.accept(
+                Identifier.of(itemId.getNamespace(), "item/" + itemId.getPath()),
+                () -> root
+        );
     }
 }

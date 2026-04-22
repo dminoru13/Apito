@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "apito:item/whistle5"
+    "layer0": "apito:item/gema2"
   }
 }

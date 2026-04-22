@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "apito:item/whistle4"
+    "layer0": "apito:item/entalhe1"
   }
 }
