@@ -31,6 +31,8 @@ public class ModItemGroups {
                         //Entity Blocks
 
                         entries.add(ModBlocks.CARVING_BENCH);
+                        entries.add(ModBlocks.WHISTLE_FORGE);
+                        entries.add(ModBlocks.FORGE_INPUT);
 
                         //pintura
 

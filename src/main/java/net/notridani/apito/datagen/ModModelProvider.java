@@ -94,6 +94,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CARVING_BENCH);
 
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.WHISTLE_FORGE);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.FORGE_INPUT);
     }
 
     @Override

@@ -6,10 +6,15 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import net.notridani.apito.block.ModBlocks;
+import net.notridani.apito.block.entity.ModBlockEntities;
+import net.notridani.apito.block.entity.renderer.ForgeInputEntityRenderer;
+import net.notridani.apito.block.entity.renderer.WhistleForgeEntityRenderer;
 import net.notridani.apito.component.ModDataComponentTypes;
 import net.notridani.apito.entity.ModEntities;
 import net.notridani.apito.entity.client.GolboModel;
@@ -28,6 +33,8 @@ public class ApitoClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SNAIL_BERRY_BUSH_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.VAMPIRIC_BERRY_BUSH_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PETRIFIED_TREE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHISTLE_FORGE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FORGE_INPUT, RenderLayer.getCutout());
 
         ModModelPredicates.registerModelPredicates();
 
@@ -36,5 +43,8 @@ public class ApitoClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(GolboModel.GOLBO, GolboModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.GOLBO, GolboRender::new);
+
+        BlockEntityRendererFactories.register(ModBlockEntities.WHISTLE_FORGE_BE, WhistleForgeEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.FORGE_INPUT_BE, ForgeInputEntityRenderer::new);
     }
 }

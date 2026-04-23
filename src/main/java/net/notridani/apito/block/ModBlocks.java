@@ -66,6 +66,18 @@ public class ModBlocks {
                     .burnable()
                     .nonOpaque()));
 
+    public static final Block WHISTLE_FORGE = registerBlock("whistle_forge",
+            new WhistleForge(AbstractBlock.Settings.create()
+                    .strength(-1.0F, 3600000.0F)
+                    .sounds(BlockSoundGroup.STONE)
+                    .nonOpaque()));
+
+    public static final Block FORGE_INPUT = registerBlock("forge_input",
+            new ForgeInput(AbstractBlock.Settings.create()
+                    .strength(-1.0F, 3600000.0F)
+                    .sounds(BlockSoundGroup.STONE)
+                    .nonOpaque()));
+
 
     public static final Block FELPS_LAMP = registerBlock("felps_lamp",
             new FelpsLamp(AbstractBlock.Settings.create()

@@ -8,6 +8,8 @@
   "block.apito.pocket_portal": "Poratal de bolso",
 
   "block.apito.carving_bench": "Bancada de Entalhe",
+  "block.apito.whistle_forge": "Forja de Apito",
+  "block.apito.forge_input": "Entrada de Forja",
 
   "painting.apito.galinha_galinha.title": "Galinha Galinha",
   "painting.apito.galinha_galinha.author": "Notridani",
@@ -23,10 +25,6 @@
   "item.apito.vampiric_berry": "Frutinha Vampírica",
 
   "item.apito.whistle": "Apito",
-  "item.apito.whistle2": "Whistle2",
-  "item.apito.whistle3": "Whistle3",
-  "item.apito.whistle4": "Whistle4",
-  "item.apito.whistle5": "Whistle5",
   "tooltip.apito.whistle.palido": "§r7Palido§r",
   "tooltip.apito.whistle.cobre": "§vCobre§r",
   "tooltip.apito.whistle.macabro": "§r7Macabro§r",
