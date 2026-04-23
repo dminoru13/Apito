@@ -28,6 +28,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SCRAP_ORE);
                         entries.add(ModBlocks.FELPS_LAMP);
 
+                        //Entity Blocks
+
+                        entries.add(ModBlocks.CARVING_BENCH);
+
                         //pintura
 
                         ItemStack paintingStack = new ItemStack(Items.PAINTING);

@@ -26,6 +26,8 @@ public class ModItems {
         Apito.LOGGER.info("Registering Mod Items for " + Apito.MOD_ID);
     }
 
+
+
     //NATURAIS
     public static final Item FOSSILIZED_SCRAP = registerItem("fossilized_scrap", new Item(new Item.Settings()));
     public static final Item ROSELITA = registerItem("roselita", new Item(new Item.Settings()));

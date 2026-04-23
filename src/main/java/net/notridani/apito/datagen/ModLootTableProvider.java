@@ -38,6 +38,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.ROSELITA_BLOCK);
         addDrop(ModBlocks.FELPS_LAMP);
+        addDrop(ModBlocks.CARVING_BENCH);
 
         addDrop(ModBlocks.SCRAP_ORE, oreDrops(ModBlocks.SCRAP_ORE, ModItems.FOSSILIZED_SCRAP));
 

@@ -59,6 +59,14 @@ public class ModBlocks {
             )
     );
 
+    public static final Block CARVING_BENCH = registerBlock("carving_bench",
+            new CarvingBench(AbstractBlock.Settings.create()
+                    .strength(0.7f)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()
+                    .nonOpaque()));
+
+
     public static final Block FELPS_LAMP = registerBlock("felps_lamp",
             new FelpsLamp(AbstractBlock.Settings.create()
                     .strength(0.3f)

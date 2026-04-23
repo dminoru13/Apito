@@ -1,6 +1,7 @@
-// 1.21	2026-04-22T16:04:55.0084303	Apito/Block Loot Tables
+// 1.21	2026-04-23T10:21:30.6905038	Apito/Block Loot Tables
 92e4cbf3a315c929aaae2a31ef66e1126c8448b0 data\apito\loot_table\blocks\felps_lamp.json
 3c6180417dce4cc3a188df8e1bc97f0f708c0408 data\apito\loot_table\blocks\scrap_ore.json
+19c562ec9d7d3bb0b547201ddc71988acd87835e data\apito\loot_table\blocks\carving_bench.json
 5cbb0cae1c624d2417bf382789067ab1f8f31d43 data\apito\loot_table\blocks\vampiric_berry_bush_block.json
 6658e2a4d273bc0f1d7482e6c36326fb407a5d61 data\apito\loot_table\blocks\snail_berry_bush_block.json
 574a4b0f09cd885ed65e5c2e0667d293d6f0e1a1 data\apito\loot_table\blocks\roselita_block.json

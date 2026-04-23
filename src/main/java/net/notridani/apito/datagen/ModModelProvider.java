@@ -91,6 +91,9 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.VAMPIRIC_BERRY_BUSH_BLOCK, BlockStateModelGenerator.TintType.NOT_TINTED,
                 SnailBerryBushBlock.AGE, 0,1,2,3);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CARVING_BENCH);
+
     }
 
     @Override
