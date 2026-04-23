@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "apito:block/whistle_forge",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "apito:block/whistle_forge"
+    },
+    "facing=south": {
+      "model": "apito:block/whistle_forge",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "apito:block/whistle_forge",
+      "y": 270
+    }
+  }
+}

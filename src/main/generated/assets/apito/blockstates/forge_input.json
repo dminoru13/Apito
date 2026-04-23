@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "apito:block/forge_input",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "apito:block/forge_input"
+    },
+    "facing=south": {
+      "model": "apito:block/forge_input",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "apito:block/forge_input",
+      "y": 270
+    }
+  }
+}
