@@ -15,6 +15,7 @@ import net.notridani.apito.event.ModEvents;
 import net.notridani.apito.item.ModItemGroups;
 import net.notridani.apito.item.ModItems;
 import net.notridani.apito.potion.ModPotions;
+import net.notridani.apito.screen.ModScreenHandler;
 import net.notridani.apito.sound.ModSounds;
 import net.notridani.apito.world.gen.ModWorldGenneration;
 import org.slf4j.Logger;
@@ -47,5 +48,7 @@ public class Apito implements ModInitializer {
 		ModDataComponentTypes.registerDataComponentTypes();
 
 		ModSounds.registerSounds();
+
+		ModScreenHandler.registerScreenHandlers();
 	}
 }

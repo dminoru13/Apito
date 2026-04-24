@@ -103,6 +103,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.CHALK.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.FOSSILIZED_SCRAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROSELITA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANCIENT_HEART, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_WHISTLE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_GOLBO_LEG, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLBO_NUGGET, Models.GENERATED);

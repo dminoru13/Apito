@@ -31,6 +31,8 @@ public class ModItems {
     //NATURAIS
     public static final Item FOSSILIZED_SCRAP = registerItem("fossilized_scrap", new Item(new Item.Settings()));
     public static final Item ROSELITA = registerItem("roselita", new Item(new Item.Settings()));
+    public static final Item ANCIENT_HEART = registerItem("ancient_heart", new Item(new Item.Settings()));
+    public static final Item RAW_WHISTLE = registerItem("raw_whistle", new Item(new Item.Settings()));
 
     public static final Item SNAIL_BERRY = registerItem("snail_berry",
             new AliasedBlockItem(ModBlocks.SNAIL_BERRY_BUSH_BLOCK, new Item.Settings().food(ModFoodComponents.SNAIL_BERRY)));
