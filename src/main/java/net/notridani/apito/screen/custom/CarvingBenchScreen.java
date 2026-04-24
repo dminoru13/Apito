@@ -44,21 +44,21 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context,mouseX,mouseY);
+        desenharpedra(context);
     }
 
     //adicionar textura
 
-    private static final Identifier ARROW_TEXTURE =
-            Identifier.of(Apito.MOD_ID, "textures/gui/arrow_progress.png");
-    /*
-    private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
-            RenderSystem.setShaderTexture(0, ARROW_TEXTURE);
-            context.drawTexture(ARROW_TEXTURE, x + 73, y+35, 0, 0,
-                    handler.getScaledArrowProgress(), 16, 24, 16);
+    private static final Identifier TEXTURA_PEDRA =
+            Identifier.of(Apito.MOD_ID, "textures/gui/carving_bench/ancient_heart.png");
+
+    private void desenharpedra(DrawContext context) {
+        if(handler.tem_pedra()) {
+            RenderSystem.setShaderTexture(0, TEXTURA_PEDRA);
+            context.drawTexture(TEXTURA_PEDRA, 223, 78, 0, 0, 32, 32,32,32);
         }
     }
-     */
+
 
 
 

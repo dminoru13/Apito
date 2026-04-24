@@ -34,13 +34,15 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
 
-    private static final int INPUT_SLOT = 0;
+
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress = 5;
+    private int tem_pedra = 0;
     private int entalhe = 0;
     private int base = 0;
+
 
 
     public CarvingBenchEntity(BlockPos pos, BlockState state) {
@@ -52,6 +54,7 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
                 return switch (index) {
                     case 0 -> CarvingBenchEntity.this.progress;
                     case 1 -> CarvingBenchEntity.this.maxProgress;
+                    case 2 -> CarvingBenchEntity.this.tem_pedra;
                     default -> 0;
                 };
             }
@@ -61,12 +64,13 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
                 switch (index) {
                     case 0: CarvingBenchEntity.this.progress = value;
                     case 1: CarvingBenchEntity.this.maxProgress = value;
+                    case 2: CarvingBenchEntity.this.tem_pedra = value;
                 }
             }
 
             @Override
             public int size() {
-                return 2;
+                return 3;
             }
         };
     }
@@ -111,19 +115,6 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
     }
 
 
-
-    //programa legal vem aqui
-    public void tick(World world, BlockPos pos, BlockState state) {
-
-    }
-
-
-
-
-
-
-
-
     @Nullable
     @Override
     public Packet<ClientPlayPacketListener> toUpdatePacket() {
@@ -134,4 +125,34 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         return createNbt(registryLookup);
     }
+
+
+
+
+    //programa legal vem aqui
+
+    private static final int INPUT_SLOT = 0;
+
+    private boolean stone_placed(){
+        return !this.getStack(INPUT_SLOT).isEmpty();
+    }
+
+
+    public void tick(World world, BlockPos pos, BlockState state) {
+
+        if(stone_placed()){
+            tem_pedra = 1;
+        } else {
+            tem_pedra = 0;
+        }
+    }
+
+
+
+
+
+
+
+
+
 }

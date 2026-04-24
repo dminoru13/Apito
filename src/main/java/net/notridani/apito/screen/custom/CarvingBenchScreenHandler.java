@@ -9,8 +9,11 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.notridani.apito.block.entity.custom.CarvingBenchEntity;
+import net.notridani.apito.item.ModItems;
 import net.notridani.apito.screen.ModScreenHandler;
 
 public class CarvingBenchScreenHandler extends ScreenHandler {
@@ -19,7 +22,7 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
     public final CarvingBenchEntity blockEntity;
 
     public CarvingBenchScreenHandler(int syncId, PlayerInventory inventory, BlockPos pos) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(3));
     }
 
     public CarvingBenchScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
@@ -31,14 +34,49 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
         this.propertyDelegate = arrayPropertyDelegate;
 
 
-        this.addSlot(new Slot(inventory, 0, 1, 1));
+        this.addSlot(new Slot(inventory, 0, 1, 1){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isOf(ModItems.ANCIENT_HEART);
+            }
+
+            @Override
+            public int getMaxItemCount() {
+                return 1;
+            }
+
+            @Override
+            public void setStack(ItemStack stack) {
+                super.setStack(stack);
+                playSound();
+            }
+
+            @Override
+            public ItemStack takeStack(int amount) {
+                ItemStack result = super.takeStack(amount);
+                playSound();
+                return result;
+            }
+
+            private void playSound() {
+                if(!playerInventory.player.getWorld().isClient) {
+                    playerInventory.player.getWorld().playSound(
+                            null,
+                            blockEntity.getPos(),
+                            SoundEvents.BLOCK_STONE_PLACE,
+                            SoundCategory.BLOCKS,
+                            1.0f,
+                            1.0f
+                    );
+                }
+            }
+        });
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
 
         addProperties(arrayPropertyDelegate);
     }
-
 
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
@@ -70,8 +108,6 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
         return inventory.canPlayerUse(player);
     }
 
-    int pos_x = 27 -21;
-    int pos_y = 138 -26;
 
     private void addPlayerInventory(PlayerInventory playerInventory) {
         int startX = 6;
@@ -97,4 +133,13 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
                     startY));
         }
     }
+
+
+    public boolean tem_pedra(){
+        return propertyDelegate.get(2) == 1;
+    }
+
 }
+
+
+
