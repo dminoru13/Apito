@@ -112,9 +112,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ENDLESS_EMBRACE_MUSIC_DISC, Models.GENERATED);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CROWN));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MECHA_AZAZETH_BOOTS));
 
         itemModelGenerator.register(ModItems.MININORU_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));

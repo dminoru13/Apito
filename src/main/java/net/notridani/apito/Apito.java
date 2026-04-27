@@ -1,5 +1,6 @@
 package net.notridani.apito;
 
+import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -13,6 +14,7 @@ import net.notridani.apito.entity.custom.GolboEntity;
 import net.notridani.apito.entity.custom.MininoruEntity;
 import net.notridani.apito.event.ModEvents;
 import net.notridani.apito.item.ModItemGroups;
+import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.notridani.apito.item.ModItems;
 import net.notridani.apito.potion.ModPotions;
 import net.notridani.apito.screen.ModScreenHandler;
@@ -27,15 +29,22 @@ public class Apito implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		FieldRegistrationHandler.register(ModBlocks.class, MOD_ID, false);
+		FieldRegistrationHandler.register(ModItems.class, MOD_ID, false);
+		FieldRegistrationHandler.register(ModBlockEntities.class, MOD_ID, false);
 		ModItemGroups.registerItemGroup();
-		ModItems.registerModItems();
+
+		ModSounds.registerSounds();
+
+
+
+
 
 		ModPotions.registerPotion();
 		ModEffects.registerEffects();
 
 		ModWorldGenneration.generateModWorldGen();
-		ModBlocks.registerModBlocks();
-		ModBlockEntities.registerBlockEntities();
+
 
 		ModEntities.registerModEntities();
 		FabricDefaultAttributeRegistry.register(ModEntities.MININORU, MininoruEntity.createAttributes());
@@ -47,7 +56,6 @@ public class Apito implements ModInitializer {
 
 		ModDataComponentTypes.registerDataComponentTypes();
 
-		ModSounds.registerSounds();
 
 		ModScreenHandler.registerScreenHandlers();
 	}

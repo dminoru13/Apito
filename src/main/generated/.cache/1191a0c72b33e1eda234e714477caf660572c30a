@@ -1,4 +1,4 @@
-// 1.21	2026-04-24T10:51:45.3154935	Apito/Model Definitions
+// 1.21.1	2026-04-27T09:33:03.1637773	Apito/Model Definitions
 b8e1cd069e9b1d8d66a88e73d6bbf35b2ad2ceda assets\apito\models\item\apito\apito_2_0_2_2.json
 a1fd33cd4e2b38f355c72e82b630b3367c110d4f assets\apito\models\item\apito\apito_4_1_4_4.json
 2c7a724d650de1371a6152c540b2cc2e91ede7ce assets\apito\blockstates\felps_lamp.json
@@ -15,7 +15,6 @@ f50a350fbc09db6773c8fd5bf18df44c750143b7 assets\apito\models\item\apito\apito_4_
 5eef671c3bba36ef7a8355a886f8c85d370d4098 assets\apito\models\item\apito\apito_0_3_3_2.json
 809c5a9d115d2d87692032a19fbe2de8c0e633eb assets\apito\models\item\apito\apito_4_3_0_2.json
 e0d3b0ea70e09b38193d1470d221b9472abd2f1f assets\apito\models\item\apito\apito_1_2_3_3.json
-461feabc46bdc35f658ccf19599768164045f876 assets\apito\models\item\mecha_azazeth_boots_iron_trim.json
 9ad04dfd7498b2db1522d6f223b7eea1e357d96a assets\apito\models\item\apito\apito_3_0_2_0.json
 19d7f2381163670a4b1b4a67d497eb72caa98caf assets\apito\models\item\apito\apito_0_3_0_3.json
 e727fcae4e0259d56b6c2481eca2a4919d744106 assets\apito\models\item\apito\apito_2_0_0_0.json
@@ -55,12 +54,10 @@ e0e04072fae8cc4054be7a936ebce982c23a3966 assets\apito\models\item\apito\apito_0_
 9b9c141f0c477e43ea54b152f58beb592023cc89 assets\apito\models\item\apito\apito_3_2_0_0.json
 833f1e2dad1c435389db6775dce5bebc5d9c4947 assets\apito\models\item\apito\apito_2_3_4_2.json
 aaf66b888193789c6a2aab051b3d368b85b3e7f3 assets\apito\models\item\apito\apito_2_3_5_0.json
-bb2bc6ecc2b0c69fa540d466354eba700537ceb0 assets\apito\models\item\mecha_azazeth_leggings_emerald_trim.json
 2864e2915ba1462970e732d570557581453e60e7 assets\apito\models\item\apito\apito_3_2_5_1.json
 58c86a98d661b5993cf1b3e405ade2eb3c0304b8 assets\apito\models\item\apito\apito_2_3_1_3.json
 be36f6f9eaaa0a0035bbcc10734c5febd4fc06e4 assets\apito\models\item\apito\apito_3_0_1_2.json
 40d997ea8309632f6d0b9442f7d823de677c265d assets\apito\models\item\apito\apito_2_3_2_1.json
-cf0ea75e7a7e94e56c2c8a7eb482d982782ecc6a assets\apito\models\item\mecha_azazeth_boots_copper_trim.json
 fdba52e38724eafae9ecc11e4922440abff23c61 assets\apito\models\item\apito\apito_3_2_2_2.json
 796f1972ca3d64e96062e2fbb289956be6970c03 assets\apito\models\item\apito\apito_0_1_5_3.json
 d6b927016b01d1b0a24c3e4da9fd0d5cecc22642 assets\apito\models\item\apito\apito_0_2_2_1.json
@@ -76,14 +73,12 @@ ae0cd8fff9917ba455110c13fc9f92f597b0ef06 assets\apito\models\item\apito\apito_0_
 cadb78544419cfd6632039d73737139cb3fabb4d assets\apito\models\item\apito\apito_4_2_2_0.json
 c3eb764f85d2152f30eaa322c1a222be46e3b892 assets\apito\models\item\apito\apito_1_1_5_1.json
 335b87ecbba6c993e84ff9e5671fd5ee1d9d50ab assets\apito\models\item\apito\apito_3_0_4_1.json
-99f087f019ab1a41ba92bf3f18a248d351e1674d assets\apito\models\item\mecha_azazeth_leggings_gold_trim.json
 35cab387a085ff3083a9b83ded9adc594c90a02c assets\apito\models\item\apito\apito_4_2_0_4.json
 151b4b6d03c343455c584efad04a554f263cef6e assets\apito\models\item\apito\apito_1_1_3_5.json
 0d9b78bc513b58b64f0a01fe66d1e6ebace983f9 assets\apito\models\item\apito\apito_2_0_0_1.json
 3b00f79cf338d18b6f0e13813c36611b73a0fe0a assets\apito\models\item\apito\apito_1_1_0_0.json
 ea3524e5c6d8fa9b732be32071c5bef3597d2c85 assets\apito\models\item\apito\apito_3_2_4_4.json
 0a7e30b5349c68306ebc830c4b01c76952958229 assets\apito\models\item\apito\apito_2_3_4_3.json
-ce519d1b2b6bf0ae1e9e08d55ac2dac95f9683c4 assets\apito\models\item\mecha_azazeth_chestplate_emerald_trim.json
 fbf305ded76069994c1021f5d25d6f8a64259fea assets\apito\models\item\apito\apito_2_0_4_4.json
 ad1ab30ae6f5eb6b32698af3afb98a4d2a4d8551 assets\apito\models\item\apito\apito_3_3_4_0.json
 11352e4557e7dfd0f4548ec42d03538a52b755cc assets\apito\models\item\apito\apito_2_0_3_0.json
@@ -123,7 +118,6 @@ b0d69c5cde5da63356fdc16560fc0a942c7ec790 assets\apito\models\item\apito\apito_4_
 98e72af78f09a856582694a5e38928d257606342 assets\apito\models\block\vampiric_berry_bush_block_stage0.json
 6194828d0ff6bff45439f9191ce2fd5cc3153f57 assets\apito\models\item\apito\apito_3_3_1_2.json
 3d827695f614cc61590870812ade09ecde82e3fe assets\apito\models\item\apito\apito_0_2_4_3.json
-bae20ae004108a6f051266b20c488f1a6cb2e300 assets\apito\models\item\mecha_azazeth_leggings_netherite_trim.json
 600c14da9c679572b6e02a5f31dac9217459c073 assets\apito\models\item\apito\apito_2_0_4_5.json
 2bb87cf139f539a0b2ad1540c80732ce9b10d787 assets\apito\models\item\apito\apito_0_3_3_1.json
 c3a8d40b90a081b250c172e63d37aa0f40b4793f assets\apito\models\item\apito\apito_0_1_1_5.json
@@ -147,7 +141,6 @@ cb1f816568d85267c8e2e612278349a50ee7a2a1 assets\apito\models\item\apito\apito_1_
 9ad1fd7222439c097cc7ecbf55aaf8df2df78d3a assets\apito\models\item\apito\apito_0_0_3_3.json
 3e335d60549bfd1024bbbbd9c4b53814e82e769d assets\apito\models\item\apito\apito_0_1_5_2.json
 1f3c63944c33d9ad8536c28bdfe560503ea08f32 assets\apito\models\item\apito\apito_3_1_0_2.json
-b4e4993a9fcaf60b99ac055be121fd95e7bc3e06 assets\apito\models\item\mecha_azazeth_chestplate_iron_trim.json
 3eaf8c070297ae9848470fdda4710e4890fc9644 assets\apito\models\item\apito\apito_3_1_5_2.json
 07e19d1c98b7337897fb76d2b5685aa8c53f6ab9 assets\apito\models\item\apito\apito_2_2_4_4.json
 33ef004b0807a761f71b191575787c09ecb8bee6 assets\apito\models\item\apito\apito_4_0_1_0.json
@@ -173,7 +166,6 @@ ee62d71b6d631d3f1fa2716e8c875aa264840a86 assets\apito\models\item\apito\apito_4_
 b70473a6c2af807e19b68f14f978d26d8aa552ad assets\apito\models\item\apito\apito_4_0_3_3.json
 e7a95ebc9ccd4db56e34c4bca19eb71ede1dbdd6 assets\apito\models\item\apito\apito_1_0_5_2.json
 df04a117640434ecea79fd18b39903174c4cafd5 assets\apito\models\item\petrified_tree_sapling.json
-baf46c1a08f89ef3403e92875685287eb55275dc assets\apito\models\item\mecha_azazeth_boots_emerald_trim.json
 9e3be891f68ecef916be098a1b62abf74e01bd7d assets\apito\models\item\apito\apito_0_0_4_1.json
 df8d4ef4ddc99a5a671ff9c533dc84fc8722d3bc assets\apito\models\item\apito\apito_0_0_2_0.json
 878e8bb2b968411313eedb70f16b36f001089141 assets\apito\models\item\apito\apito_4_0_0_4.json
@@ -198,7 +190,6 @@ f035150713c990424df55ef1d3b46c3ec81ff844 assets\apito\models\item\apito\apito_1_
 538316934fb1b561e51ecfdc768e78ba55e9e59e assets\apito\models\item\apito\apito_4_3_4_0.json
 9855ba7a698069921556d90fcf150ff8d6152dfc assets\apito\models\item\chalk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\apito\models\item\mininoru_spawn_egg.json
-8165cfa069624c07cb9a1d4a01c370acf0ec7195 assets\apito\models\item\mecha_azazeth_leggings.json
 c22d2521ff80443b5de40c6f8a94953404b5ec63 assets\apito\models\item\apito\apito_0_2_5_5.json
 dd1480814c00b08a1b15e08b54549854b912cb3f assets\apito\models\item\apito\apito_1_0_5_5.json
 30d50c06363fcbf7909e2e36d2dc001e8d066ef7 assets\apito\models\item\apito\apito_0_3_2_3.json
@@ -225,7 +216,6 @@ ec01688a2779463a41fa4df3de3f4f7ddb7b3b26 assets\apito\models\item\apito\apito_1_
 4cb31cb15b3b0b2cd254681a4e58d4e2ee5e0805 assets\apito\models\item\apito\apito_3_2_0_5.json
 25a436cfc185c50190d16ccab4d85ba640c14703 assets\apito\models\item\apito\apito_3_2_4_5.json
 005125dbd381c9aad6b547cb0bcb2056a8db8b49 assets\apito\models\item\apito\apito_3_3_3_1.json
-3cb816a13ac52f10681339b42b541e4f4aeab2fc assets\apito\models\item\mecha_azazeth_boots.json
 5e6b19c280c63853e650318e56726b451ce2d15b assets\apito\models\item\apito\apito_3_1_5_5.json
 dcadab12c3a11f320e10d8d788efd8740bde0ee5 assets\apito\models\item\snail_berry.json
 cb8d7c4b6215811c3715ae55df85ba72732a1424 assets\apito\models\item\apito\apito_1_1_3_0.json
@@ -241,7 +231,6 @@ dda952a9bd07aca72690fd838a55e155760a640f assets\apito\models\item\apito\apito_1_
 5625bbc5fcb2b2d5a574c6d4e3d997b358d4b1b1 assets\apito\models\item\apito\apito_2_0_5_3.json
 2e523783bf8218a594836769f5833fcf32b48d83 assets\apito\models\item\apito\apito_0_3_4_5.json
 c996c7e1e4de0a904352affa99a3bcb1cee3219a assets\apito\models\item\apito\apito_3_1_0_1.json
-7d4571ae726f4ab754c0a86cbbe295969ab10806 assets\apito\models\item\mecha_azazeth_chestplate_redstone_trim.json
 413f7da0bad49408ad1401fe8d43de444ca84bc9 assets\apito\models\item\apito\apito_4_2_5_0.json
 ab7f8308212f017f73777f4968998fefef6ee0f3 assets\apito\models\item\apito\apito_3_1_4_4.json
 a41e4a7ea88b50317e17a8bd47a01e2c26a94b26 assets\apito\models\item\apito\apito_2_2_4_0.json
@@ -249,7 +238,6 @@ a41e4a7ea88b50317e17a8bd47a01e2c26a94b26 assets\apito\models\item\apito\apito_2_
 a938f9dd94881b11f528ecb95e648f0e284e33fb assets\apito\models\item\apito\apito_4_3_5_5.json
 e94e0d02192ab12a6d812915da2c1071342929b9 assets\apito\models\item\apito\apito_3_3_2_0.json
 046009af5bb560011852432ea6a3334b48c52b0c assets\apito\models\item\apito\apito_3_1_0_4.json
-f3371798ba3944a632bc8f0dbb2e3040250eb2c7 assets\apito\models\item\mecha_azazeth_leggings_amethyst_trim.json
 194bafd50a1c91f5f0f721209f38b351699ed9a2 assets\apito\models\item\apito\apito_4_0_0_5.json
 2de37f358d4089913f9b74e2173063ca309dc902 assets\apito\models\item\apito\apito_3_2_3_0.json
 35cab387a085ff3083a9b83ded9adc594c90a02c assets\apito\models\item\apito\apito_2_2_0_4.json
@@ -279,7 +267,6 @@ d8ebfa71c14d5cbf0260f06e798ccc28952936c6 assets\apito\models\item\apito\apito_4_
 1605d8e880692941a580729ad373927a85af4454 assets\apito\models\item\apito\apito_3_1_0_5.json
 5bbb72a5518e12cc30ae2f009a82d92b89dd102a assets\apito\models\item\apito\apito_0_0_3_1.json
 b9e4afcab91f8b79717a68ba7ebd095fb2f347c4 assets\apito\models\item\apito\apito_0_1_5_4.json
-08e11595c0fc90f03ba5b522f3d518fdd5c20b57 assets\apito\models\item\mecha_azazeth_boots_quartz_trim.json
 6bf42c882169396e9739291750e4ff50bd73f2c5 assets\apito\models\item\apito\apito_0_3_3_0.json
 1f3c63944c33d9ad8536c28bdfe560503ea08f32 assets\apito\models\item\apito\apito_4_1_0_2.json
 584976c5d2d8b26b61b6a9b1cdc5c1c86a287058 assets\apito\models\item\apito\apito_2_1_5_3.json
@@ -301,7 +288,6 @@ a90659340d4da406a1245b97b0f3d4e081afd45b assets\apito\models\item\apito\apito_4_
 f97c2142bbb1b7e630dd67fcb8fa0925349f02b6 assets\apito\models\item\apito\apito_4_2_4_2.json
 884e6e83b08fabac0f8ceca2f7d90e319627f94c assets\apito\models\item\apito\apito_3_3_3_4.json
 e43d9543be664fce80ddd06a666028918158c20c assets\apito\models\item\apito\apito_1_3_2_0.json
-5622122ababa59cdcbfd63a20f1a92351d3afefc assets\apito\models\item\mecha_azazeth_boots_netherite_trim.json
 f801ad8517d1700f674cd8a07608b1870edb0908 assets\apito\models\item\apito\apito_0_3_5_3.json
 34936cba59bcf59b7e4499ae9aac4837468c6ec1 assets\apito\models\item\golbo_nugget.json
 28baa63c477ac06f7f406e9e6159acdf6f0faa19 assets\apito\models\item\apito\apito_4_1_1_4.json
@@ -324,8 +310,6 @@ e7951ca012780f00297d53ecfc0c8852e575692b assets\apito\models\item\apito\apito_2_
 4ecd672c7861183d9273a8825573c391c95b5931 assets\apito\models\item\apito\apito_4_2_3_1.json
 be5b595aa08c7754c4d889b217e89e123e7da756 assets\apito\models\item\apito\apito_4_0_5_5.json
 73cf9de0b7a63d81eecb0a2453b365401d2f9fe4 assets\apito\models\item\apito\apito_4_1_4_1.json
-f288437204540ef1faed3da6167f53f8e47d81eb assets\apito\models\item\mecha_azazeth_leggings_iron_trim.json
-091189057258d9665ec856c8a401fbb51f30d57d assets\apito\models\item\mecha_azazeth_leggings_diamond_trim.json
 9879a0b47cfad920b16dd3aa5ed612faa34b85e1 assets\apito\models\item\apito\apito_4_0_1_3.json
 d22606ab40c126fe828ceb4d4b23dccb1e7e6c86 assets\apito\models\item\apito\apito_0_0_1_1.json
 9b9c141f0c477e43ea54b152f58beb592023cc89 assets\apito\models\item\apito\apito_4_2_0_0.json
@@ -335,7 +319,6 @@ a8740ec30cd53aac19bd4128a36464f552ea1a06 assets\apito\models\item\whistle_forge.
 e727fcae4e0259d56b6c2481eca2a4919d744106 assets\apito\models\item\apito\apito_0_0_0_0.json
 cdcbebf2d5b36c3e2683bed468cac7d4f549a97c assets\apito\models\item\apito\apito_1_0_4_3.json
 fec5a97504a6dfe4175ab0e15ca6a12f6de15678 assets\apito\models\item\apito\apito_0_3_4_2.json
-bcef02cd788c660fd6103f9be732e198793ca985 assets\apito\models\item\mecha_azazeth_chestplate_quartz_trim.json
 af63bdb8b96f9ee3cf87f44423aed0a7da239662 assets\apito\models\item\apito\apito_2_2_3_2.json
 ce29122b75c2e9291492b338086e3d1aac23bbbc assets\apito\models\item\apito\apito_2_2_3_5.json
 8a752e6c6f9244a75d6af5bddef9588dfd930f83 assets\apito\models\item\apito\apito_3_0_5_0.json
@@ -347,8 +330,8 @@ d9f86eba56e4d0a29c2102d4ed3780ea1c9eb8e2 assets\apito\models\item\apito\apito_4_
 7e1cf0ccb0f3a6af438827423ab40133ad8ce116 assets\apito\models\item\apito\apito_3_3_2_3.json
 06dbbdf35b4d4a71135a582c7209ae12d3f07441 assets\apito\models\item\apito\apito_4_0_4_0.json
 ad62598a03be1badb20282c6e062a9e3b7508a6f assets\apito\models\item\apito\apito_2_2_2_4.json
-0fba0fbb105aced921235208ad259b8e47ce92cb assets\apito\models\item\apito\apito_3_1_3_2.json
 809c5a9d115d2d87692032a19fbe2de8c0e633eb assets\apito\models\item\apito\apito_2_3_0_2.json
+0fba0fbb105aced921235208ad259b8e47ce92cb assets\apito\models\item\apito\apito_3_1_3_2.json
 b5ceb5dec70df103cf1b8b39bda64c7570371e93 assets\apito\models\item\apito\apito_0_2_1_0.json
 a33a2dcf40a6b3cbfa36776ecebe2db822d7f2cf assets\apito\models\item\apito\apito_0_1_5_1.json
 3b4814ef873303f62ceda8607a924e8c669bd75c assets\apito\models\item\apito\apito_0_0_0_3.json
@@ -375,7 +358,6 @@ ca8b950a4d47ec26682f06269ffe54e854e7884d assets\apito\models\item\apito\apito_4_
 06741360a0979d32621ed21cd6722d9dbf1cd28d assets\apito\models\item\apito\apito_3_2_3_3.json
 9be4c7a9c1428cbd44eecdd5c11629b9e145b802 assets\apito\models\item\apito\apito_0_2_5_2.json
 38b3ea3ab1d73674d489e465fd933b77cd8e3f99 assets\apito\models\item\apito\apito_4_2_1_5.json
-674c3eef609dd799b9dc8d5e1409667c31a4b739 assets\apito\models\item\mecha_azazeth_chestplate_copper_trim.json
 2ecd878e6b5bc113050e816ee9980d7cf7f70a6b assets\apito\models\item\apito\apito_4_3_2_4.json
 acbfaab5302e48961d8f86c1af7959bfaeabff22 assets\apito\models\item\apito\apito_0_1_3_5.json
 e77f48eacc3677c10d8e69e6ce97acace63d9e3c assets\apito\models\item\apito\apito_2_2_0_1.json
@@ -389,10 +371,8 @@ f42eaeb3744f4791b7e360356278fa879e89c6a8 assets\apito\models\item\apito\apito_3_
 618ff61f07723b23003428afe140cb9b42513ca5 assets\apito\models\item\apito\apito_0_2_0_2.json
 bd905a00cb01fd903a7d4bb3f81a832b62d003e0 assets\apito\models\item\apito\apito_2_0_4_1.json
 34423d5ff18794c6f7fa1c0f7ea44352fa047440 assets\apito\models\item\apito\apito_1_2_3_4.json
-96a1721d1973cffa31af9ea93cf2ec274f3f9ab9 assets\apito\models\item\mecha_azazeth_boots_diamond_trim.json
 6fc8993f3b64bb2eda47f44170865ef77d0d3a86 assets\apito\models\item\apito\apito_4_3_3_2.json
 54c6ae235fcd672806cb8e7796397ffc95d7c3ff assets\apito\models\item\apito\apito_3_1_2_4.json
-06b39cc44e4ee4ae81c1a6492d3a779ceb8a3f56 assets\apito\models\item\mecha_azazeth_boots_amethyst_trim.json
 0d9b78bc513b58b64f0a01fe66d1e6ebace983f9 assets\apito\models\item\apito\apito_1_0_0_1.json
 74cc12280172ab8f6a1c2e6b67e961701b17bb57 assets\apito\models\item\apito\apito_4_2_5_2.json
 f0cadb60ec9bd37701318ee302d57c7a497cb408 assets\apito\models\item\apito\apito_2_1_3_0.json
@@ -443,7 +423,6 @@ a3597172d7f3e89567d4c5e69c2f8fbdb2df5ad5 assets\apito\models\item\apito\apito_1_
 9b9c141f0c477e43ea54b152f58beb592023cc89 assets\apito\models\item\apito\apito_1_2_0_0.json
 c996c7e1e4de0a904352affa99a3bcb1cee3219a assets\apito\models\item\apito\apito_2_1_0_1.json
 0ae3d9d1484e7d205fd10f4809c2a882172c053b assets\apito\models\item\apito\apito_3_0_5_3.json
-f67b40984d0638d4254b1b68d1b887438f49d060 assets\apito\models\item\mecha_azazeth_leggings_lapis_trim.json
 9c2d5a413de7044e8491bdc51f8d53036326a239 assets\apito\models\item\apito\apito_3_2_3_2.json
 ac05515bd7dade84ce5f46a21c23859939edc1bb assets\apito\models\item\apito\apito_0_1_2_0.json
 61104b34905789bd87681eb0762590b81ecd4acf assets\apito\models\item\apito\apito_4_1_3_3.json
@@ -496,7 +475,6 @@ f14e5c6d8082a2a1028a573ea852e30f7d1cad1d assets\apito\models\item\apito\apito_4_
 e2b11672195031bbaa977b730e44054f3ce6e87a assets\apito\models\item\apito\apito_2_2_2_0.json
 450c56f79adcdc1c8538d5f93afe29affd816825 assets\apito\models\item\apito\apito_2_2_1_2.json
 a8ad8b4d2630285cb161acd9df5a8710b150a231 assets\apito\models\item\apito\apito_3_1_1_3.json
-9b933775237a4fd859855285f7c8e87ecfdd887f assets\apito\models\item\mecha_azazeth_chestplate_lapis_trim.json
 7ac765adc6cd9f1cdceae22094d6e85b560b95ba assets\apito\models\item\apito\apito_4_3_3_5.json
 93326bc15d2a127ddc2f5542a7d4f88528745d5f assets\apito\models\item\apito\apito_1_3_1_1.json
 b905d08d24d30c4fd64ccdaf533620fd20a6bb5f assets\apito\models\item\apito\apito_3_1_2_1.json
@@ -535,7 +513,6 @@ f4ed58eb00a6d39f09429c0d4909ab5a00f57f99 assets\apito\models\item\apito\apito_2_
 36fc04e95efdeef28cbd727240abe2894993cbff assets\apito\models\item\apito\apito_4_1_0_3.json
 194bafd50a1c91f5f0f721209f38b351699ed9a2 assets\apito\models\item\apito\apito_2_0_0_5.json
 45ebd1eaaaf0174a70badc3b0ef8e24a8b00fc26 assets\apito\models\item\apito\apito_0_2_0_3.json
-1273434bd5a08575d868afb3663939f4aa60fb9f assets\apito\models\item\mecha_azazeth_boots_gold_trim.json
 7431242499bb035e40aae71464080f78285ad6b0 assets\apito\models\item\apito\apito_3_2_5_3.json
 fe82f84bf8a23f0d2fc70cedbc44b922210e5c16 assets\apito\models\item\apito\apito_3_3_0_1.json
 958f3b182e178b8d02864ae9f3bfbf8ab0d7a7d8 assets\apito\models\item\apito\apito_2_3_4_5.json
@@ -607,7 +584,6 @@ d1fb3f28ec770a971e14c601df8ef1af364e59dc assets\apito\models\item\apito\apito_3_
 a54ec7cbf39a5fd17946272296401e20b088c514 assets\apito\models\item\apito\apito_4_1_2_4.json
 0fd9e52d1d73e610d6ae36e9cb3dfd79e1c5ba37 assets\apito\models\item\apito\apito_3_3_2_4.json
 b477e76cbd645495e711864e2feec9dac6281fe6 assets\apito\models\item\apito\apito_4_3_0_0.json
-0a39b10a9a508338e1cf35141774a94b3a9e24cd assets\apito\models\item\mecha_azazeth_boots_lapis_trim.json
 07ee379f3301a1ccd9615029e2b2dc9e74246c81 assets\apito\models\item\apito\apito_4_3_1_1.json
 ea88cce91e1d0694b09e0207dd7a3aa2c2bd4b59 assets\apito\models\item\apito\apito_4_1_3_5.json
 ff370d71494fbeefb600f0a9d94562b4b3b9ce32 assets\apito\models\item\apito\apito_1_1_3_4.json
@@ -655,7 +631,6 @@ d87ec969f92b7450932b33ef225a4dfe88067318 assets\apito\models\item\apito\apito_2_
 841450c3b285ce49d38ebb7cc3772485c1750adf assets\apito\models\block\petrified_tree_sapling.json
 53f6a7a1e46cd36ef135667700976ce38664a3c0 assets\apito\models\item\apito\apito_3_1_4_1.json
 83c2af59fb5222f04a3a678b76c0cd3b3cd212fd assets\apito\models\item\apito\apito_0_2_1_1.json
-217f802daa4a0714aa8064d67c95fae07bf7617b assets\apito\models\item\mecha_azazeth_boots_redstone_trim.json
 34bc293df4ab0e0b0755ffbc9c87da39f9ef0ccd assets\apito\models\item\apito\apito_1_1_1_2.json
 388adcad3cecae955b6555c98bf8b0d83c2ef0a3 assets\apito\models\item\apito\apito_0_2_5_1.json
 e396b38e6ba1c7df676137e295519ff26d91d1cb assets\apito\models\item\apito\apito_4_2_2_1.json
@@ -689,7 +664,6 @@ fe82f84bf8a23f0d2fc70cedbc44b922210e5c16 assets\apito\models\item\apito\apito_0_
 ce8afe5201171f2a98f677a864c083537263cdb8 assets\apito\models\item\apito\apito_4_1_3_1.json
 d18e534009b656bad2656b9a675684203c66130a assets\apito\models\item\apito\apito_3_2_2_3.json
 9c2fbcf6d8cb8507bfe10aa496996adc1974fa23 assets\apito\models\block\snail_berry_bush_block_stage0.json
-479de6f21adf8e66f5a1d6949360dfe7eb986bd2 assets\apito\models\item\mecha_azazeth_chestplate_netherite_trim.json
 74a462204cbffebd7d176320c6683c90059df48a assets\apito\models\item\apito\apito_4_2_2_5.json
 01b086a8f2090dc2477952034eb184d873cc88fa assets\apito\models\item\apito\apito_4_3_1_4.json
 dc27f94ecc43da09eef8b069da96af6d087c9188 assets\apito\models\item\apito\apito_0_2_1_2.json
@@ -707,8 +681,6 @@ b477e76cbd645495e711864e2feec9dac6281fe6 assets\apito\models\item\apito\apito_2_
 e4bb0fcf08eb59f4c9aff68894e3820b2f661cd0 assets\apito\models\item\apito\apito_3_0_3_3.json
 735d587c945b80f2f2c8387636862a889a40fb0f assets\apito\models\item\apito\apito_2_3_5_1.json
 36fc04e95efdeef28cbd727240abe2894993cbff assets\apito\models\item\apito\apito_0_1_0_3.json
-b33704a00915a450153b1d4a3f8ab32f774d0de1 assets\apito\models\item\mecha_azazeth_chestplate_diamond_trim.json
-97628660f48c838e3f249039cc95e63efc3c0ed6 assets\apito\models\item\mecha_azazeth_leggings_redstone_trim.json
 1f281b45344a5cfdac8b8d65b159980fcb59d6b6 assets\apito\models\item\apito\apito_1_0_4_1.json
 046009af5bb560011852432ea6a3334b48c52b0c assets\apito\models\item\apito\apito_1_1_0_4.json
 b58c601e0d4119e252e8764ae2afd6e0d025d116 assets\apito\models\item\apito\apito_4_3_5_0.json
@@ -731,7 +703,6 @@ be7aa05adc9d3c381249ea3d63b63bcd5d2b9c9b assets\apito\models\item\apito\apito_0_
 1f3c63944c33d9ad8536c28bdfe560503ea08f32 assets\apito\models\item\apito\apito_2_1_0_2.json
 36f7a34b0e2d9d1b0cc9fe48b8d6ca9c2bfc5ffa assets\apito\models\item\apito\apito_2_0_2_3.json
 9a28ca8701f638c32ddbfa90a9954218380cc045 assets\apito\models\item\apito\apito_1_2_2_1.json
-47a1db87dec0de860fc9b55100f5567c69bc5140 assets\apito\models\item\mecha_azazeth_chestplate.json
 77db102b0876bae6eb682d09e16c8b9b8f9cb942 assets\apito\models\item\apito\apito_2_2_3_0.json
 e2865b4778d69135bc1efc1894e30e63f69b2409 assets\apito\models\item\apito\apito_2_0_5_4.json
 e75c13e9a2c29d811b0ac2f3aee8931f441dfc8e assets\apito\models\item\apito\apito_1_0_1_4.json
@@ -740,8 +711,6 @@ d1213e439a29be5d4111038a2fe60c64585fe741 assets\apito\models\item\fossilized_scr
 3b4814ef873303f62ceda8607a924e8c669bd75c assets\apito\models\item\apito\apito_1_0_0_3.json
 80c149869fdd349707f2a8a08cc03cbf8417f8d5 assets\apito\models\item\apito\apito_1_1_3_1.json
 26aad33e4c0c23748d92ce49be255cf907637f46 assets\apito\models\item\apito\apito_4_0_5_3.json
-89341f881216bf9f236ed75544821d00b7313022 assets\apito\models\item\mecha_azazeth_chestplate_gold_trim.json
-f40482866fa84cd3aa54b1bc77b280bdebce9876 assets\apito\models\item\mecha_azazeth_leggings_quartz_trim.json
 108d1634e7d72b05273ea0088c097e0c6d731671 assets\apito\models\item\apito\apito_1_1_2_0.json
 d1ccbbc78575a0735b4960d6b737fea7929fe9f7 assets\apito\models\item\apito\apito_4_1_1_2.json
 75e45ea35000e8be32729daf11533aff8432eb42 assets\apito\models\item\apito\apito_4_3_3_4.json
@@ -749,7 +718,6 @@ d1ccbbc78575a0735b4960d6b737fea7929fe9f7 assets\apito\models\item\apito\apito_4_
 c996c7e1e4de0a904352affa99a3bcb1cee3219a assets\apito\models\item\apito\apito_4_1_0_1.json
 045c7bb93a4ea27ddaa0cffa05302fbe253ffbb9 assets\apito\models\item\apito\apito_3_0_2_1.json
 a89d5eec266bb034067c4c5e899042a4b8ca9dfb assets\apito\models\item\apito\apito_1_3_5_3.json
-4e4df0213b19910a4c4a1b5f8f43090ab19ed6ef assets\apito\models\item\mecha_azazeth_leggings_copper_trim.json
 d2c0df3537d7d24af3cab5136125a79557df2c8e assets\apito\models\item\apito\apito_0_2_5_4.json
 0c54660c79e65323e1822091632d5a16ab3a99e3 assets\apito\models\item\apito\apito_1_1_1_5.json
 39640f30c17d12e265b28da4cb8f9269b079cc37 assets\apito\models\item\apito\apito_3_3_5_2.json
@@ -802,7 +770,6 @@ c73c0a4c05ddbf98afb69a19d11834ac841ad612 assets\apito\models\item\apito\apito_1_
 e9c082919b9f3028bb2725e43b60319b4263410b assets\apito\models\item\apito\apito_1_3_1_4.json
 878e8bb2b968411313eedb70f16b36f001089141 assets\apito\models\item\apito\apito_2_0_0_4.json
 bd7e416d68ccfcb83e4a0f6341f3c27213dc9d09 assets\apito\blockstates\scrap_ore.json
-21ebbb2740d5cc791140e2793925dbd8a96f3b0c assets\apito\models\item\mecha_azazeth_chestplate_amethyst_trim.json
 9478b3697f146ab84e4a5fdc2d86f25cc93d707d assets\apito\models\item\apito\apito_3_1_5_3.json
 17175a52566060cf57dbacb3eeae976286bd4b30 assets\apito\models\item\apito\apito_1_3_2_2.json
 4f7962c7303749035770aa5bc43b8fd107d7bf26 assets\apito\models\item\apito\apito_2_3_5_4.json
