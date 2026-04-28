@@ -19,6 +19,7 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     public CarvingBenchScreen(CarvingBenchScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
 
+
         this.backgroundWidth = 220;
         this.backgroundHeight = 226;
 
