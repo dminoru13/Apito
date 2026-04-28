@@ -22,7 +22,7 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
     public final CarvingBenchEntity blockEntity;
 
     public CarvingBenchScreenHandler(int syncId, PlayerInventory inventory, BlockPos pos) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(3));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(4));
     }
 
     public CarvingBenchScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
@@ -34,7 +34,7 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
         this.propertyDelegate = arrayPropertyDelegate;
 
 
-        this.addSlot(new Slot(inventory, 0, 1, 1){
+        this.addSlot(new Slot(inventory, 0, 21, 25){
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.isOf(ModItems.ANCIENT_HEART);
@@ -110,8 +110,8 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
 
 
     private void addPlayerInventory(PlayerInventory playerInventory) {
-        int startX = 6;
-        int startY = 114;
+        int startX = 28;
+        int startY = 144;
 
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 9; ++col) {
@@ -124,8 +124,8 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
     }
 
     private void addPlayerHotbar(PlayerInventory playerInventory) {
-        int startX = 6;
-        int startY = 172;
+        int startX = 28;
+        int startY = 202;
 
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i,
@@ -138,6 +138,10 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
     public boolean tem_pedra(){
         return propertyDelegate.get(2) == 1;
     }
+
+    public boolean usando_ferramentsa() {
+            return propertyDelegate.get(3) == 1;
+        }
 
 }
 

@@ -2,6 +2,8 @@ package net.notridani.apito;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.block.entity.ModBlockEntities;
@@ -14,8 +16,10 @@ import net.notridani.apito.entity.custom.MininoruEntity;
 import net.notridani.apito.event.ModEvents;
 import net.notridani.apito.item.ModItemGroups;
 import net.notridani.apito.item.ModItems;
+import net.notridani.apito.network.ButtonClickPayload;
 import net.notridani.apito.potion.ModPotions;
 import net.notridani.apito.screen.ModScreenHandler;
+import net.notridani.apito.screen.custom.CarvingBenchScreenHandler;
 import net.notridani.apito.sound.ModSounds;
 import net.notridani.apito.world.gen.ModWorldGenneration;
 import org.slf4j.Logger;
@@ -50,5 +54,34 @@ public class Apito implements ModInitializer {
 		ModSounds.registerSounds();
 
 		ModScreenHandler.registerScreenHandlers();
+
+
+		PayloadTypeRegistry.playC2S().register(
+				ButtonClickPayload.ID,
+				ButtonClickPayload.CODEC
+		);
+
+		// Receiver
+		ServerPlayNetworking.registerGlobalReceiver(
+				ButtonClickPayload.ID,
+				(payload, context) -> {
+
+					context.server().execute(() -> {
+
+						var player = context.player();
+
+						if (player.currentScreenHandler instanceof CarvingBenchScreenHandler screenHandler) {
+
+							switch (payload.action()) {
+								case TOGGLE_FERRAMENTA -> screenHandler.blockEntity.toggleFerramenta();
+								case ADD_ENTALHE  -> {}
+							}
+
+						}
+					});
+				}
+		);
+
+
 	}
 }

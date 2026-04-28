@@ -40,6 +40,7 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
     private int progress = 0;
     private int maxProgress = 5;
     private int tem_pedra = 0;
+    private int usando_ferramenta = 0;
     private int entalhe = 0;
     private int base = 0;
 
@@ -55,6 +56,7 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
                     case 0 -> CarvingBenchEntity.this.progress;
                     case 1 -> CarvingBenchEntity.this.maxProgress;
                     case 2 -> CarvingBenchEntity.this.tem_pedra;
+                    case 3 -> CarvingBenchEntity.this.usando_ferramenta;
                     default -> 0;
                 };
             }
@@ -65,12 +67,13 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
                     case 0: CarvingBenchEntity.this.progress = value;
                     case 1: CarvingBenchEntity.this.maxProgress = value;
                     case 2: CarvingBenchEntity.this.tem_pedra = value;
+                    case 3: CarvingBenchEntity.this.usando_ferramenta = value;
                 }
             }
 
             @Override
             public int size() {
-                return 3;
+                return 4;
             }
         };
     }
@@ -149,7 +152,16 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
 
 
 
+    public void toggleFerramenta() {
+        this.usando_ferramenta = this.usando_ferramenta == 0 ? 1 : 0;
 
+        markDirty();
+
+        if (world != null && !world.isClient) {
+            world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+
+    }
 
 
 

@@ -3,11 +3,16 @@ package net.notridani.apito.screen.custom;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.notridani.apito.network.ButtonClickPayload;
+import net.notridani.apito.network.ButtonAction;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.notridani.apito.Apito;
+import net.notridani.apito.screen.widget.InvisibleButton;
 
 public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler> {
 
@@ -28,6 +33,16 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
 
         this.playerInventoryTitleX = x + 27;
         this.playerInventoryTitleY = y + 134;
+
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+
+        this.clearChildren();
+
+        this.addDrawableChild(new InvisibleButton(x+9,y+55,41,57, this::onToolClick));
     }
 
     @Override
@@ -43,7 +58,8 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context,mouseX,mouseY);
-        desenharpedra(context);
+        desenharPedra(context);
+        desenharFerramentas(context);
     }
 
     //adicionar textura
@@ -51,14 +67,39 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     private static final Identifier TEXTURA_PEDRA =
             Identifier.of(Apito.MOD_ID, "textures/gui/carving_bench/ancient_heart.png");
 
-    private void desenharpedra(DrawContext context) {
+    private void desenharPedra(DrawContext context) {
         if(handler.tem_pedra()) {
             RenderSystem.setShaderTexture(0, TEXTURA_PEDRA);
-            context.drawTexture(TEXTURA_PEDRA, x, y, 0, 0, 32, 32,32,32);
+            context.drawTexture(TEXTURA_PEDRA, x + 84, y + 55, 0, 0, 32, 32,32,32);
         }
     }
 
+    private static final Identifier TEXTURA_FERRAMENTAS =
+            Identifier.of(Apito.MOD_ID, "textures/gui/carving_bench/tools.png");
 
+    private static final Identifier TEXTURA_SEM_FERRAMENTAS =
+            Identifier.of(Apito.MOD_ID, "textures/gui/carving_bench/no_tools.png");
+
+    private void desenharFerramentas(DrawContext context) {
+        int ferramenta_x = 9;
+        int ferramenta_y = 55;
+
+        if(handler.usando_ferramentsa()) {
+            RenderSystem.setShaderTexture(0, TEXTURA_SEM_FERRAMENTAS);
+            context.drawTexture(TEXTURA_SEM_FERRAMENTAS, x + ferramenta_x, y + ferramenta_y, 0, 0, 41, 57,41,57);
+        } else {
+            RenderSystem.setShaderTexture(0, TEXTURA_FERRAMENTAS);
+            context.drawTexture(TEXTURA_FERRAMENTAS, x + ferramenta_x, y + ferramenta_y, 0, 0, 41, 57,41,57);
+        }
+    }
+
+    //BOTAO
+
+
+    private void onToolClick() {
+        client.player.playSound(SoundEvents.UI_BUTTON_CLICK.value(), 1.0f, 1.0f);
+        ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.TOGGLE_FERRAMENTA));
+    }
 
 
 
