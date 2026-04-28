@@ -19,23 +19,21 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     public CarvingBenchScreen(CarvingBenchScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
 
-        this.titleX = 10;
-        this.titleY = -27;
+        this.backgroundWidth = 220;
+        this.backgroundHeight = 226;
 
-        this.playerInventoryTitleX = 10;
-        this.playerInventoryTitleY = 103;
+        this.titleX = x + 7;
+        this.titleY = y + 3;
+
+        this.playerInventoryTitleX = x + 27;
+        this.playerInventoryTitleY = y + 134;
     }
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        this.backgroundWidth = 220;
-        this.backgroundHeight = 226;
         RenderSystem.setShader((GameRenderer::getPositionTexProgram));
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         RenderSystem.setShaderTexture(0,GUI_TEXTURE);
-
-        int x = (width - backgroundWidth) / 2;
-        int y = (height -backgroundHeight)/ 2;
 
         context.drawTexture(GUI_TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
@@ -55,7 +53,7 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     private void desenharpedra(DrawContext context) {
         if(handler.tem_pedra()) {
             RenderSystem.setShaderTexture(0, TEXTURA_PEDRA);
-            context.drawTexture(TEXTURA_PEDRA, 223, 78, 0, 0, 32, 32,32,32);
+            context.drawTexture(TEXTURA_PEDRA, x, y, 0, 0, 32, 32,32,32);
         }
     }
 
