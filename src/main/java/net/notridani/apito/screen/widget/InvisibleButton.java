@@ -48,4 +48,9 @@ public class InvisibleButton extends PressableWidget {
     protected void appendClickableNarrations(NarrationMessageBuilder builder) {
 
     }
+
+    @Override
+    public void playDownSound(net.minecraft.client.sound.SoundManager soundManager) {
+        // não faz nada → cancela o som padrão
+    }
 }

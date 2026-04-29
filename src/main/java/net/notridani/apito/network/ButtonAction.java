@@ -6,5 +6,6 @@ public enum ButtonAction {
     ADD_ENTALHE,
     SUB_ENTALHE,
     ADD_BASE,
-    SUB_BASE
+    SUB_BASE,
+    CORACAO
 }

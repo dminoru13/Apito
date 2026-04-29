@@ -42,7 +42,20 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
 
         this.clearChildren();
 
+        //ferramentas
         this.addDrawableChild(new InvisibleButton(x+9,y+55,41,57, this::onToolClick));
+
+        //entalhe
+        this.addDrawableChild(new InvisibleButton(x+150,y+25,27,32, this::SubEntalheClick));
+        this.addDrawableChild(new InvisibleButton(x+185,y+25,24,32, this::AddEntalheClick));
+
+        //base
+        this.addDrawableChild(new InvisibleButton(x+150,y+57,27,32, this::SubBaseClick));
+        this.addDrawableChild(new InvisibleButton(x+185,y+57,24,32, this::AddBaseClick));
+
+        //coracao
+
+        this.addDrawableChild(new InvisibleButton(x+93,y+49,24,32, this::CoracaoClick));
     }
 
     @Override
@@ -217,7 +230,40 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
         ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.TOGGLE_FERRAMENTA));
     }
 
+    private void AddEntalheClick() {
+        if(handler.tem_pedra()){
+            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.ADD_ENTALHE));
+        }
+    }
 
+    private void SubEntalheClick() {
+        if(handler.tem_pedra()) {
+            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.SUB_ENTALHE));
+        }
+    }
+
+    private void AddBaseClick() {
+        if(handler.tem_pedra()) {
+            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.ADD_BASE));
+        }
+    }
+
+    private void SubBaseClick() {
+        if(handler.tem_pedra()) {
+            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.SUB_BASE));
+        }
+    }
+
+    private void CoracaoClick() {
+        if(handler.tem_pedra()) {
+            client.player.playSound(SoundEvents.BLOCK_STONE_BREAK, 1.0f, 1.0f);
+            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
+        }
+    }
 
 
 }
