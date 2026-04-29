@@ -60,6 +60,7 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
         drawMouseoverTooltip(context,mouseX,mouseY);
         desenharPedra(context);
         desenharFerramentas(context);
+        desenharLivro(context);
     }
 
     //adicionar textura
@@ -70,7 +71,7 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     private void desenharPedra(DrawContext context) {
         if(handler.tem_pedra()) {
             RenderSystem.setShaderTexture(0, TEXTURA_PEDRA);
-            context.drawTexture(TEXTURA_PEDRA, x + 84, y + 55, 0, 0, 32, 32,32,32);
+            context.drawTexture(TEXTURA_PEDRA, x + 93, y + 49, 0, 0, 32, 32,32,32);
         }
     }
 
@@ -91,6 +92,121 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
             RenderSystem.setShaderTexture(0, TEXTURA_FERRAMENTAS);
             context.drawTexture(TEXTURA_FERRAMENTAS, x + ferramenta_x, y + ferramenta_y, 0, 0, 41, 57,41,57);
         }
+    }
+
+    private void desenharLivro(DrawContext context) {
+        int livro_x = 150;
+        int livro_y = 25;
+        int livro_width = 58;
+        int livro_heigth = 31;
+
+        boolean tem_pedra = handler.tem_pedra();
+        int entalhe = handler.get_entalhe();
+        int base = handler.get_base();
+
+        Identifier[] LIVRO_CIMA = new Identifier[] {
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-capa.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-inicio.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-maio.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-final.png"),
+        };
+
+        Identifier[] LIVRO_BAIXO = new Identifier[] {
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-capa.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-inicio.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-maio.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-final.png"),
+        };
+
+        Identifier TEXTURA_LIVRO_CIMA = LIVRO_CIMA[0];
+        Identifier TEXTURA_LIVRO_BAIXO = LIVRO_BAIXO[0];
+
+        if(!tem_pedra) {
+            TEXTURA_LIVRO_CIMA = LIVRO_CIMA[0];
+            TEXTURA_LIVRO_BAIXO = LIVRO_BAIXO[0];
+        } else {
+
+            //ENTALHE
+            if(entalhe == 0) {
+                TEXTURA_LIVRO_CIMA = LIVRO_CIMA[1];
+            }
+
+            if(entalhe > 0 && entalhe < LIVRO_CIMA.length ) {
+                TEXTURA_LIVRO_CIMA = LIVRO_CIMA[2];
+            }
+
+            if(entalhe == LIVRO_CIMA.length) {
+                TEXTURA_LIVRO_CIMA = LIVRO_CIMA[3];
+            }
+
+            //BASE
+            if(base == 0) {
+                TEXTURA_LIVRO_BAIXO = LIVRO_BAIXO[1];
+            }
+
+            if(base > 0 && base < LIVRO_BAIXO.length ) {
+                TEXTURA_LIVRO_BAIXO = LIVRO_BAIXO[2];
+            }
+
+            if(base == LIVRO_BAIXO.length) {
+                TEXTURA_LIVRO_BAIXO = LIVRO_BAIXO[3];
+            }
+
+
+        }
+
+
+
+        RenderSystem.setShaderTexture(0, TEXTURA_LIVRO_CIMA);
+        context.drawTexture(TEXTURA_LIVRO_CIMA, x + livro_x, y + livro_y, 0, 0, livro_width, livro_heigth, livro_width, livro_heigth);
+
+        RenderSystem.setShaderTexture(0, TEXTURA_LIVRO_BAIXO);
+        context.drawTexture(TEXTURA_LIVRO_BAIXO, x + livro_x, y + livro_y + livro_heigth, 0, 0, livro_width, livro_heigth, livro_width, livro_heigth);
+
+        if(tem_pedra) {
+            desenharIcones(context);
+        }
+
+    }
+
+
+    private void desenharIcones( DrawContext context) {
+        int icone_x = 150;
+        int icone_y = 25;
+        int icone_width = 64;
+        int icone_heigth = 64;
+
+
+
+
+        Identifier[] ENTALHES = new Identifier[] {
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-0.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-1.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-2.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-3.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-4.png")
+        };
+
+        int Entalhe = handler.get_entalhe();
+
+        Identifier TEXTURA_ENTALHE = ENTALHES[Entalhe];
+        RenderSystem.setShaderTexture(0, TEXTURA_ENTALHE);
+        context.drawTexture(TEXTURA_ENTALHE, x + icone_x, y + icone_y, 0, 0, icone_width, icone_heigth, icone_width, icone_heigth);
+
+
+        Identifier[] BASES = new Identifier[] {
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-0.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-1.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-2.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-3.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-4.png")
+        };
+
+        int Base = handler.get_base();
+
+        Identifier TEXTURE_BASE = BASES[Base];
+        RenderSystem.setShaderTexture(0, TEXTURE_BASE);
+        context.drawTexture(TEXTURE_BASE, x + icone_x, y + icone_y, 0, 0, icone_width, icone_heigth, icone_width, icone_heigth);
     }
 
     //BOTAO

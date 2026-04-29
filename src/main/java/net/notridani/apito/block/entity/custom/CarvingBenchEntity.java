@@ -57,6 +57,8 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
                     case 1 -> CarvingBenchEntity.this.maxProgress;
                     case 2 -> CarvingBenchEntity.this.tem_pedra;
                     case 3 -> CarvingBenchEntity.this.usando_ferramenta;
+                    case 4 -> CarvingBenchEntity.this.entalhe;
+                    case 5 -> CarvingBenchEntity.this.base;
                     default -> 0;
                 };
             }
@@ -68,12 +70,14 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
                     case 1: CarvingBenchEntity.this.maxProgress = value;
                     case 2: CarvingBenchEntity.this.tem_pedra = value;
                     case 3: CarvingBenchEntity.this.usando_ferramenta = value;
+                    case 4: CarvingBenchEntity.this.entalhe = value;
+                    case 5: CarvingBenchEntity.this.base = value;
                 }
             }
 
             @Override
             public int size() {
-                return 4;
+                return 6;
             }
         };
     }

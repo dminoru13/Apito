@@ -22,7 +22,7 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
     public final CarvingBenchEntity blockEntity;
 
     public CarvingBenchScreenHandler(int syncId, PlayerInventory inventory, BlockPos pos) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(4));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(6));
     }
 
     public CarvingBenchScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
@@ -142,6 +142,10 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
     public boolean usando_ferramentsa() {
             return propertyDelegate.get(3) == 1;
         }
+
+    public int get_entalhe() {return propertyDelegate.get(4);}
+
+    public int get_base() {return propertyDelegate.get(5);}
 
 }
 
