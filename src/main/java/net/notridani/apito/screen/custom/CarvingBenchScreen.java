@@ -76,11 +76,11 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context,mouseX,mouseY);
-        desenharPedra(context);
         desenharFerramentas(context);
         desenharLivro(context);
 
-
+        desenharApito(context);
+        desenharPedra(context);
 
 
 
@@ -262,6 +262,11 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
         context.drawTexture(TEXTURE_BASE, x + icone_x, y + icone_y, 0, 0, icone_width, icone_heigth, icone_width, icone_heigth);
     }
 
+
+    private void desenharApito(DrawContext context){
+
+    }
+
     //BOTAO
 
 
@@ -318,26 +323,46 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
         if(handler.tem_pedra()) {
 
             if(handler.usando_ferramentsa()){
-                client.player.playSound(SoundEvents.BLOCK_STONE_BREAK, 1.0f, 1.0f);
-                ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
 
                 double mouseX = client.mouse.getX() * client.getWindow().getScaledWidth() / client.getWindow().getWidth();
                 double mouseY = client.mouse.getY() * client.getWindow().getScaledHeight() / client.getWindow().getHeight();
 
-                int quantidade = java.util.concurrent.ThreadLocalRandom.current().nextInt(1, 3);
+                if(handler.get_progress() < handler.get_max_progress()){
+                    client.player.playSound(SoundEvents.BLOCK_STONE_BREAK, 1.0f, 1.0f);
+                    ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
 
-                for(int i = 0; i < quantidade; i++){
-                    particles.add(new UiParticle((float) mouseX - x,(float) mouseY - y,7,7,10, (float)0.5));
+
+
+                    int quantidade = java.util.concurrent.ThreadLocalRandom.current().nextInt(1, 3);
+
+                    for(int i = 0; i < quantidade; i++){
+                        particles.add(new UiParticle((float) mouseX - x,(float) mouseY - y,7,7,10, (float)0.5));
+                    }
+
+                    if(handler.get_progress()%5 == 0 && handler.get_progress() != 0) {
+                        for(int i = 0; i < 20; i++){
+                            particles.add(new UiParticle((float) mouseX - x,(float) mouseY - y,7,7,10, (float)0.5));
+                            client.player.playSound(SoundEvents.BLOCK_ANCIENT_DEBRIS_BREAK, 1.0f, 1.0f);
+                        }
+                    }
+
+                    ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
                 }
 
-                if(handler.get_progress()%5 == 0 && handler.get_progress() != 0) {
-                    for(int i = 0; i < 20; i++){
+                if(handler.get_progress() == handler.get_max_progress()) {
+
+                    client.player.playSound(SoundEvents.BLOCK_BONE_BLOCK_BREAK, 1.0f, 1.0f);
+                    client.player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1.0f, 1.0f);
+
+                    for(int i = 0; i < 40; i++){
                         particles.add(new UiParticle((float) mouseX - x,(float) mouseY - y,7,7,10, (float)0.5));
                         client.player.playSound(SoundEvents.BLOCK_ANCIENT_DEBRIS_BREAK, 1.0f, 1.0f);
                     }
+
+
                 }
 
-                ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
+
             }
         }
     }
