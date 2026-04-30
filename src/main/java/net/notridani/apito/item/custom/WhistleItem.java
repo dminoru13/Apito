@@ -90,43 +90,10 @@ public class WhistleItem extends Item {
         );
     }
 
-    public void updateModel(ItemStack stack) {
-        var data = getData(stack);
-
-        int base = Math.max(0, data.base());
-        int entalhe = data.entalhe(); // pode ser -1
-        int gema = data.gema();       // pode ser -1
-        int tier = Math.max(0, data.tier());
-
-        int B = 4;
-        int E = 6;
-        int G = 6;
-
-        int entalheIndex = entalhe + 1; // -1 → 0
-        int gemaIndex = gema + 1;
-
-        int cmd =
-                tier * (B * E * G) +
-                        base * (E * G) +
-                        entalheIndex * G +
-                        gemaIndex + 1;
-
-        CustomModelDataComponent current =
-                stack.get(DataComponentTypes.CUSTOM_MODEL_DATA);
-
-        if (current == null || current.value() != cmd) {
-            stack.set(
-                    DataComponentTypes.CUSTOM_MODEL_DATA,
-                    new CustomModelDataComponent(cmd)
-            );
-        }
-    }
-
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient) {
             ensureData(stack);
-            updateModel(stack);
         }
     }
 

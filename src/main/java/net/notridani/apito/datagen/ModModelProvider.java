@@ -122,140 +122,57 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GOLBO_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
-        //APITOS
 
-        gerarApito(itemModelGenerator, ModItems.WHISTLE);
-
+        gerarPartesApito(itemModelGenerator);
     }
 
-    private void gerarApito(ItemModelGenerator itemModelGenerator, Item item) {
-        gerarModelosApito(itemModelGenerator);
-        gerarOverridesApito(itemModelGenerator, item);
-    }
 
-    private void gerarModelosApito(ItemModelGenerator itemModelGenerator) {
 
-        for (int tier = 0; tier < 5; tier++) {
-            for (int b = 0; b < 4; b++) {
-                for (int e = -1; e < 5; e++) {
-                    for (int g = -1; g < 5; g++) {
+    //APITO
 
-                        int eIndex = e + 1;
-                        int gIndex = g + 1;
+    private void gerarPartesApito(ItemModelGenerator itemModelGenerator) {
 
-                        String name = "apito_" + tier + "_" + b + "_" + eIndex + "_" + gIndex;
+        // ======================
+        // BASES
+        // ======================
+        for (int i = 0; i < 4; i++) {
 
-                        Identifier modelId = Identifier.of(Apito.MOD_ID, "item/apito/" + name);
+            Identifier modelId = Identifier.of(Apito.MOD_ID, "item/apito/base_" + i);
 
-                        TextureMap textures = new TextureMap();
-                        textures.put(TextureKey.LAYER0,
-                                Identifier.of(Apito.MOD_ID, "item/apito/base_" + b));
+            TextureMap textures = new TextureMap()
+                    .put(TextureKey.LAYER0,
+                            Identifier.of(Apito.MOD_ID, "item/apito/base_" + i));
 
-                        Model model;
+            Models.GENERATED.upload(modelId, textures, itemModelGenerator.writer);
+        }
 
-                        if (e == -1 && g == -1) {
-                            model = new Model(
-                                    Optional.of(Identifier.of("item/generated")),
-                                    Optional.empty(),
-                                    TextureKey.LAYER0
-                            );
+        // ======================
+        // ENTALHES
+        // ======================
+        for (int i = 0; i < 5; i++) {
 
-                        } else if (g == -1) {
-                            model = new Model(
-                                    Optional.of(Identifier.of("item/generated")),
-                                    Optional.empty(),
-                                    TextureKey.LAYER0,
-                                    TextureKey.LAYER1
-                            );
+            Identifier modelId = Identifier.of(Apito.MOD_ID, "item/apito/entalhe_" + i);
 
-                            textures.put(TextureKey.LAYER1,
-                                    Identifier.of(Apito.MOD_ID, "item/apito/entalhe_" + e + "-" + tier));
+            TextureMap textures = new TextureMap()
+                    .put(TextureKey.LAYER0,
+                            Identifier.of(Apito.MOD_ID, "item/apito/entalhe_" + i));
 
-                        } else if (e == -1) {
-                            model = new Model(
-                                    Optional.of(Identifier.of("item/generated")),
-                                    Optional.empty(),
-                                    TextureKey.LAYER0,
-                                    TextureKey.LAYER1
-                            );
+            Models.GENERATED.upload(modelId, textures, itemModelGenerator.writer);
+        }
 
-                            textures.put(TextureKey.LAYER1,
-                                    Identifier.of(Apito.MOD_ID, "item/apito/gema_" + g));
+        // ======================
+        // GEMAS
+        // ======================
+        for (int i = 0; i < 5; i++) {
 
-                        } else {
-                            model = new Model(
-                                    Optional.of(Identifier.of("item/generated")),
-                                    Optional.empty(),
-                                    TextureKey.LAYER0,
-                                    TextureKey.LAYER1,
-                                    TextureKey.LAYER2
-                            );
+            Identifier modelId = Identifier.of(Apito.MOD_ID, "item/apito/gema_" + i);
 
-                            textures.put(TextureKey.LAYER1,
-                                    Identifier.of(Apito.MOD_ID, "item/apito/entalhe_" + e + "-" + tier));
+            TextureMap textures = new TextureMap()
+                    .put(TextureKey.LAYER0,
+                            Identifier.of(Apito.MOD_ID, "item/apito/gema_" + i));
 
-                            textures.put(TextureKey.LAYER2,
-                                    Identifier.of(Apito.MOD_ID, "item/apito/gema_" + g));
-                        }
-
-                        model.upload(modelId, textures, itemModelGenerator.writer);
-                    }
-                }
-            }
+            Models.GENERATED.upload(modelId, textures, itemModelGenerator.writer);
         }
     }
 
-    private void gerarOverridesApito(ItemModelGenerator itemModelGenerator, Item item) {
-
-        JsonArray overrides = new JsonArray();
-
-        int B = 4;
-        int E = 6;
-        int G = 6;
-
-        for (int tier = 0; tier < 5; tier++) {
-            for (int b = 0; b < B; b++) {
-                for (int e = -1; e < 5; e++) {
-                    for (int g = -1; g < 5; g++) {
-
-                        int eIndex = e + 1;
-                        int gIndex = g + 1;
-
-                        int cmd =
-                                tier * (B * E * G) +
-                                        b * (E * G) +
-                                        eIndex * G +
-                                        gIndex + 1;
-
-                        JsonObject obj = new JsonObject();
-                        JsonObject predicate = new JsonObject();
-
-                        predicate.addProperty("custom_model_data", cmd);
-                        obj.add("predicate", predicate);
-
-                        obj.addProperty("model",
-                                Apito.MOD_ID + ":item/apito/apito_" + tier + "_" + b + "_" + eIndex + "_" + gIndex);
-
-                        overrides.add(obj);
-                    }
-                }
-            }
-        }
-
-        JsonObject root = new JsonObject();
-        root.addProperty("parent", "minecraft:item/generated");
-
-        JsonObject textures = new JsonObject();
-        textures.addProperty("layer0", Apito.MOD_ID + ":item/apito/base_0");
-        root.add("textures", textures);
-
-        root.add("overrides", overrides);
-
-        Identifier itemId = Registries.ITEM.getId(item);
-
-        itemModelGenerator.writer.accept(
-                Identifier.of(itemId.getNamespace(), "item/" + itemId.getPath()),
-                () -> root
-        );
-    }
 }

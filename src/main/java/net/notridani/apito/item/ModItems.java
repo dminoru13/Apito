@@ -79,4 +79,6 @@ public class ModItems {
     public static final Item GOLBO_SPAWN_EGG = registerItem("golbo_spawn_egg",
             new SpawnEggItem(ModEntities.GOLBO, 0xe7e7e7, 0xf48686, new Item.Settings()));
 
+    //
+
 }
