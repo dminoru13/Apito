@@ -12,7 +12,12 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.notridani.apito.Apito;
+import net.notridani.apito.screen.particle.UiParticle;
 import net.notridani.apito.screen.widget.InvisibleButton;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler> {
 
@@ -55,7 +60,7 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
 
         //coracao
 
-        this.addDrawableChild(new InvisibleButton(x+93,y+49,24,32, this::CoracaoClick));
+        this.addDrawableChild(new InvisibleButton(x+90,y+50,24,32, this::CoracaoClick));
     }
 
     @Override
@@ -74,18 +79,57 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
         desenharPedra(context);
         desenharFerramentas(context);
         desenharLivro(context);
+
+
+
+
+
+        for(UiParticle p: particles) {
+
+
+            context.fill(
+                    (int)(x + p.posX),
+                    (int)(y + p.posY),
+                    (int)(x + p.posX + 2),
+                    (int)(y + p.posY + 2),
+                    p.cor
+            );
+        }
     }
 
     //adicionar textura
-
-    private static final Identifier TEXTURA_PEDRA =
-            Identifier.of(Apito.MOD_ID, "textures/gui/carving_bench/ancient_heart.png");
-
+    
     private void desenharPedra(DrawContext context) {
+        Identifier[] CORACAO = new Identifier[] {
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart-1.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart-2.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart-3.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart-4.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart-5.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart-6.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/ancient_heart-7.png"),
+        };
+
+        Identifier TEXTURA_PEDRA = getIdentifier(CORACAO);
+
         if(handler.tem_pedra()) {
             RenderSystem.setShaderTexture(0, TEXTURA_PEDRA);
-            context.drawTexture(TEXTURA_PEDRA, x + 93, y + 49, 0, 0, 32, 32,32,32);
+            context.drawTexture(TEXTURA_PEDRA, x + 90, y + 50, 0, 0, 32, 32,32,32);
         }
+    }
+
+    private Identifier getIdentifier(Identifier[] CORACAO) {
+        int progresso = handler.get_progress();
+        int max = handler.get_max_progress();
+
+        if (max <= 0) return CORACAO[0];
+
+        int index = (int)((progresso / (float) max) * (CORACAO.length - 1));
+
+        index = Math.max(0, Math.min(index, CORACAO.length - 1));
+
+        return CORACAO[index];
     }
 
     private static final Identifier TEXTURA_FERRAMENTAS =
@@ -120,14 +164,14 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
         Identifier[] LIVRO_CIMA = new Identifier[] {
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-capa.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-inicio.png"),
-                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-maio.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-meio.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_cima-final.png"),
         };
 
         Identifier[] LIVRO_BAIXO = new Identifier[] {
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-capa.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-inicio.png"),
-                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-maio.png"),
+                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-meio.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/livrinho_baixo-final.png"),
         };
 
@@ -182,23 +226,27 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
 
     }
 
-
-    private void desenharIcones( DrawContext context) {
-        int icone_x = 150;
-        int icone_y = 25;
-        int icone_width = 64;
-        int icone_heigth = 64;
-
-
-
-
-        Identifier[] ENTALHES = new Identifier[] {
+    public Identifier[] ENTALHES = new Identifier[] {
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-0.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-1.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-2.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-3.png"),
                 Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_entalhe-4.png")
-        };
+    };
+
+    public Identifier[] BASES = new Identifier[] {
+            Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-0.png"),
+            Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-1.png"),
+            Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-2.png"),
+            Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-3.png"),
+            Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-4.png")
+    };
+
+    private void desenharIcones( DrawContext context) {
+        int icone_x = 147;
+        int icone_y = 25;
+        int icone_width = 64;
+        int icone_heigth = 64;
 
         int Entalhe = handler.get_entalhe();
 
@@ -206,14 +254,6 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
         RenderSystem.setShaderTexture(0, TEXTURA_ENTALHE);
         context.drawTexture(TEXTURA_ENTALHE, x + icone_x, y + icone_y, 0, 0, icone_width, icone_heigth, icone_width, icone_heigth);
 
-
-        Identifier[] BASES = new Identifier[] {
-                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-0.png"),
-                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-1.png"),
-                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-2.png"),
-                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-3.png"),
-                Identifier.of(Apito.MOD_ID , "textures/gui/carving_bench/papel_base-4.png")
-        };
 
         int Base = handler.get_base();
 
@@ -232,38 +272,90 @@ public class CarvingBenchScreen extends HandledScreen<CarvingBenchScreenHandler>
 
     private void AddEntalheClick() {
         if(handler.tem_pedra()){
-            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
-            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.ADD_ENTALHE));
+            if(!handler.usando_ferramentsa()) {
+                if(handler.get_entalhe() < ENTALHES.length -1) {
+                    client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+                    ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.ADD_ENTALHE));
+                }
+            }
         }
     }
 
     private void SubEntalheClick() {
         if(handler.tem_pedra()) {
-            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
-            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.SUB_ENTALHE));
+            if(!handler.usando_ferramentsa()) {
+                if(handler.get_entalhe() > 0){
+                    client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+                    ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.SUB_ENTALHE));
+                }
+            }
         }
     }
 
     private void AddBaseClick() {
         if(handler.tem_pedra()) {
-            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
-            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.ADD_BASE));
+            if(!handler.usando_ferramentsa()) {
+                if(handler.get_base() < BASES.length - 1){
+                    client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+                    ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.ADD_BASE));
+                }
+            }
         }
     }
 
     private void SubBaseClick() {
         if(handler.tem_pedra()) {
-            client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
-            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.SUB_BASE));
+            if(!handler.usando_ferramentsa()) {
+                if(handler.get_base() > 0) {
+                    client.player.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN, 1.0f, 1.0f);
+                    ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.SUB_BASE));
+                }
+            }
         }
     }
 
     private void CoracaoClick() {
         if(handler.tem_pedra()) {
-            client.player.playSound(SoundEvents.BLOCK_STONE_BREAK, 1.0f, 1.0f);
-            ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
+
+            if(handler.usando_ferramentsa()){
+                client.player.playSound(SoundEvents.BLOCK_STONE_BREAK, 1.0f, 1.0f);
+                ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
+
+                double mouseX = client.mouse.getX() * client.getWindow().getScaledWidth() / client.getWindow().getWidth();
+                double mouseY = client.mouse.getY() * client.getWindow().getScaledHeight() / client.getWindow().getHeight();
+
+                int quantidade = java.util.concurrent.ThreadLocalRandom.current().nextInt(1, 3);
+
+                for(int i = 0; i < quantidade; i++){
+                    particles.add(new UiParticle((float) mouseX - x,(float) mouseY - y,7,7,10, (float)0.5));
+                }
+
+                if(handler.get_progress()%5 == 0 && handler.get_progress() != 0) {
+                    for(int i = 0; i < 20; i++){
+                        particles.add(new UiParticle((float) mouseX - x,(float) mouseY - y,7,7,10, (float)0.5));
+                        client.player.playSound(SoundEvents.BLOCK_ANCIENT_DEBRIS_BREAK, 1.0f, 1.0f);
+                    }
+                }
+
+                ClientPlayNetworking.send(new ButtonClickPayload(ButtonAction.CORACAO));
+            }
         }
     }
 
+
+    //PARTICULAS
+
+
+    @Override
+    protected void handledScreenTick() {
+        super.handledScreenTick();
+
+        particles.removeIf(p -> {
+            p.tick();
+            return !p.isAlive();
+        });
+    }
+
+    private final List<UiParticle> particles = new ArrayList<>();
 
 }

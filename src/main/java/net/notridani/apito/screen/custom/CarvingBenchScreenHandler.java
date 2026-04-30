@@ -134,6 +134,8 @@ public class CarvingBenchScreenHandler extends ScreenHandler {
         }
     }
 
+    public int get_progress() {return propertyDelegate.get(0);}
+    public int get_max_progress() {return propertyDelegate.get(1);}
 
     public boolean tem_pedra(){
         return propertyDelegate.get(2) == 1;

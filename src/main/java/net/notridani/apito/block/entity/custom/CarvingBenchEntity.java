@@ -38,7 +38,7 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 5;
+    private int maxProgress = 70;
     private int tem_pedra = 0;
     private int usando_ferramenta = 0;
     private int entalhe = 0;
@@ -165,6 +165,66 @@ public class CarvingBenchEntity extends BlockEntity implements ExtendedScreenHan
             world.updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
 
+    }
+
+    //ENTALHES
+
+    int max_entalhe = 4;
+    int max_base = 4;
+
+
+    public void add_entalhe() {
+
+        this.entalhe = this.entalhe + 1;
+
+
+        markDirty();
+        if (world != null && !world.isClient) {
+            world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+    }
+
+    public void sub_entalhe() {
+
+        this.entalhe = this.entalhe - 1;
+
+
+        markDirty();
+        if (world != null && !world.isClient) {
+            world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+    }
+
+    public void add_base() {
+
+        this.base = this.base + 1;
+
+
+        markDirty();
+        if (world != null && !world.isClient) {
+            world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+    }
+
+    public void sub_base() {
+
+        this.base = this.base - 1;
+
+
+        markDirty();
+        if (world != null && !world.isClient) {
+            world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+    }
+
+    public void coracao() {
+
+        this.progress++;
+
+        markDirty();
+        if (world != null && !world.isClient) {
+            world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
     }
 
 

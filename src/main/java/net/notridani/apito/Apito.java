@@ -74,7 +74,11 @@ public class Apito implements ModInitializer {
 
 							switch (payload.action()) {
 								case TOGGLE_FERRAMENTA -> screenHandler.blockEntity.toggleFerramenta();
-								case ADD_ENTALHE  -> {}
+								case ADD_ENTALHE  -> screenHandler.blockEntity.add_entalhe();
+								case SUB_ENTALHE  -> screenHandler.blockEntity.sub_entalhe();
+								case ADD_BASE  -> screenHandler.blockEntity.add_base();
+								case SUB_BASE  -> screenHandler.blockEntity.sub_base();
+								case CORACAO -> screenHandler.blockEntity.coracao();
 							}
 
 						}
