@@ -2,6 +2,7 @@ package net.notridani.apito;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -24,6 +25,7 @@ import net.notridani.apito.entity.client.GolboRender;
 import net.notridani.apito.entity.client.MininoruModel;
 import net.notridani.apito.entity.client.MininoruRender;
 import net.notridani.apito.item.ModItems;
+import net.notridani.apito.item.client.WhistleItemRenderer;
 import net.notridani.apito.screen.ModScreenHandler;
 import net.notridani.apito.screen.custom.CarvingBenchScreen;
 import net.notridani.apito.util.ModModelPredicates;
@@ -52,5 +54,7 @@ public class ApitoClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntities.FORGE_INPUT_BE, ForgeInputEntityRenderer::new);
 
         HandledScreens.register(ModScreenHandler.CARVING_BENCH_SCREEN_HANDLER, CarvingBenchScreen::new);
+
+        BuiltinItemRendererRegistry.INSTANCE.register(ModItems.WHISTLE, new WhistleItemRenderer());
     }
 }
