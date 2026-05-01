@@ -91,7 +91,7 @@ public class WhistleItemRenderer implements BuiltinItemRendererRegistry.DynamicI
 
         float min = -0.5f;
         float max = 0.5f;
-        float z = 0.0625f;
+        float z = 0.0125f;
 
         vc.vertex(matrix, min, min, z)
                 .color(255, 255, 255, 255)
