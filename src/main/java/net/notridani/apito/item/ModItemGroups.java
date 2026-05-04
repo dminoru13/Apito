@@ -64,7 +64,7 @@ public class ModItemGroups {
                         stack.set(
                                 ModDataComponentTypes.WHISTLE_DATA,
                                 new ModDataComponentTypes.WhistleData(
-                                        2, 1, 4, 3
+                                        0, 0, 4, 0
                                 )
                         );
 

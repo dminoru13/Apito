@@ -2,18 +2,13 @@ package net.notridani.apito;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
-import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.Identifier;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.block.entity.ModBlockEntities;
 import net.notridani.apito.block.entity.renderer.ForgeInputEntityRenderer;
@@ -25,7 +20,7 @@ import net.notridani.apito.entity.client.GolboRender;
 import net.notridani.apito.entity.client.MininoruModel;
 import net.notridani.apito.entity.client.MininoruRender;
 import net.notridani.apito.item.ModItems;
-import net.notridani.apito.item.client.WhistleItemRenderer;
+import net.notridani.apito.item.client.model.WhistleModelLoader;
 import net.notridani.apito.screen.ModScreenHandler;
 import net.notridani.apito.screen.custom.CarvingBenchScreen;
 import net.notridani.apito.util.ModModelPredicates;
@@ -55,6 +50,28 @@ public class ApitoClient implements ClientModInitializer {
 
         HandledScreens.register(ModScreenHandler.CARVING_BENCH_SCREEN_HANDLER, CarvingBenchScreen::new);
 
-        BuiltinItemRendererRegistry.INSTANCE.register(ModItems.WHISTLE, new WhistleItemRenderer());
+        ModelLoadingPlugin.register(new WhistleModelLoader());
+
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+
+            if (tintIndex != 0) return -1;
+
+            var data = stack.get(ModDataComponentTypes.WHISTLE_DATA);
+            if (data == null) return -1;
+
+            return getTierColor(data.tier());
+
+        }, ModItems.WHISTLE);
+    }
+
+    private static int getTierColor(int tier) {
+        return switch (tier) {
+            case 0 -> 0xFFAAAAAA; // cinza
+            case 1 -> 0xFF55FF55; // verde
+            case 2 -> 0xFF5555FF; // azul
+            case 3 -> 0xFFFFAA00; // laranja
+            case 4 -> 0xFFFF5555; // vermelho
+            default -> 0xFFFFFFFF; // branco fallback
+        };
     }
 }
