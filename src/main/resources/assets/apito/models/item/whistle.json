@@ -1,7 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "apito:item/whistle",
-    "tintindex": 0
+    "layer0": "apito:item/whistle"
   }
 }

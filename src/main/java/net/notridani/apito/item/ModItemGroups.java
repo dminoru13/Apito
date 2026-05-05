@@ -59,16 +59,23 @@ public class ModItemGroups {
                         //ferramentas
 
                         //apitos
-                        ItemStack stack = new ItemStack(ModItems.WHISTLE);
 
-                        stack.set(
-                                ModDataComponentTypes.WHISTLE_DATA,
-                                new ModDataComponentTypes.WhistleData(
-                                        0, 0, 4, 0
-                                )
-                        );
+                        for(int i = 0; i < 5; i++) {
+                            ItemStack stack = new ItemStack(ModItems.WHISTLE);
 
-                        entries.add(stack);
+                            stack.set(
+                                    ModDataComponentTypes.WHISTLE_DATA,
+                                    new ModDataComponentTypes.WhistleData(
+                                            3, 4, 1, i
+                                    )
+                            );
+
+                            entries.add(stack);
+                        }
+
+
+
+
 
                         //discos de musica
                         entries.add(ModItems.ENDLESS_EMBRACE_MUSIC_DISC);

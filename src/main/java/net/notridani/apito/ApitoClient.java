@@ -54,24 +54,37 @@ public class ApitoClient implements ClientModInitializer {
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 
-            if (tintIndex != 0) return -1;
-
             var data = stack.get(ModDataComponentTypes.WHISTLE_DATA);
             if (data == null) return -1;
 
-            return getTierColor(data.tier());
+            return switch (tintIndex) {
+                case 0 -> getTierColor(data.tier()); // base
+                case 1 -> getDetailColor(data.tier());      // overlay
+                default -> -1;
+            };
 
         }, ModItems.WHISTLE);
     }
 
     private static int getTierColor(int tier) {
         return switch (tier) {
-            case 0 -> 0xFFAAAAAA; // cinza
-            case 1 -> 0xFF55FF55; // verde
-            case 2 -> 0xFF5555FF; // azul
-            case 3 -> 0xFFFFAA00; // laranja
-            case 4 -> 0xFFFF5555; // vermelho
-            default -> 0xFFFFFFFF; // branco fallback
+            case 0 -> 0xFF18161f;
+            case 1 -> 0xFF723201;
+            case 2 -> 0xFF323232;
+            case 3 -> 0xFF8f8807;
+            case 4 -> 0xFFcacaca;
+            default -> 0xFFFFFFFF;
+        };
+    }
+
+    private static int getDetailColor(int tier) {
+        return switch (tier) {
+            case 0 -> 0xFF4f447b;
+            case 1 -> 0xFFda5f02;
+            case 2 -> 0xFFb1b1b1;
+            case 3 -> 0xFF8f8807;
+            case 4 -> 0xFFfffFFd;
+            default -> 0xFFFFFFFF;
         };
     }
 }

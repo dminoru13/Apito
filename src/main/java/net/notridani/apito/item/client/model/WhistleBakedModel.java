@@ -30,7 +30,6 @@ public class WhistleBakedModel implements BakedModel, FabricBakedModel {
 
     private void add(RenderContext context, String key, ItemStack stack, Random random) {
 
-        System.out.println("Rendering part: " + key); // 👈 AQUI
 
         BakedModel model = parts.get(key);
 
