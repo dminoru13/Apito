@@ -82,14 +82,5 @@ public class CarvingBench extends BlockWithEntity implements BlockEntityProvider
         return ItemActionResult.SUCCESS;
     }
 
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if(world.isClient()) {
-            return null;
-        }
 
-        return validateTicker(type, ModBlockEntities.CARVING_BENCH_BE,
-                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
 }
