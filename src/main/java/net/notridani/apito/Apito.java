@@ -23,6 +23,7 @@ import net.notridani.apito.potion.ModPotions;
 import net.notridani.apito.screen.ModScreenHandler;
 import net.notridani.apito.screen.custom.CarvingBenchScreenHandler;
 import net.notridani.apito.sound.ModSounds;
+import net.notridani.apito.world.ModWorldgen;
 import net.notridani.apito.world.gen.ModWorldGenneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,6 +63,8 @@ public class Apito implements ModInitializer {
 
 
 		ModScreenHandler.registerScreenHandlers();
+
+		ModWorldgen.register();
 
 
 		PayloadTypeRegistry.playC2S().register(

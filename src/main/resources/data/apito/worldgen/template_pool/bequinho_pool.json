@@ -1,13 +1,13 @@
 {
   "type": "minecraft:template_pool",
-  "name": "apito:corredor_pool",
+  "name": "apito:bequinho_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "apito:corredor0",
+        "location": "apito:bequinhos_base1",
         "processors": {
           "processors": []
         },

@@ -1,24 +1,10 @@
 {
-  "type": "apito:estrutura",
+  "type": "minecraft:overworld",
   "generator": {
-    "type": "minecraft:noise",
-    "settings": "apito:estrutura",
+    "type": "apito:corredor",
     "biome_source": {
-      "type": "minecraft:multi_noise",
-      "biomes": [
-        {
-          "biome": "apito:nulo",
-          "parameters": {
-            "temperature": 0,
-            "humidity": 0,
-            "continentalness": 0,
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": 0,
-            "offset": 0
-          }
-        }
-      ]
+      "type": "minecraft:fixed",
+      "biome": "apito:nulo"
     }
   }
 }
