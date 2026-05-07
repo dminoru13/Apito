@@ -1,0 +1,111 @@
+{
+  "name": "apito:bequinho_parede_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 50,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_0",
+        "processors": "minecraft:empty",
+	    	"projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 11,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 10,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 9,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 8,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_4",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 7,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_5",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 6,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_6",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 5,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_7",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 4,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_8",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 3,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_9",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 2,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_10",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 1,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_parede_11",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 2,
+      "element": {
+        "location": "apito:bequinho/base/bequinho_escada",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

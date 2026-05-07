@@ -1,0 +1,15 @@
+{
+  "name": "apito:bequinho_1andar_escada_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "apito:bequinho/1andar/bequinho_1andar_anchor",
+        "processors": "minecraft:empty",
+	    	"projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

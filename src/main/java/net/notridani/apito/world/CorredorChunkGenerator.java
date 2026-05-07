@@ -4,10 +4,15 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.StructureTemplate;
 import net.minecraft.structure.StructureTemplateManager;
 
+import net.minecraft.structure.pool.StructurePool;
+import net.minecraft.structure.pool.StructurePoolBasedGenerator;
+import net.minecraft.structure.pool.alias.StructurePoolAliasLookup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
@@ -24,8 +29,10 @@ import net.minecraft.world.gen.chunk.Blender;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.noise.NoiseConfig;
+import net.minecraft.world.gen.structure.DimensionPadding;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class CorredorChunkGenerator extends ChunkGenerator {
@@ -123,7 +130,6 @@ public class CorredorChunkGenerator extends ChunkGenerator {
     public void buildSurface(ChunkRegion region, StructureAccessor structures, NoiseConfig noiseConfig, Chunk chunk) {
 
         corredores(region, chunk);
-        bequinhos(region, chunk);
     }
 
 
@@ -131,7 +137,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
 
     private void corredores(ChunkRegion region, Chunk chunk) {
-        int spacingChunks = 3;
+        int spacingChunks = 300;
 
         int chunkX = chunk.getPos().x;
         int chunkZ = chunk.getPos().z;
@@ -159,8 +165,5 @@ public class CorredorChunkGenerator extends ChunkGenerator {
         );
     }
 
-    private void bequinhos(ChunkRegion region, Chunk chunk) {
-
-    }
 
 }

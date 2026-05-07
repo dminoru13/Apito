@@ -1,15 +1,13 @@
 {
-  "name": "apito:salas_pool",
+  "name": "apito:main",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 50,
       "element": {
-        "location": "apito:bequinho_sala1",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid",
+        "location": "apito:torre_andar1",
+        "processors": "minecraft:empty",
+	    	"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     }

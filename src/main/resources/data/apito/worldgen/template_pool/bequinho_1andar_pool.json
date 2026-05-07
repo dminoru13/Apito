@@ -1,0 +1,47 @@
+{
+  "name": "apito:bequinho_1andar_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 20,
+      "element": {
+        "location": "apito:bequinho/1andar/bequinho_1andar_sala1",
+        "processors": "minecraft:empty",
+	    	"projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 3,
+      "element": {
+        "location": "apito:bequinho/1andar/bequinho_1andar_sala2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 3,
+      "element": {
+        "location": "apito:bequinho/1andar/bequinho_1andar_sala3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 3,
+      "element": {
+        "location": "apito:bequinho/1andar/bequinho_1andar_sala4",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 1,
+      "element": {
+        "location": "apito:bequinho/1andar/bequinho_1andar_armario",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

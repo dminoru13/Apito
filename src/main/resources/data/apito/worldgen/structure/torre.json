@@ -3,10 +3,10 @@
   "biomes": "apito:nulo",
   "step": "surface_structures",
   "spawn_overrides": {},
-  "start_pool": "apito:bequinho_anchor_pool",
-  "size": 3,
+  "start_pool": "apito:torre_anchor",
+  "size": 20,
   "start_height": {
-    "absolute": 240
+    "absolute": 64
   },
   "max_distance_from_center": 80,
   "use_expansion_hack": false
