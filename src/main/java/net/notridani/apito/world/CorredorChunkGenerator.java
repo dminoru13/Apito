@@ -114,7 +114,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                for (int y = getMinimumY(); y < getWorldHeight(); y++) {
+                for (int y = getMinimumY(); y < 208; y++) {
                     chunk.setBlockState(pos.set(x, y, z),
                             Blocks.STONE.getDefaultState(),
                             false);

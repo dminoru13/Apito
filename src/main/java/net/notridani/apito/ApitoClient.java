@@ -7,12 +7,15 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.util.Identifier;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.block.entity.ModBlockEntities;
 import net.notridani.apito.block.entity.renderer.ForgeInputEntityRenderer;
 import net.notridani.apito.block.entity.renderer.WhistleForgeEntityRenderer;
+import net.notridani.apito.client.ApitoDimensionEffects;
 import net.notridani.apito.component.ModDataComponentTypes;
 import net.notridani.apito.entity.ModEntities;
 import net.notridani.apito.entity.client.GolboModel;
@@ -64,6 +67,12 @@ public class ApitoClient implements ClientModInitializer {
             };
 
         }, ModItems.WHISTLE);
+
+
+        DimensionEffects.BY_IDENTIFIER.put(
+                Identifier.of("apito", "nulo"),
+                new ApitoDimensionEffects()
+        );
     }
 
     private static int getTierColor(int tier) {
@@ -87,4 +96,6 @@ public class ApitoClient implements ClientModInitializer {
             default -> 0xFFFFFFFF;
         };
     }
+
+
 }
