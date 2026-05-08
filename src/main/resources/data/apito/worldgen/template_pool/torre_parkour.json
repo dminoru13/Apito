@@ -1,27 +1,35 @@
 {
-  "name": "apito:torre_main",
+  "name": "apito:torre_parkour",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 150,
+      "weight": 50,
       "element": {
-        "location": "apito:torre/torre1",
+        "location": "apito:torre/torre_parkour1",
         "processors": "minecraft:empty",
 	    	"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     },{
-      "weight": 1,
+      "weight": 50,
       "element": {
-        "location": "apito:torre/telhado/telhado1",
+        "location": "apito:torre/torre_parkour2",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     },{
-      "weight": 1,
+      "weight": 50,
       "element": {
-        "location": "apito:torre/telhado/telhado2",
+        "location": "apito:torre/torre_parkour3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },{
+      "weight": 50,
+      "element": {
+        "location": "apito:torre/torre_parkour4",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "apito:nulo",
+    "apito:borda",
+    "apito:fenda"
+  ]
+}

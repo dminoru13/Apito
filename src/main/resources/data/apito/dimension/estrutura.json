@@ -1,10 +1,14 @@
 {
-  "type": "minecraft:overworld",
+  "type": "apito:estrutura",
   "generator": {
     "type": "apito:corredor",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "apito:nulo"
+      "type": "apito:apito_biome_source",
+      "biomes": [
+        "apito:nulo",
+        "apito:borda",
+        "apito:fenda"
+      ]
     }
   }
 }

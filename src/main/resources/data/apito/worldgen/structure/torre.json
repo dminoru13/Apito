@@ -1,12 +1,12 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": "apito:nulo",
+  "biomes": "apito:borda",
   "step": "surface_structures",
   "spawn_overrides": {},
   "start_pool": "apito:torre_anchor",
-  "size": 20,
+  "size": 10,
   "start_height": {
-    "absolute": 64
+    "absolute": 208
   },
   "max_distance_from_center": 80,
   "use_expansion_hack": false

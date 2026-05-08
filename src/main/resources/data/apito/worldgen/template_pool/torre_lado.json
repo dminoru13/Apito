@@ -3,25 +3,17 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 150,
+      "weight": 50,
       "element": {
-        "location": "apito:torre/torre1",
+        "location": "apito:torre/torre_base",
         "processors": "minecraft:empty",
 	    	"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     },{
-      "weight": 1,
+      "weight": 50,
       "element": {
-        "location": "apito:torre/telhado/telhado1",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },{
-      "weight": 1,
-      "element": {
-        "location": "apito:torre/telhado/telhado2",
+        "location": "apito:nada",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

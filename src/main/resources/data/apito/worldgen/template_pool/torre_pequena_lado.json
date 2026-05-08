@@ -1,13 +1,13 @@
 {
-  "name": "apito:torre_anchor",
+  "name": "apito:torre_main",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 50,
       "element": {
-        "location": "apito:torre/torre_base",
+        "location": "apito:torre/torre_solitaria",
         "processors": "minecraft:empty",
-	    	"projection": "rigid",
+        "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     }

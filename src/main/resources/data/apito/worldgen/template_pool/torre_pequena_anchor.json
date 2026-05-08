@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "apito:torre/torre_base",
+        "location": "apito:torre/torre_pequena_base",
         "processors": "minecraft:empty",
 	    	"projection": "rigid",
         "element_type": "minecraft:single_pool_element"

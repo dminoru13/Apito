@@ -21,6 +21,7 @@ import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.Heightmap;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.chunk.Chunk;
 
@@ -30,12 +31,17 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.noise.NoiseConfig;
 import net.minecraft.world.gen.structure.DimensionPadding;
+import net.notridani.apito.Apito;
+import net.notridani.apito.world.biome.ApitoBiomeSource;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
+import static com.ibm.icu.impl.ValidIdentifiers.Datatype.region;
+
 public class CorredorChunkGenerator extends ChunkGenerator {
+
 
     // 🔥 CODEC correto (recebe biome_source do JSON)
     public static final MapCodec<CorredorChunkGenerator> CODEC =
@@ -110,15 +116,48 @@ public class CorredorChunkGenerator extends ChunkGenerator {
             StructureAccessor accessor,
             Chunk chunk
     ) {
+
+
         BlockPos.Mutable pos = new BlockPos.Mutable();
+
+        ChunkPos chunkPos = chunk.getPos();
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                for (int y = getMinimumY(); y < 208; y++) {
-                    chunk.setBlockState(pos.set(x, y, z),
-                            Blocks.STONE.getDefaultState(),
-                            false);
+
+                int worldX = chunkPos.getStartX() + x;
+                int worldZ = chunkPos.getStartZ() + z;
+
+
+                RegistryEntry<Biome> biome =
+                        this.biomeSource.getBiome(
+                                worldX >> 2,
+                                0,
+                                worldZ >> 2,
+                                noiseConfig.getMultiNoiseSampler()
+                        );
+
+                int maxHeight = 300;
+
+                if (biome.matchesId(Identifier.of(Apito.MOD_ID, "fenda"))) {
+                    maxHeight = 208;
                 }
+
+                if(biome.matchesId(Identifier.of(Apito.MOD_ID, "borda"))) {
+                    for (int y = getMinimumY(); y < maxHeight; y++) {
+                        chunk.setBlockState(pos.set(x, y, z),
+                                Blocks.BASALT.getDefaultState(),
+                                false);
+                    }
+                } else {
+                    for (int y = getMinimumY(); y < maxHeight; y++) {
+                        chunk.setBlockState(pos.set(x, y, z),
+                                Blocks.STONE.getDefaultState(),
+                                false);
+                    }
+                }
+
+
             }
         }
 
@@ -128,6 +167,13 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
     @Override
     public void buildSurface(ChunkRegion region, StructureAccessor structures, NoiseConfig noiseConfig, Chunk chunk) {
+
+        if (this.biomeSource instanceof ApitoBiomeSource source) {
+
+            if (!source.isInitialized()) {
+                source.init(region.toServerWorld().getSeed());
+            }
+        }
 
         corredores(region, chunk);
     }
@@ -164,6 +210,4 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                 3
         );
     }
-
-
 }

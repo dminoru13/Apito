@@ -69,10 +69,21 @@ public class ApitoClient implements ClientModInitializer {
         }, ModItems.WHISTLE);
 
 
-        DimensionEffects.BY_IDENTIFIER.put(
-                Identifier.of("apito", "nulo"),
-                new ApitoDimensionEffects()
-        );
+        try {
+            var field = DimensionEffects.class.getDeclaredField("BY_IDENTIFIER");
+            field.setAccessible(true);
+
+            @SuppressWarnings("unchecked")
+            var map = (java.util.Map<Identifier, DimensionEffects>) field.get(null);
+
+            map.put(
+                    Identifier.of("apito", "estrutura"),
+                    new ApitoDimensionEffects()
+            );
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static int getTierColor(int tier) {

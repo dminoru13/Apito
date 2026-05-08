@@ -3,6 +3,8 @@ package net.notridani.apito.world;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.notridani.apito.Apito;
+import net.notridani.apito.world.biome.ApitoBiomeSource;
 
 public class ModWorldgen {
 
@@ -14,6 +16,12 @@ public class ModWorldgen {
                 Registries.CHUNK_GENERATOR,
                 CORREDOR_ID,
                 CorredorChunkGenerator.CODEC
+        );
+
+        Registry.register(
+                Registries.BIOME_SOURCE,
+                Identifier.of(Apito.MOD_ID, "apito_biome_source"),
+                ApitoBiomeSource.CODEC
         );
     }
 }

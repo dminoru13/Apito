@@ -1,0 +1,11 @@
+{
+  "structures": [
+    {
+      "structure": "apito:torre_pequena",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "apito:everywhere"
+  }
+}
