@@ -6,8 +6,8 @@ import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.notridani.apito.datagen.*;
 import net.notridani.apito.enchantment.ModEnchantment;
-import net.notridani.apito.world.ModConfiguredFeatures;
-import net.notridani.apito.world.ModPlacedFeatures;
+import net.notridani.apito.world.ApitoConfiguredFeatures;
+import net.notridani.apito.world.ApitoPlacedFeatures;
 
 public class ApitoDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -27,7 +27,7 @@ public class ApitoDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantment::bootsrap);
 
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ApitoConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ApitoPlacedFeatures::bootstrap);
 	}
 }

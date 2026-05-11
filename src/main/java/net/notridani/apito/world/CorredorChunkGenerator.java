@@ -3,6 +3,7 @@ package net.notridani.apito.world;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -17,11 +18,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
+import net.minecraft.util.math.random.Xoroshiro128PlusPlusRandom;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.Heightmap;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.chunk.Chunk;
 
@@ -32,35 +36,18 @@ import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.noise.NoiseConfig;
 import net.minecraft.world.gen.structure.DimensionPadding;
 import net.notridani.apito.Apito;
+import net.notridani.apito.world.biome.ApitoBiomeData;
 import net.notridani.apito.world.biome.ApitoBiomeSource;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import static com.ibm.icu.impl.ValidIdentifiers.Datatype.region;
 
 public class CorredorChunkGenerator extends ChunkGenerator {
-
-
-    // 🔥 CODEC correto (recebe biome_source do JSON)
-    public static final MapCodec<CorredorChunkGenerator> CODEC =
-            RecordCodecBuilder.mapCodec(instance ->
-                    instance.group(
-                            BiomeSource.CODEC.fieldOf("biome_source")
-                                    .forGetter(gen -> gen.biomeSource)
-                    ).apply(instance, CorredorChunkGenerator::new)
-            );
-
-    public CorredorChunkGenerator(BiomeSource biomeSource) {
-        super(biomeSource);
-    }
-
-    @Override
-    protected MapCodec<? extends ChunkGenerator> getCodec() {
-        return CODEC;
-    }
-
 
 
     // ===== métodos obrigatórios =====
@@ -106,7 +93,43 @@ public class CorredorChunkGenerator extends ChunkGenerator {
     }
 
 
+
+    public static final MapCodec<CorredorChunkGenerator> CODEC =
+            RecordCodecBuilder.mapCodec(instance ->
+                    instance.group(
+                            BiomeSource.CODEC.fieldOf("biome_source")
+                                    .forGetter(gen -> gen.biomeSource)
+                    ).apply(instance, CorredorChunkGenerator::new)
+            );
+
+
+    //variaveis
+
+
+    private final DoublePerlinNoiseSampler DoublePerlinNoise;
+
+
+
     //METODOS QUE EU TO USANDO
+
+    public CorredorChunkGenerator(BiomeSource biomeSource) {
+        super(biomeSource);
+
+        this.DoublePerlinNoise = Noises.createPerlinNoise(
+                3,
+                23,
+                -7,
+                1.0, 0.5, 0.25
+        );
+    }
+
+
+
+    @Override
+    protected MapCodec<? extends ChunkGenerator> getCodec() {
+        return CODEC;
+    }
+
 
 
     @Override
@@ -128,7 +151,6 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                 int worldX = chunkPos.getStartX() + x;
                 int worldZ = chunkPos.getStartZ() + z;
 
-
                 RegistryEntry<Biome> biome =
                         this.biomeSource.getBiome(
                                 worldX >> 2,
@@ -137,24 +159,31 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                                 noiseConfig.getMultiNoiseSampler()
                         );
 
-                int maxHeight = 300;
-
-                if (biome.matchesId(Identifier.of(Apito.MOD_ID, "fenda"))) {
-                    maxHeight = 208;
+                if (!(this.biomeSource instanceof ApitoBiomeSource source)) {
+                    return CompletableFuture.completedFuture(chunk);
                 }
 
-                if(biome.matchesId(Identifier.of(Apito.MOD_ID, "borda"))) {
-                    for (int y = getMinimumY(); y < maxHeight; y++) {
-                        chunk.setBlockState(pos.set(x, y, z),
-                                Blocks.BASALT.getDefaultState(),
-                                false);
-                    }
-                } else {
-                    for (int y = getMinimumY(); y < maxHeight; y++) {
-                        chunk.setBlockState(pos.set(x, y, z),
-                                Blocks.STONE.getDefaultState(),
-                                false);
-                    }
+                ApitoBiomeData data = source.getBiomeData(biome);
+
+                double terrainNoise = Noises.DoublePerlinSample(
+                        DoublePerlinNoise,
+                        worldX,
+                        0,
+                        worldZ,
+                        data.frequencia_noise
+                );
+
+                int altura_maxima = data.Altura + (int)(terrainNoise * data.amplitude_noise);
+
+                Block bloco_bsae = data.bloco_base;
+
+
+
+
+                for (int y = getMinimumY(); y <= altura_maxima; y++) {
+
+                    chunk.setBlockState(pos.set(x, y, z), bloco_bsae.getDefaultState(), false);
+
                 }
 
 
@@ -175,7 +204,65 @@ public class CorredorChunkGenerator extends ChunkGenerator {
             }
         }
 
+
         corredores(region, chunk);
+
+
+        //surface rules
+        if (!(this.biomeSource instanceof ApitoBiomeSource source)) {
+            return;
+        }
+
+        BlockPos.Mutable pos = new BlockPos.Mutable();
+        ChunkPos chunkPos = chunk.getPos();
+
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
+                int worldX = chunkPos.getStartX() + x;
+                int worldZ = chunkPos.getStartZ() + z;
+
+                RegistryEntry<Biome> biome = this.biomeSource.getBiome(worldX >> 2, 0, worldZ >> 2, noiseConfig.getMultiNoiseSampler());
+
+
+                ApitoBiomeData data = source.getBiomeData(biome);
+
+                double terrainNoise = Noises.DoublePerlinSample(
+                        DoublePerlinNoise,
+                        worldX,
+                        0,
+                        worldZ,
+                        data.frequencia_noise
+                );
+
+                int altura_maxima = data.Altura + (int)(terrainNoise * data.amplitude_noise);
+
+
+                for(int profundidade = 0; profundidade < 5; profundidade++) {
+
+                    int y = altura_maxima - profundidade;
+
+                    Block bloco;
+
+                    if (profundidade == 0) {
+                        bloco = data.bloco_superficie;
+                    } else if (profundidade < 4 + altura_maxima/2 ) {
+                        bloco = data.bloco_intermediario;
+                    } else {
+                        bloco = data.bloco_base;
+                    }
+
+                    chunk.setBlockState(
+                            pos.set(x,y,z),
+                            bloco.getDefaultState(),
+                            false
+                    );
+
+                }
+
+
+
+            }
+        }
     }
 
 

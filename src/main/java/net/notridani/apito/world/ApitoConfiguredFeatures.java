@@ -8,24 +8,25 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
-import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunk.MegaJungleTrunkPlacer;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.notridani.apito.Apito;
 import net.notridani.apito.block.ModBlocks;
 
 import java.util.List;
 
-public class ModConfiguredFeatures {
+public class ApitoConfiguredFeatures {
 
     public static RegistryKey<ConfiguredFeature<?,?>> SCRAP_ORE_KEY = registerKey("scrap_ore");
     public static RegistryKey<ConfiguredFeature<?,?>> PETRIFIED_TREE_KEY = registerKey("petrified_tree");
+    public static RegistryKey<ConfiguredFeature<?,?>> FLOWER_PATCH = registerKey("flowe_patch");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
         RuleTest stoneReplacebles = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -56,6 +57,33 @@ public class ModConfiguredFeatures {
                         new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.TUFF))
                 ))
                 .build());
+
+        register(
+                context,
+                FLOWER_PATCH,
+                Feature.FLOWER,
+                new RandomPatchFeatureConfig(
+                        96,
+                        7,
+                        3,
+
+                        PlacedFeatures.createEntry(
+                                Feature.SIMPLE_BLOCK,
+
+                                new SimpleBlockFeatureConfig(
+
+                                        new WeightedBlockStateProvider(
+                                                DataPool.<net.minecraft.block.BlockState>builder()
+
+                                                        .add(Blocks.DANDELION.getDefaultState(), 5)
+                                                        .add(Blocks.POPPY.getDefaultState(), 3)
+                                                        .add(Blocks.AZURE_BLUET.getDefaultState(), 2)
+
+                                        )
+                                )
+                        )
+                )
+        );
 
     }
 

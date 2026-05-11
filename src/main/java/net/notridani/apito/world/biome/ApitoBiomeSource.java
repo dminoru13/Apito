@@ -3,18 +3,24 @@ package net.notridani.apito.world.biome;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryCodecs;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.entry.RegistryEntryList;
+import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeCoords;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.biome.source.util.MultiNoiseUtil;
+import net.notridani.apito.world.Noises;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Stream;
 
 public class ApitoBiomeSource extends BiomeSource {
+
 
     public static final MapCodec<ApitoBiomeSource> CODEC =
             RecordCodecBuilder.mapCodec(instance ->
@@ -28,15 +34,19 @@ public class ApitoBiomeSource extends BiomeSource {
     private volatile boolean initialized = false;
     private long seed;
 
+
     private final RegistryEntryList<Biome> biomes;
 
     private final RegistryEntry<Biome> nuloBiome;
     private final RegistryEntry<Biome> fendaBiome;
     private final RegistryEntry<Biome> bordaBiome;
+    private final RegistryEntry<Biome> arboredo;
 
     public boolean isInitialized() {
         return initialized;
     }
+
+    private final DoublePerlinNoiseSampler DoublePerlinNoise;
 
 
     public synchronized void init(long seed) {
@@ -46,10 +56,22 @@ public class ApitoBiomeSource extends BiomeSource {
         this.seed = seed;
 
         initialized = true;
+
+
     }
+
+    public final Map<RegistryEntry<Biome>, ApitoBiomeData> apitoBiomeDataMap = new HashMap<>();
+
 
 
     public ApitoBiomeSource(RegistryEntryList<Biome> biomes) {
+
+        this.DoublePerlinNoise = Noises.createPerlinNoise(
+                3,
+                23,
+                -7,
+                1.0, 0.5, 0.25
+        );
 
         this.biomes = biomes;
 
@@ -59,18 +81,85 @@ public class ApitoBiomeSource extends BiomeSource {
                 .findFirst()
                 .orElseThrow();
 
+        this.bordaBiome = biomes.stream()
+                .filter(b -> b.matchesId(
+                        net.minecraft.util.Identifier.of("apito", "borda")))
+                .findFirst()
+                .orElseThrow();
+
         this.fendaBiome = biomes.stream()
                 .filter(b -> b.matchesId(
                         net.minecraft.util.Identifier.of("apito", "fenda")))
                 .findFirst()
                 .orElseThrow();
 
-        this.bordaBiome = biomes.stream()
+        this.arboredo = biomes.stream()
                 .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "borda")))
+                        net.minecraft.util.Identifier.of("apito", "arboredo")))
                 .findFirst()
                 .orElseThrow();
+
+        //DADOS DOS BIOMAS
+
+        apitoBiomeDataMap.put(
+                nuloBiome,
+                new ApitoBiomeData(
+                        nuloBiome,
+                        224,
+                        Blocks.STONE,
+                        Blocks.STONE,
+                        Blocks.STONE,
+                        (float) 0,
+                        (float) 0.0
+                )
+        );
+
+        apitoBiomeDataMap.put(
+                bordaBiome,
+                new ApitoBiomeData(
+                        bordaBiome,
+                        224,
+                        Blocks.BASALT,
+                        Blocks.BASALT,
+                        Blocks.BASALT,
+                        (float)10.0,
+                        (float) 10.0
+                )
+        );
+
+        apitoBiomeDataMap.put(
+                fendaBiome,
+                new ApitoBiomeData(
+                        fendaBiome,
+                        160,
+                        Blocks.STONE,
+                        Blocks.STONE,
+                        Blocks.STONE,
+                        (float) 0.0,
+                        (float) 0.0
+                )
+        );
+
+        apitoBiomeDataMap.put(
+                arboredo,
+                new ApitoBiomeData(
+                        arboredo,
+                        200,
+                        Blocks.GRASS_BLOCK,
+                        Blocks.DIRT,
+                        Blocks.STONE,
+                        (float)4,
+                        (float) 3
+                )
+        );
+
     }
+
+    public ApitoBiomeData getBiomeData(RegistryEntry<Biome> biome) {
+        return apitoBiomeDataMap.get(biome);
+    }
+
+
 
     @Override
     protected Stream<RegistryEntry<Biome>> biomeStream() {
@@ -89,24 +178,32 @@ public class ApitoBiomeSource extends BiomeSource {
         int blockZ = BiomeCoords.toBlock(z);
         int blockY = BiomeCoords.toBlock(y);
 
-        double n = CellularNoise.sample(
-                seed,
-                blockX,
-                blockZ,
-                300
-        );
+        double n = Noises.DoublePerlinSample(DoublePerlinNoise, blockX, 0, blockZ, 0.1);
 
-        if (n > 0.5) {
+
+
+
+        if (n > 0.1) {
 
             return nuloBiome;
         }
 
-        if (n < 0.5 && n > 0.47) {
+        if (n < 0.1 && n > 0.08) {
 
             return bordaBiome;
         }
 
-        return fendaBiome;
+        if (n < 0.8 && n > 0) {
+
+            return arboredo;
+        }
+
+        if(n < 0 && n > -0.35) {
+
+            return fendaBiome;
+        }
+
+        return arboredo;
     }
 
     @Override

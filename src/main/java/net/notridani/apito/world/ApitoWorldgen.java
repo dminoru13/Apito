@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 import net.notridani.apito.Apito;
 import net.notridani.apito.world.biome.ApitoBiomeSource;
 
-public class ModWorldgen {
+public class ApitoWorldgen {
 
     public static final Identifier CORREDOR_ID =
             Identifier.of("apito", "corredor");

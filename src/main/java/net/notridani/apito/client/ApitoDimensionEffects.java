@@ -17,9 +17,9 @@ public class ApitoDimensionEffects extends DimensionEffects {
     @Override
     public Vec3d adjustFogColor(Vec3d color, float sunHeight) {
         return new Vec3d(
-                0.1,
-                0.1,
-                0.1
+                1.0,
+                1.0,
+                1.0
         );
     }
 

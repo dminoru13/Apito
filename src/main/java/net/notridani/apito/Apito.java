@@ -1,6 +1,5 @@
 package net.notridani.apito;
 
-import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
@@ -23,7 +22,7 @@ import net.notridani.apito.potion.ModPotions;
 import net.notridani.apito.screen.ModScreenHandler;
 import net.notridani.apito.screen.custom.CarvingBenchScreenHandler;
 import net.notridani.apito.sound.ModSounds;
-import net.notridani.apito.world.ModWorldgen;
+import net.notridani.apito.world.ApitoWorldgen;
 import net.notridani.apito.world.gen.ModWorldGenneration;
 import net.notridani.apito.world.structure.ApitoStructurePlacements;
 import org.slf4j.Logger;
@@ -65,7 +64,7 @@ public class Apito implements ModInitializer {
 
 		ModScreenHandler.registerScreenHandlers();
 
-		ModWorldgen.register();
+		ApitoWorldgen.register();
 
 
 		PayloadTypeRegistry.playC2S().register(
