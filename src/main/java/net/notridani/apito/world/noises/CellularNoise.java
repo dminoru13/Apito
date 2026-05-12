@@ -1,4 +1,4 @@
-package net.notridani.apito.world.biome;
+package net.notridani.apito.world.noises;
 
 import net.minecraft.util.math.random.Random;
 

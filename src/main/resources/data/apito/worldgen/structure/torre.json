@@ -4,7 +4,7 @@
   "step": "surface_structures",
   "spawn_overrides": {},
   "start_pool": "apito:torre_anchor",
-  "size": 10,
+  "size": 4,
   "start_height": {
     "absolute": 150
   },

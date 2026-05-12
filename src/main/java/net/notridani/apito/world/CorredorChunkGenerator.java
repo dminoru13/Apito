@@ -5,27 +5,21 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.StructureTemplate;
 import net.minecraft.structure.StructureTemplateManager;
 
-import net.minecraft.structure.pool.StructurePool;
-import net.minecraft.structure.pool.StructurePoolBasedGenerator;
-import net.minecraft.structure.pool.alias.StructurePoolAliasLookup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
-import net.minecraft.util.math.random.Xoroshiro128PlusPlusRandom;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.Heightmap;
 
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.chunk.Chunk;
 
@@ -34,18 +28,12 @@ import net.minecraft.world.gen.chunk.Blender;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.noise.NoiseConfig;
-import net.minecraft.world.gen.structure.DimensionPadding;
-import net.notridani.apito.Apito;
+import net.notridani.apito.world.noises.Noises;
 import net.notridani.apito.world.biome.ApitoBiomeData;
 import net.notridani.apito.world.biome.ApitoBiomeSource;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
-
-import static com.ibm.icu.impl.ValidIdentifiers.Datatype.region;
 
 public class CorredorChunkGenerator extends ChunkGenerator {
 
@@ -101,6 +89,15 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                                     .forGetter(gen -> gen.biomeSource)
                     ).apply(instance, CorredorChunkGenerator::new)
             );
+
+    public static boolean isInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
 
     //variaveis
@@ -165,7 +162,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
                 ApitoBiomeData data = source.getBiomeData(biome);
 
-                double terrainNoise = Noises.DoublePerlinSample(
+                double terrainNoise = Noises.doublePerlinSample(
                         DoublePerlinNoise,
                         worldX,
                         0,
@@ -226,7 +223,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
                 ApitoBiomeData data = source.getBiomeData(biome);
 
-                double terrainNoise = Noises.DoublePerlinSample(
+                double terrainNoise = Noises.doublePerlinSample(
                         DoublePerlinNoise,
                         worldX,
                         0,
@@ -236,6 +233,21 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
                 int altura_maxima = data.Altura + (int)(terrainNoise * data.amplitude_noise);
 
+                if(isInt(data.nivel_da_agua)) {
+                    int nivel_agua = Integer.parseInt(data.nivel_da_agua);
+
+                    if (altura_maxima < nivel_agua) {
+
+                        for(int agua_atual = altura_maxima + 1; agua_atual <= nivel_agua; agua_atual++){
+                            chunk.setBlockState(
+
+                                    pos.set(x,agua_atual,z),
+                                    Blocks.WATER.getDefaultState(),
+                                    false
+                            );
+                        }
+                    }
+                }
 
                 for(int profundidade = 0; profundidade < 5; profundidade++) {
 

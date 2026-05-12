@@ -30,10 +30,28 @@ public class ApitoBiomes {
                     Identifier.of(Apito.MOD_ID, "nulo")
             );
 
-    public static final RegistryKey<Biome> LABIRINTO =
+    public static final RegistryKey<Biome> LABIRINTO_DE_FLORES =
             RegistryKey.of(
                     RegistryKeys.BIOME,
-                    Identifier.of(Apito.MOD_ID, "labirinto")
+                    Identifier.of(Apito.MOD_ID, "labirinto_de_flores")
+            );
+
+    public static final RegistryKey<Biome> BORDA =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "borda")
+            );
+
+    public static final RegistryKey<Biome> RESERVATORIO_PROFUNDO =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "reservatorio_profundo")
+            );
+
+    public static final RegistryKey<Biome> PROMONTORIO =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "promontorio")
             );
 
     public static void bootstrap(Registerable<Biome> context) {
@@ -49,8 +67,23 @@ public class ApitoBiomes {
         );
 
         context.register(
-                LABIRINTO,
+                LABIRINTO_DE_FLORES,
                 createLabirinto(context)
+        );
+
+        context.register(
+                BORDA,
+                createBorda(context)
+        );
+
+        context.register(
+                RESERVATORIO_PROFUNDO,
+                createReservatorio(context)
+        );
+
+        context.register(
+                PROMONTORIO,
+                createPromontorio(context)
         );
     }
 
@@ -188,4 +221,135 @@ public class ApitoBiomes {
                 .generationSettings(generation.build())
                 .build();
     }
+
+    public static Biome createBorda(Registerable<Biome> context) {
+
+        RegistryEntryLookup<PlacedFeature> placedFeatures =
+                context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+
+        RegistryEntryLookup<ConfiguredCarver<?>> carvers =
+                context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
+
+        // generation
+
+        GenerationSettings.LookupBackedBuilder generation =
+                new GenerationSettings.LookupBackedBuilder(
+                        placedFeatures,
+                        carvers
+                );
+
+
+
+        // spawn
+
+        SpawnSettings.Builder spawn =
+                new SpawnSettings.Builder();
+
+        // biome
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .temperature(0.7f)
+                .downfall(0.8f)
+                .effects(
+                        new BiomeEffects.Builder()
+                                .skyColor(0x77adff)
+                                .fogColor(0xc0d8ff)
+                                .waterColor(0x3f76e4)
+                                .waterFogColor(0x050533)
+                                .moodSound(BiomeMoodSound.CAVE)
+                                .build()
+                )
+                .spawnSettings(spawn.build())
+                .generationSettings(generation.build())
+                .build();
+    }
+
+    public static Biome createReservatorio(Registerable<Biome> context) {
+
+        RegistryEntryLookup<PlacedFeature> placedFeatures =
+                context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+
+        RegistryEntryLookup<ConfiguredCarver<?>> carvers =
+                context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
+
+        // generation
+
+        GenerationSettings.LookupBackedBuilder generation =
+                new GenerationSettings.LookupBackedBuilder(
+                        placedFeatures,
+                        carvers
+                );
+
+
+
+        // spawn
+
+        SpawnSettings.Builder spawn =
+                new SpawnSettings.Builder();
+
+        // biome
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .temperature(0.7f)
+                .downfall(0.8f)
+                .effects(
+                        new BiomeEffects.Builder()
+                                .skyColor(0x77adff)
+                                .fogColor(0xc0d8ff)
+                                .waterColor(0x3f76e4)
+                                .waterFogColor(0x050533)
+                                .moodSound(BiomeMoodSound.CAVE)
+                                .build()
+                )
+                .spawnSettings(spawn.build())
+                .generationSettings(generation.build())
+                .build();
+    }
+
+    public static Biome createPromontorio(Registerable<Biome> context) {
+
+        RegistryEntryLookup<PlacedFeature> placedFeatures =
+                context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+
+        RegistryEntryLookup<ConfiguredCarver<?>> carvers =
+                context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
+
+        // generation
+
+        GenerationSettings.LookupBackedBuilder generation =
+                new GenerationSettings.LookupBackedBuilder(
+                        placedFeatures,
+                        carvers
+                );
+
+
+
+        // spawn
+
+        SpawnSettings.Builder spawn =
+                new SpawnSettings.Builder();
+
+        // biome
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .temperature(0.7f)
+                .downfall(0.8f)
+                .effects(
+                        new BiomeEffects.Builder()
+                                .skyColor(0x77adff)
+                                .fogColor(0xc0d8ff)
+                                .waterColor(0x3f76e4)
+                                .waterFogColor(0x050533)
+                                .moodSound(BiomeMoodSound.CAVE)
+                                .build()
+                )
+                .spawnSettings(spawn.build())
+                .generationSettings(generation.build())
+                .build();
+    }
+
+
 }

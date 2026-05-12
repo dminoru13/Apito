@@ -12,7 +12,10 @@ public class ApitoFlores {
     public static void generateFlowers() {
 
         BiomeModifications.addFeature(
-                BiomeSelectors.includeByKey(ApitoBiomes.ARBOREDO),
+                BiomeSelectors.includeByKey(
+                        ApitoBiomes.ARBOREDO,
+                        ApitoBiomes.BORDA,
+                        ApitoBiomes.LABIRINTO_DE_FLORES),
 
                 GenerationStep.Feature.VEGETAL_DECORATION,
 

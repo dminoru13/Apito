@@ -14,6 +14,7 @@ public class ApitoBiomeData {
     public final Block bloco_base;
     public final float frequencia_noise;
     public final float amplitude_noise;
+    public final String nivel_da_agua;
 
     public ApitoBiomeData(
             RegistryEntry<Biome> biome,
@@ -22,8 +23,9 @@ public class ApitoBiomeData {
             Block blocoIntermediario,
             Block blocoBase,
             float frequenciaNoise,
-            float amplitudeNoise
-    ) {
+            float amplitudeNoise,
+            String nivelDaAgua
+            ) {
 
         Biome = biome;
         Altura = altura;
@@ -32,5 +34,6 @@ public class ApitoBiomeData {
         this.bloco_base = blocoBase;
         frequencia_noise = frequenciaNoise;
         amplitude_noise = amplitudeNoise;
+        nivel_da_agua = nivelDaAgua;
     }
 }

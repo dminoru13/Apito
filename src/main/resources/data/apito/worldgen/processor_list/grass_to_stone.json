@@ -1,0 +1,7 @@
+{
+  "processors": [
+    {
+      "processor_type": "apito:grass_to_stone"
+    }
+  ]
+}

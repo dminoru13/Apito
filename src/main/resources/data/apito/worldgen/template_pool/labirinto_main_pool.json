@@ -7,7 +7,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala1",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -15,7 +15,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala2",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -23,7 +23,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala3",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -31,7 +31,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala4",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -39,7 +39,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala5",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -47,7 +47,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala6",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -55,7 +55,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala7",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -63,7 +63,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala8",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -71,7 +71,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala9",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -79,7 +79,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala10",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -87,7 +87,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala11",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     },{
@@ -95,7 +95,7 @@
       "element": {
         "location": "apito:labirinto/labirinto_sala12",
         "processors": "minecraft:empty",
-        "projection": "rigid",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     }
