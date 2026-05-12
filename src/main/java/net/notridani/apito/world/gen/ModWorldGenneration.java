@@ -7,9 +7,8 @@ public class ModWorldGenneration {
         ModOreGeneration.generateOres();
 
         ModTreeGeneration.generateTrees();
+        ApitoFlores.generateFlowers();
 
         ModEntitySpanws.addSpawns();
-
-        ApitoFlores.generateFlowers();
     }
 }

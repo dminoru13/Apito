@@ -6,7 +6,7 @@
   "start_pool": "apito:bequinho_anchor_pool",
   "size": 6,
   "start_height": {
-    "absolute": 112
+    "absolute": 122
   },
   "max_distance_from_center": 80,
   "use_expansion_hack": false

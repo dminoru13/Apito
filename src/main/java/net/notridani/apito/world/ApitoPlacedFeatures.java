@@ -29,15 +29,16 @@ public class ApitoPlacedFeatures {
 
         register(context, PETRIFIED_TREE_KEY, configuredFeatures.getOrThrow(ApitoConfiguredFeatures.PETRIFIED_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(2,0.1f, 2), ModBlocks.PETRIFIED_TREE_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(1,0.1f, 1), ModBlocks.PETRIFIED_TREE_SAPLING));
 
 
         register(
                 context,
                 FLOWER_PATCH_PLACED,
                 configuredFeatures.getOrThrow(ApitoConfiguredFeatures.FLOWER_PATCH),
+                CountPlacementModifier.of(16),
 
-                RarityFilterPlacementModifier.of(2),
+                RarityFilterPlacementModifier.of(5),
 
                 SquarePlacementModifier.of(),
 

@@ -41,6 +41,7 @@ public class ApitoBiomeSource extends BiomeSource {
     private final RegistryEntry<Biome> fendaBiome;
     private final RegistryEntry<Biome> bordaBiome;
     private final RegistryEntry<Biome> arboredo;
+    private final RegistryEntry<Biome> labirinto;
 
     public boolean isInitialized() {
         return initialized;
@@ -99,6 +100,12 @@ public class ApitoBiomeSource extends BiomeSource {
                 .findFirst()
                 .orElseThrow();
 
+        this.labirinto = biomes.stream()
+                .filter(b -> b.matchesId(
+                        net.minecraft.util.Identifier.of("apito", "labirinto")))
+                .findFirst()
+                .orElseThrow();
+
         //DADOS DOS BIOMAS
 
         apitoBiomeDataMap.put(
@@ -106,11 +113,11 @@ public class ApitoBiomeSource extends BiomeSource {
                 new ApitoBiomeData(
                         nuloBiome,
                         224,
-                        Blocks.STONE,
-                        Blocks.STONE,
-                        Blocks.STONE,
-                        (float) 0,
-                        (float) 0.0
+                        Blocks.GRAVEL,
+                        Blocks.TUFF,
+                        Blocks.TUFF,
+                        (float) 4,
+                        (float) 3.0
                 )
         );
 
@@ -153,6 +160,19 @@ public class ApitoBiomeSource extends BiomeSource {
                 )
         );
 
+        apitoBiomeDataMap.put(
+                labirinto,
+                new ApitoBiomeData(
+                        labirinto,
+                        224,
+                        Blocks.CHISELED_POLISHED_BLACKSTONE,
+                        Blocks.CHISELED_POLISHED_BLACKSTONE,
+                        Blocks.BLACKSTONE,
+                        (float)0,
+                        (float) 0
+                )
+        );
+
     }
 
     public ApitoBiomeData getBiomeData(RegistryEntry<Biome> biome) {
@@ -185,15 +205,18 @@ public class ApitoBiomeSource extends BiomeSource {
 
         if (n > 0.1) {
 
-            return nuloBiome;
+            return labirinto;
+
+
+
         }
 
-        if (n < 0.1 && n > 0.08) {
+        if (n < 0.1 && n > 0.01) {
 
             return bordaBiome;
         }
 
-        if (n < 0.8 && n > 0) {
+        if (n < 0.01 && n > 0) {
 
             return arboredo;
         }

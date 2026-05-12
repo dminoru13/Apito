@@ -15,6 +15,6 @@ public class PetrifiedSaplingBlock extends SaplingBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(Blocks.TUFF) || super.canPlantOnTop(floor, world, pos);
+        return floor.isOf(Blocks.TUFF) || floor.isOf(Blocks.GRAVEL) || floor.isOf(Blocks.STONE) || super.canPlantOnTop(floor, world, pos);
     }
 }

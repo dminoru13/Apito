@@ -26,7 +26,7 @@ public class ApitoConfiguredFeatures {
 
     public static RegistryKey<ConfiguredFeature<?,?>> SCRAP_ORE_KEY = registerKey("scrap_ore");
     public static RegistryKey<ConfiguredFeature<?,?>> PETRIFIED_TREE_KEY = registerKey("petrified_tree");
-    public static RegistryKey<ConfiguredFeature<?,?>> FLOWER_PATCH = registerKey("flowe_patch");
+    public static RegistryKey<ConfiguredFeature<?,?>> FLOWER_PATCH = registerKey("flower_patch");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
         RuleTest stoneReplacebles = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -75,9 +75,18 @@ public class ApitoConfiguredFeatures {
                                         new WeightedBlockStateProvider(
                                                 DataPool.<net.minecraft.block.BlockState>builder()
 
-                                                        .add(Blocks.DANDELION.getDefaultState(), 5)
-                                                        .add(Blocks.POPPY.getDefaultState(), 3)
-                                                        .add(Blocks.AZURE_BLUET.getDefaultState(), 2)
+                                                        .add(Blocks.ORANGE_TULIP.getDefaultState(), 5)
+                                                        .add(Blocks.PINK_TULIP.getDefaultState(), 5)
+                                                        .add(Blocks.RED_TULIP.getDefaultState(), 5)
+                                                        .add(Blocks.WHITE_TULIP.getDefaultState(), 5)
+                                                        .add(Blocks.PINK_PETALS.getDefaultState(), 5)
+                                                        .add(Blocks.PEONY.getDefaultState(), 5)
+                                                        .add(Blocks.LILAC.getDefaultState(), 5)
+                                                        .add(Blocks.ALLIUM.getDefaultState(), 5)
+                                                        .add(Blocks.BLUE_ORCHID.getDefaultState(), 5)
+                                                        .add(Blocks.TORCHFLOWER.getDefaultState(), 5)
+
+                                                        .build()
 
                                         )
                                 )
