@@ -139,7 +139,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 bordaBiome,
                 new ApitoBiomeData(
                         bordaBiome,
-                        190,
+                        245,
                         Blocks.BASALT,
                         Blocks.BASALT,
                         Blocks.BASALT,
@@ -153,7 +153,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 fendaBiome,
                 new ApitoBiomeData(
                         fendaBiome,
-                        160,
+                        176,
                         Blocks.STONE_BRICKS,
                         Blocks.TUFF_BRICKS,
                         Blocks.STONE,
@@ -167,7 +167,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 arboredo,
                 new ApitoBiomeData(
                         arboredo,
-                        210,
+                        260,
                         Blocks.GRASS_BLOCK,
                         Blocks.DIRT,
                         Blocks.PACKED_MUD,
@@ -181,7 +181,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 labirinto_de_flores,
                 new ApitoBiomeData(
                         labirinto_de_flores,
-                        190,
+                        240,
                         Blocks.PACKED_MUD,
                         Blocks.GRANITE,
                         Blocks.TUFF,
@@ -195,7 +195,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 promontorio,
                 new ApitoBiomeData(
                         promontorio,
-                        284,
+                        242,
                         Blocks.GRAVEL,
                         Blocks.GRAVEL,
                         Blocks.TUFF_BRICKS,
@@ -209,13 +209,13 @@ public class ApitoBiomeSource extends BiomeSource {
                 reservatorio_profundo,
                 new ApitoBiomeData(
                         reservatorio_profundo,
-                        0,
+                        80,
                         Blocks.BLACKSTONE,
                         Blocks.BLACKSTONE,
                         Blocks.TUFF,
                         (float)1,
                         (float) 1,
-                        "282"
+                        "240"
                 )
         );
 

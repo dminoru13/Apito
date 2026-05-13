@@ -233,6 +233,8 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
                 int altura_maxima = data.Altura + (int)(terrainNoise * data.amplitude_noise);
 
+
+                //AGUA
                 if(isInt(data.nivel_da_agua)) {
                     int nivel_agua = Integer.parseInt(data.nivel_da_agua);
 
@@ -248,6 +250,9 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                         }
                     }
                 }
+
+
+                //TERRENO
 
                 for(int profundidade = 0; profundidade < 5; profundidade++) {
 
@@ -270,6 +275,8 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                     );
 
                 }
+
+                //TÉTO
 
 
 
