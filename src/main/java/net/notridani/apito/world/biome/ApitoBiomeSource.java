@@ -125,13 +125,13 @@ public class ApitoBiomeSource extends BiomeSource {
                 nuloBiome,
                 new ApitoBiomeData(
                         nuloBiome,
-                        224,
-                        Blocks.GRAVEL,
-                        Blocks.TUFF,
-                        Blocks.TUFF,
-                        (float) 4,
-                        (float) 3.0,
-                        "não"
+                        319,
+                        Blocks.AIR,
+                        Blocks.AIR,
+                        Blocks.AIR,
+                        (float) 0,
+                        (float) 0.0,
+                        null
                 )
         );
 
@@ -139,13 +139,13 @@ public class ApitoBiomeSource extends BiomeSource {
                 bordaBiome,
                 new ApitoBiomeData(
                         bordaBiome,
-                        245,
+                        240,
                         Blocks.BASALT,
                         Blocks.BASALT,
                         Blocks.BASALT,
                         (float)10.0,
                         (float) 10.0,
-                        "não"
+                        null
                 )
         );
 
@@ -153,13 +153,13 @@ public class ApitoBiomeSource extends BiomeSource {
                 fendaBiome,
                 new ApitoBiomeData(
                         fendaBiome,
-                        176,
+                        240,
                         Blocks.STONE_BRICKS,
                         Blocks.TUFF_BRICKS,
                         Blocks.STONE,
                         (float) 0.0,
                         (float) 0.0,
-                        "não"
+                        null
                 )
         );
 
@@ -167,13 +167,13 @@ public class ApitoBiomeSource extends BiomeSource {
                 arboredo,
                 new ApitoBiomeData(
                         arboredo,
-                        260,
+                        96,
                         Blocks.GRASS_BLOCK,
                         Blocks.DIRT,
                         Blocks.PACKED_MUD,
                         (float)4,
                         (float) 3,
-                        "não"
+                        null
                 )
         );
 
@@ -181,13 +181,13 @@ public class ApitoBiomeSource extends BiomeSource {
                 labirinto_de_flores,
                 new ApitoBiomeData(
                         labirinto_de_flores,
-                        240,
+                        80,
                         Blocks.PACKED_MUD,
                         Blocks.GRANITE,
                         Blocks.TUFF,
                         (float)1,
                         (float) 2,
-                        "não"
+                        null
                 )
         );
 
@@ -201,7 +201,7 @@ public class ApitoBiomeSource extends BiomeSource {
                         Blocks.TUFF_BRICKS,
                         (float) 4,
                         (float) 3.0,
-                        "não"
+                        null
                 )
         );
 
@@ -209,13 +209,13 @@ public class ApitoBiomeSource extends BiomeSource {
                 reservatorio_profundo,
                 new ApitoBiomeData(
                         reservatorio_profundo,
-                        80,
+                        -64,
                         Blocks.BLACKSTONE,
                         Blocks.BLACKSTONE,
                         Blocks.TUFF,
                         (float)1,
                         (float) 1,
-                        "240"
+                        240
                 )
         );
 
@@ -244,44 +244,106 @@ public class ApitoBiomeSource extends BiomeSource {
         int blockZ = BiomeCoords.toBlock(z);
         int blockY = BiomeCoords.toBlock(y);
 
-        double celular = Noises.cellularSample(seed, blockX, blockZ, 7000);
+        double celular1 = Noises.cellularSample(seed, blockX, blockZ, 7000);
+        double celular2 = Noises.cellularSample(seed, blockX, blockZ, 1000);
         double n = Noises.doublePerlinSample(DoublePerlinNoise, blockX, 0, blockZ, 0.15);
 
-        if(celular > 0.05) {
-            if (n > 0.3) {
 
-                return arboredo;
-            }
+        float areaCidades = 0f;
 
-            if (n < 0.3 && n > 0.04) {
+        switch (descobrirCamada(blockY)) {
+            case Camada.SUPERFICIE:
+                if(celular1 > 0.05) {
+                    if (n < areaCidades) {
 
-                return labirinto_de_flores;
-            }
+                        return fendaBiome;
+                    }
 
-            if (n < 0.04 && n > 0) {
+                    if(n < areaCidades+0.01 && n > areaCidades) {
 
-                return bordaBiome;
-            }
+                        return bordaBiome;
+                    }
 
+                    if(n > areaCidades+0.01) {
+                        return nuloBiome;
+                    }
+                }
 
-            if(n < 0 && n > -2) {
+                if(celular1 < 0.05 && celular1 > 0.04) {
+                    return promontorio;
+                }
 
-                return fendaBiome;
-            }
+                if(celular1 < 0.04) {
+                    return reservatorio_profundo;
+                }
+
+            case Camada.SUBTERRANEO:
+                if(celular1 > 0.05) {
+                    if (n < areaCidades) {
+
+                        return fendaBiome;
+                    }
+
+                    if(n < areaCidades+0.01 && n > areaCidades) {
+
+                        return bordaBiome;
+                    }
+
+                    if(n > areaCidades+0.01) {
+                        if(celular2 > 0.1) {
+                            return labirinto_de_flores;
+                        } else {
+                            return arboredo;
+                        }
+                    }
+                }
+
+                if(celular1 < 0.05 && celular1 > 0.04) {
+                    return promontorio;
+                }
+
+                if(celular1 < 0.04) {
+                    return reservatorio_profundo;
+                }
         }
-
-        if(celular < 0.05 && celular > 0.04) {
-            return promontorio;
-        }
-
-        if(celular < 0.04) {
-            return reservatorio_profundo;
-        }
-
 
 
         return nuloBiome;
     }
+
+    public enum Camada {
+        SUPERFICIE,
+        SUBTERRANEO,
+        BEQUINHOS,
+        MAR_DE_CADAVERES,
+        DEU_RUIM
+    }
+
+    public static int superficie = 224;
+    public static int subterraneo = 64;
+    public static int bequinhos = 0;
+    public static int mar_de_cadaveres = -64;
+
+    public Camada descobrirCamada(int y) {
+        if (y > superficie) {
+            return Camada.SUPERFICIE;
+        }
+
+        if (y > subterraneo) {
+            return Camada.SUBTERRANEO;
+        }
+
+        if (y > bequinhos) {
+            return Camada.BEQUINHOS;
+        }
+
+        if (y > mar_de_cadaveres) {
+            return Camada.MAR_DE_CADAVERES;
+        }
+
+        return Camada.DEU_RUIM;
+    }
+
 
     @Override
     protected MapCodec<? extends BiomeSource> getCodec() {

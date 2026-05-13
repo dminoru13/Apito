@@ -35,6 +35,8 @@ import net.notridani.apito.world.biome.ApitoBiomeSource;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import static java.lang.Math.min;
+
 public class CorredorChunkGenerator extends ChunkGenerator {
 
 
@@ -63,7 +65,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
     @Override
     public int getMinimumY() {
-        return 0;
+        return -64;
     }
 
     @Override
@@ -103,7 +105,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
     //variaveis
 
 
-    private final DoublePerlinNoiseSampler DoublePerlinNoise;
+    private final DoublePerlinNoiseSampler doublePerlinNoise;
 
 
 
@@ -112,7 +114,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
     public CorredorChunkGenerator(BiomeSource biomeSource) {
         super(biomeSource);
 
-        this.DoublePerlinNoise = Noises.createPerlinNoise(
+        this.doublePerlinNoise = Noises.createPerlinNoise(
                 3,
                 23,
                 -7,
@@ -148,39 +150,99 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                 int worldX = chunkPos.getStartX() + x;
                 int worldZ = chunkPos.getStartZ() + z;
 
-                RegistryEntry<Biome> biome =
-                        this.biomeSource.getBiome(
-                                worldX >> 2,
-                                0,
-                                worldZ >> 2,
-                                noiseConfig.getMultiNoiseSampler()
+
+                for(int camada = 0; camada < ApitoBiomeSource.Camada.values().length - 1; camada++ ) {
+                    int altura_superficie = ApitoBiomeSource.superficie;
+                    int altura_subterraneo = ApitoBiomeSource.subterraneo;
+                    int altura_bequinhos = ApitoBiomeSource.bequinhos;
+                    int altura_mar_de_cadaveres = ApitoBiomeSource.mar_de_cadaveres;
+
+                    if(camada == 0) {
+                        TerrainData terrain = sampleTerrain(
+                                worldX,
+                                altura_superficie+20,
+                                worldZ,
+                                noiseConfig
                         );
 
-                if (!(this.biomeSource instanceof ApitoBiomeSource source)) {
-                    return CompletableFuture.completedFuture(chunk);
-                }
+                        if (terrain == null) {
+                            return CompletableFuture.completedFuture(chunk);
+                        }
 
-                ApitoBiomeData data = source.getBiomeData(biome);
+                        int altura_maxima = terrain.altura;
 
-                double terrainNoise = Noises.doublePerlinSample(
-                        DoublePerlinNoise,
-                        worldX,
-                        0,
-                        worldZ,
-                        data.frequencia_noise
-                );
+                        Block bloco_base = terrain.biomeData.bloco_base;
 
-                int altura_maxima = data.Altura + (int)(terrainNoise * data.amplitude_noise);
+                        for (int y = altura_superficie; y <= altura_maxima; y++) {
+                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
+                        }
+                    }
 
-                Block bloco_bsae = data.bloco_base;
+                    if(camada == 1) {
+                        TerrainData terrain = sampleTerrain(
+                                worldX,
+                                altura_subterraneo+20,
+                                worldZ,
+                                noiseConfig
+                        );
+
+                        if (terrain == null) {
+                            return CompletableFuture.completedFuture(chunk);
+                        }
+
+                        int altura_maxima = min(terrain.altura, altura_superficie);
+
+                        Block bloco_base = terrain.biomeData.bloco_base;
 
 
+                        for (int y = altura_subterraneo; y <= altura_maxima; y++) {
+                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
+                        }
+                    }
+
+                    if(camada == 2) {
+                        TerrainData terrain = sampleTerrain(
+                                worldX,
+                                altura_bequinhos+20,
+                                worldZ,
+                                noiseConfig
+                        );
+
+                        if (terrain == null) {
+                            return CompletableFuture.completedFuture(chunk);
+                        }
+
+                        int altura_maxima = min(terrain.altura, altura_subterraneo);
+
+                        Block bloco_base = terrain.biomeData.bloco_base;
 
 
-                for (int y = getMinimumY(); y <= altura_maxima; y++) {
+                        for (int y = altura_bequinhos; y <= altura_maxima; y++) {
+                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
+                        }
+                    }
 
-                    chunk.setBlockState(pos.set(x, y, z), bloco_bsae.getDefaultState(), false);
+                    if(camada == 3) {
+                        TerrainData terrain = sampleTerrain(
+                                worldX,
+                                altura_mar_de_cadaveres+20,
+                                worldZ,
+                                noiseConfig
+                        );
 
+                        if (terrain == null) {
+                            return CompletableFuture.completedFuture(chunk);
+                        }
+
+                        int altura_maxima = min(terrain.altura, altura_bequinhos);
+
+                        Block bloco_base = terrain.biomeData.bloco_base;
+
+
+                        for (int y = altura_mar_de_cadaveres; y <= altura_maxima; y++) {
+                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
+                        }
+                    }
                 }
 
 
@@ -215,70 +277,20 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
+
                 int worldX = chunkPos.getStartX() + x;
                 int worldZ = chunkPos.getStartZ() + z;
 
-                RegistryEntry<Biome> biome = this.biomeSource.getBiome(worldX >> 2, 0, worldZ >> 2, noiseConfig.getMultiNoiseSampler());
+                int altura_superficie = ApitoBiomeSource.superficie;
+                int altura_subterraneo = ApitoBiomeSource.subterraneo;
+                int altura_bequinhos = ApitoBiomeSource.bequinhos;
+                int altura_mar_de_cadaveres = ApitoBiomeSource.mar_de_cadaveres;
 
 
-                ApitoBiomeData data = source.getBiomeData(biome);
-
-                double terrainNoise = Noises.doublePerlinSample(
-                        DoublePerlinNoise,
-                        worldX,
-                        0,
-                        worldZ,
-                        data.frequencia_noise
-                );
-
-                int altura_maxima = data.Altura + (int)(terrainNoise * data.amplitude_noise);
-
-
-                //AGUA
-                if(isInt(data.nivel_da_agua)) {
-                    int nivel_agua = Integer.parseInt(data.nivel_da_agua);
-
-                    if (altura_maxima < nivel_agua) {
-
-                        for(int agua_atual = altura_maxima + 1; agua_atual <= nivel_agua; agua_atual++){
-                            chunk.setBlockState(
-
-                                    pos.set(x,agua_atual,z),
-                                    Blocks.WATER.getDefaultState(),
-                                    false
-                            );
-                        }
-                    }
-                }
-
-
-                //TERRENO
-
-                for(int profundidade = 0; profundidade < 5; profundidade++) {
-
-                    int y = altura_maxima - profundidade;
-
-                    Block bloco;
-
-                    if (profundidade == 0) {
-                        bloco = data.bloco_superficie;
-                    } else if (profundidade < 4 + altura_maxima/2 ) {
-                        bloco = data.bloco_intermediario;
-                    } else {
-                        bloco = data.bloco_base;
-                    }
-
-                    chunk.setBlockState(
-                            pos.set(x,y,z),
-                            bloco.getDefaultState(),
-                            false
-                    );
-
-                }
-
-                //TÉTO
-
-
+                criar_camada(altura_superficie, x, z, worldX, worldZ, chunk,pos,noiseConfig);
+                criar_camada(altura_subterraneo, x, z, worldX, worldZ, chunk,pos,noiseConfig);
+                criar_camada(altura_bequinhos, x, z, worldX, worldZ, chunk,pos,noiseConfig);
+                criar_camada(altura_mar_de_cadaveres, x, z, worldX, worldZ, chunk,pos,noiseConfig);
 
             }
         }
@@ -287,6 +299,106 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
     //METODOS HELPER
 
+    //TERRENO
+
+    void criar_camada( int camadaAtual,int x, int z, int worldX,  int worldZ, Chunk chunk, BlockPos.Mutable pos, NoiseConfig noiseConfig) {
+        TerrainData terrain = sampleTerrain(
+                worldX,
+                camadaAtual+20,
+                worldZ,
+                noiseConfig
+        );
+
+        if (terrain == null) {
+            return;
+        }
+
+        ApitoBiomeData data = terrain.biomeData;
+
+        int altura_maxima = terrain.altura;
+
+        encher_de_agua(x,z,data.nivel_da_agua,altura_maxima,chunk,pos);
+        criar_terreno(x,z,altura_maxima, terrain.biomeData.bloco_superficie,terrain.biomeData.bloco_intermediario, chunk, pos);
+    }
+
+    void criar_terreno(int x, int z, int altura_maxima, Block bloco_superficie, Block bloco_intermediario, Chunk chunk, BlockPos.Mutable pos) {
+        for(int profundidade = 0; profundidade < 5; profundidade++) {
+
+            int y = altura_maxima - profundidade;
+
+            Block bloco;
+
+            if (profundidade == 0) {
+                bloco = bloco_superficie;
+            } else {
+                bloco = bloco_intermediario;
+            }
+
+            chunk.setBlockState(
+                    pos.set(x,y,z),
+                    bloco.getDefaultState(),
+                    false
+            );
+        }
+    }
+
+    //AGUA
+    void encher_de_agua(int x, int z,Integer nivel_agua, int altura_maxima, Chunk chunk, BlockPos.Mutable pos) {
+        if(nivel_agua != null) {
+
+            if (altura_maxima < nivel_agua) {
+
+                for(int agua_atual = altura_maxima + 1; agua_atual <= nivel_agua; agua_atual++){
+                    chunk.setBlockState(
+
+                            pos.set(x,agua_atual,z),
+                            Blocks.WATER.getDefaultState(),
+                            false
+                    );
+                }
+            }
+        }
+    }
+
+    private TerrainData sampleTerrain(
+            int worldX,
+            int worldY,
+            int worldZ,
+            NoiseConfig noiseConfig
+    ) {
+
+        RegistryEntry<Biome> biome =
+                this.biomeSource.getBiome(
+                        worldX >> 2,
+                        worldY >> 2,
+                        worldZ >> 2,
+                        noiseConfig.getMultiNoiseSampler()
+                );
+
+        if (!(this.biomeSource instanceof ApitoBiomeSource source)) {
+
+            return null;
+        }
+
+        ApitoBiomeData data = source.getBiomeData(biome);
+
+        double terrainNoise = Noises.doublePerlinSample(
+                doublePerlinNoise,
+                worldX,
+                0,
+                worldZ,
+                data.frequencia_noise
+        );
+
+        int altura = data.Altura +
+                (int)(terrainNoise * data.amplitude_noise);
+
+        return new TerrainData(
+                biome,
+                data,
+                altura
+        );
+    }
 
     private void corredores(ChunkRegion region, Chunk chunk) {
         int spacingChunks = 300;

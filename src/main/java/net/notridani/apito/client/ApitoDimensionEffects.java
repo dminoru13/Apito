@@ -6,7 +6,7 @@ import net.minecraft.util.math.Vec3d;
 public class ApitoDimensionEffects extends DimensionEffects {
     public ApitoDimensionEffects() {
         super(
-                100.0F, // altura das nuvens
+                -16.0F, // altura das nuvens
                 true,
                 SkyType.NONE,
                 false,
