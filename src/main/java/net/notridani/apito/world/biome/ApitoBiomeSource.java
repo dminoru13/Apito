@@ -19,23 +19,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class ApitoBiomeSource extends BiomeSource {
-
-
-    public static final MapCodec<ApitoBiomeSource> CODEC =
-            RecordCodecBuilder.mapCodec(instance ->
-                    instance.group(
-                            RegistryCodecs.entryList(RegistryKeys.BIOME)
-                                    .fieldOf("biomes")
-                                    .forGetter(source -> source.biomes)
-                    ).apply(instance, ApitoBiomeSource::new)
-            );
-
+    public static final MapCodec<ApitoBiomeSource> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(RegistryCodecs.entryList(RegistryKeys.BIOME).fieldOf("biomes").forGetter(source -> source.biomes)).apply(instance, ApitoBiomeSource::new));
     private volatile boolean initialized = false;
     private long seed;
-
-
     private final RegistryEntryList<Biome> biomes;
-
     private final RegistryEntry<Biome> nuloBiome;
     private final RegistryEntry<Biome> fendaBiome;
     private final RegistryEntry<Biome> bordaBiome;
@@ -43,6 +30,7 @@ public class ApitoBiomeSource extends BiomeSource {
     private final RegistryEntry<Biome> labirinto_de_flores;
     private final RegistryEntry<Biome> reservatorio_profundo;
     private final RegistryEntry<Biome> promontorio;
+    private final RegistryEntry<Biome> marDeCadaveres;
 
     public boolean isInitialized() {
         return initialized;
@@ -50,104 +38,52 @@ public class ApitoBiomeSource extends BiomeSource {
 
     private final DoublePerlinNoiseSampler DoublePerlinNoise;
 
-
     public synchronized void init(long seed) {
-
         if (initialized) return;
-
         this.seed = seed;
-
         initialized = true;
-
-
     }
 
     public final Map<RegistryEntry<Biome>, ApitoBiomeData> apitoBiomeDataMap = new HashMap<>();
 
-
-
     public ApitoBiomeSource(RegistryEntryList<Biome> biomes) {
-
-        this.DoublePerlinNoise = Noises.createPerlinNoise(
-                seed,
-                23,
-                -7,
-                1.0, 0.5, 0.25
-        );
-
+        this.DoublePerlinNoise = Noises.createPerlinNoise(seed, 23, -7, 1.0, 0.5, 0.25);
         this.biomes = biomes;
-
-        this.nuloBiome = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "nulo")))
-                .findFirst()
-                .orElseThrow();
-
-        this.bordaBiome = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "borda")))
-                .findFirst()
-                .orElseThrow();
-
-        this.fendaBiome = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "fenda")))
-                .findFirst()
-                .orElseThrow();
-
-        this.arboredo = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "arboredo")))
-                .findFirst()
-                .orElseThrow();
-
-        this.labirinto_de_flores = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "labirinto_de_flores")))
-                .findFirst()
-                .orElseThrow();
-
-        this.reservatorio_profundo = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "reservatorio_profundo")))
-                .findFirst()
-                .orElseThrow();
-
-        this.promontorio = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "promontorio")))
-                .findFirst()
-                .orElseThrow();
+        this.nuloBiome = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "nulo"))).findFirst().orElseThrow();
+        this.bordaBiome = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "borda"))).findFirst().orElseThrow();
+        this.fendaBiome = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "fenda"))).findFirst().orElseThrow();
+        this.arboredo = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "arboredo"))).findFirst().orElseThrow();
+        this.labirinto_de_flores = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "labirinto_de_flores"))).findFirst().orElseThrow();
+        this.reservatorio_profundo = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "reservatorio_profundo"))).findFirst().orElseThrow();
+        this.promontorio = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "promontorio"))).findFirst().orElseThrow();
+        this.marDeCadaveres = biomes.stream().filter(b -> b.matchesId(net.minecraft.util.Identifier.of("apito", "mar_de_cadaveres"))).findFirst().orElseThrow();
 
         //DADOS DOS BIOMAS
 
         apitoBiomeDataMap.put(
                 nuloBiome,
                 new ApitoBiomeData(
-                        nuloBiome,
-                        224,
-                        Blocks.GRAVEL,
-                        Blocks.TUFF,
-                        Blocks.TUFF,
-                        (float) 4,
-                        (float) 3.0,
-                        "não"
-                )
-        );
+                    nuloBiome,
+                    224,
+                    Blocks.GRAVEL,
+                    Blocks.TUFF,
+                    Blocks.TUFF,
+                    (float) 4,
+                    (float) 3.0,
+                    "não"));
 
         apitoBiomeDataMap.put(
                 bordaBiome,
                 new ApitoBiomeData(
-                        bordaBiome,
-                        245,
-                        Blocks.BASALT,
-                        Blocks.BASALT,
-                        Blocks.BASALT,
-                        (float)10.0,
-                        (float) 10.0,
-                        "não"
-                )
-        );
+                    bordaBiome,
+                    245,
+                    Blocks.BASALT,
+                    Blocks.BASALT,
+                    Blocks.BASALT,
+                    (float) 10.0,
+                    (float) 10.0,
+                    "não"));
+
 
         apitoBiomeDataMap.put(
                 fendaBiome,
@@ -159,23 +95,19 @@ public class ApitoBiomeSource extends BiomeSource {
                         Blocks.STONE,
                         (float) 0.0,
                         (float) 0.0,
-                        "não"
-                )
-        );
+                        "não"));
 
-        apitoBiomeDataMap.put(
-                arboredo,
-                new ApitoBiomeData(
-                        arboredo,
-                        260,
-                        Blocks.GRASS_BLOCK,
-                        Blocks.DIRT,
-                        Blocks.PACKED_MUD,
-                        (float)4,
-                        (float) 3,
-                        "não"
-                )
-        );
+        apitoBiomeDataMap.put
+                (arboredo,
+                        new ApitoBiomeData(
+                                arboredo,
+                                260,
+                                Blocks.GRASS_BLOCK,
+                                Blocks.DIRT,
+                                Blocks.PACKED_MUD,
+                                (float) 4,
+                                (float) 3,
+                                "não"));
 
         apitoBiomeDataMap.put(
                 labirinto_de_flores,
@@ -185,11 +117,9 @@ public class ApitoBiomeSource extends BiomeSource {
                         Blocks.PACKED_MUD,
                         Blocks.GRANITE,
                         Blocks.TUFF,
-                        (float)1,
+                        (float) 1,
                         (float) 2,
-                        "não"
-                )
-        );
+                        "não"));
 
         apitoBiomeDataMap.put(
                 promontorio,
@@ -201,9 +131,7 @@ public class ApitoBiomeSource extends BiomeSource {
                         Blocks.TUFF_BRICKS,
                         (float) 4,
                         (float) 3.0,
-                        "não"
-                )
-        );
+                        "não"));
 
         apitoBiomeDataMap.put(
                 reservatorio_profundo,
@@ -213,19 +141,25 @@ public class ApitoBiomeSource extends BiomeSource {
                         Blocks.BLACKSTONE,
                         Blocks.BLACKSTONE,
                         Blocks.TUFF,
-                        (float)1,
                         (float) 1,
-                        "240"
-                )
-        );
+                        (float) 1,
+                        "240"));
 
+        apitoBiomeDataMap.put(
+                marDeCadaveres,
+                new ApitoBiomeData(
+                        marDeCadaveres,
+                        48, Blocks.BLACKSTONE,
+                        Blocks.BLACKSTONE, Blocks.
+                        TUFF,
+                        (float) 1,
+                        (float) 1,
+                        "80"));
     }
 
     public ApitoBiomeData getBiomeData(RegistryEntry<Biome> biome) {
         return apitoBiomeDataMap.get(biome);
     }
-
-
 
     @Override
     protected Stream<RegistryEntry<Biome>> biomeStream() {
@@ -233,53 +167,44 @@ public class ApitoBiomeSource extends BiomeSource {
     }
 
     @Override
-    public RegistryEntry<Biome> getBiome(
-            int x,
-            int y,
-            int z,
-            MultiNoiseUtil.MultiNoiseSampler noise
-    ) {
-
+    public RegistryEntry<Biome> getBiome(int x, int y, int z, MultiNoiseUtil.MultiNoiseSampler noise) {
         int blockX = BiomeCoords.toBlock(x);
         int blockZ = BiomeCoords.toBlock(z);
         int blockY = BiomeCoords.toBlock(y);
-
         double celular = Noises.cellularSample(seed, blockX, blockZ, 7000);
         double n = Noises.doublePerlinSample(DoublePerlinNoise, blockX, 0, blockZ, 0.15);
-
-        if(celular > 0.05) {
+        if (celular > 0.05) {
             if (n > 0.3) {
-
-                return arboredo;
+                if (blockY > 224) {
+                    return arboredo;
+                }
             }
-
             if (n < 0.3 && n > 0.04) {
-
-                return labirinto_de_flores;
+                if (blockY > 224) {
+                    return labirinto_de_flores;
+                }
             }
-
             if (n < 0.04 && n > 0) {
-
-                return bordaBiome;
+                if (blockY > 176) {
+                    return bordaBiome;
+                }
             }
-
-
-            if(n < 0 && n > -2) {
-
-                return fendaBiome;
+            if (n < 0 && n > -2) {
+                if (blockY > 176) {
+                    return fendaBiome;
+                }
             }
         }
-
-        if(celular < 0.05 && celular > 0.04) {
-            return promontorio;
+        if (celular < 0.05 && celular > 0.04) {
+            if (blockY > 112) {
+                return promontorio;
+            }
         }
-
-        if(celular < 0.04) {
-            return reservatorio_profundo;
+        if (celular < 0.04) {
+            if (blockY > 48) {
+                return reservatorio_profundo;
+            }
         }
-
-
-
         return nuloBiome;
     }
 

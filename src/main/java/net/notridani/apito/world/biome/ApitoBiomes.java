@@ -54,6 +54,12 @@ public class ApitoBiomes {
                     Identifier.of(Apito.MOD_ID, "promontorio")
             );
 
+    public static final RegistryKey<Biome> MAR_DE_CADAVERES =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "mar_de_cadaveres")
+            );
+
     public static void bootstrap(Registerable<Biome> context) {
 
         context.register(
@@ -84,6 +90,11 @@ public class ApitoBiomes {
         context.register(
                 PROMONTORIO,
                 createPromontorio(context)
+        );
+
+        context.register(
+                MAR_DE_CADAVERES,
+                createMarDeCadaveres(context)
         );
     }
 
@@ -309,6 +320,49 @@ public class ApitoBiomes {
     }
 
     public static Biome createPromontorio(Registerable<Biome> context) {
+
+        RegistryEntryLookup<PlacedFeature> placedFeatures =
+                context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+
+        RegistryEntryLookup<ConfiguredCarver<?>> carvers =
+                context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
+
+        // generation
+
+        GenerationSettings.LookupBackedBuilder generation =
+                new GenerationSettings.LookupBackedBuilder(
+                        placedFeatures,
+                        carvers
+                );
+
+
+
+        // spawn
+
+        SpawnSettings.Builder spawn =
+                new SpawnSettings.Builder();
+
+        // biome
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .temperature(0.7f)
+                .downfall(0.8f)
+                .effects(
+                        new BiomeEffects.Builder()
+                                .skyColor(0x77adff)
+                                .fogColor(0xc0d8ff)
+                                .waterColor(0x3f76e4)
+                                .waterFogColor(0x050533)
+                                .moodSound(BiomeMoodSound.CAVE)
+                                .build()
+                )
+                .spawnSettings(spawn.build())
+                .generationSettings(generation.build())
+                .build();
+    }
+
+    public static Biome createMarDeCadaveres(Registerable<Biome> context) {
 
         RegistryEntryLookup<PlacedFeature> placedFeatures =
                 context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
