@@ -33,7 +33,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCRAP_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ROSELITA_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FOG_BLOCK);
 
         Identifier FelpsLamp0 = TexturedModel.CUBE_ALL.upload(ModBlocks.FELPS_LAMP, blockStateModelGenerator.modelCollector);
         Identifier FelpsLamp1 = blockStateModelGenerator.createSubModel(ModBlocks.FELPS_LAMP, "1", Models.CUBE_ALL, TextureMap::all);

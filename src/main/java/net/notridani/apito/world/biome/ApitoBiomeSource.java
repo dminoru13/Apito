@@ -12,6 +12,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeCoords;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.biome.source.util.MultiNoiseUtil;
+import net.notridani.apito.Apito;
 import net.notridani.apito.world.noises.Noises;
 
 import java.util.HashMap;
@@ -44,11 +45,19 @@ public class ApitoBiomeSource extends BiomeSource {
     private final RegistryEntry<Biome> reservatorio_profundo;
     private final RegistryEntry<Biome> promontorio;
 
+    //NOVOS
+    private final RegistryEntry<Biome> limear1;
+    private final RegistryEntry<Biome> limear2;
+    private final RegistryEntry<Biome> limear3;
+    private final RegistryEntry<Biome> marDeCadaveres;
+
     public boolean isInitialized() {
         return initialized;
     }
 
-    private final DoublePerlinNoiseSampler DoublePerlinNoise;
+    private final DoublePerlinNoiseSampler DoublePerlinNoise1;
+    private final DoublePerlinNoiseSampler DoublePerlinNoise2;
+    private final DoublePerlinNoiseSampler DoublePerlinNoise3;
 
 
     public synchronized void init(long seed) {
@@ -68,10 +77,24 @@ public class ApitoBiomeSource extends BiomeSource {
 
     public ApitoBiomeSource(RegistryEntryList<Biome> biomes) {
 
-        this.DoublePerlinNoise = Noises.createPerlinNoise(
+        this.DoublePerlinNoise1 = Noises.createPerlinNoise(
                 seed,
                 23,
                 -7,
+                1.0, 0.5, 0.25
+        );
+
+        this.DoublePerlinNoise2 = Noises.createPerlinNoise(
+                seed,
+                23,
+                0,
+                1.0, 0.5, 0.25
+        );
+
+        this.DoublePerlinNoise3 = Noises.createPerlinNoise(
+                seed,
+                23,
+                3,
                 1.0, 0.5, 0.25
         );
 
@@ -116,6 +139,32 @@ public class ApitoBiomeSource extends BiomeSource {
         this.promontorio = biomes.stream()
                 .filter(b -> b.matchesId(
                         net.minecraft.util.Identifier.of("apito", "promontorio")))
+                .findFirst()
+                .orElseThrow();
+
+        //NOVOS
+
+        this.limear1 = biomes.stream()
+                .filter(b -> b.matchesId(
+                        net.minecraft.util.Identifier.of(Apito.MOD_ID, "limear1")))
+                .findFirst()
+                .orElseThrow();
+
+        this.limear2 = biomes.stream()
+                .filter(b -> b.matchesId(
+                        net.minecraft.util.Identifier.of(Apito.MOD_ID, "limear2")))
+                .findFirst()
+                .orElseThrow();
+
+        this.limear3 = biomes.stream()
+                .filter(b -> b.matchesId(
+                        net.minecraft.util.Identifier.of(Apito.MOD_ID, "limear3")))
+                .findFirst()
+                .orElseThrow();
+
+        this.marDeCadaveres = biomes.stream()
+                .filter(b -> b.matchesId(
+                        net.minecraft.util.Identifier.of(Apito.MOD_ID, "mar_de_cadaveres")))
                 .findFirst()
                 .orElseThrow();
 
@@ -219,6 +268,63 @@ public class ApitoBiomeSource extends BiomeSource {
                 )
         );
 
+
+        //NOVOS
+        apitoBiomeDataMap.put(
+                limear1,
+                new ApitoBiomeData(
+                        limear1,
+                        256,
+                        Blocks.BLACKSTONE,
+                        Blocks.BLACKSTONE,
+                        Blocks.TUFF,
+                        (float)0,
+                        (float) 0,
+                        0
+                )
+        );
+
+        apitoBiomeDataMap.put(
+                limear2,
+                new ApitoBiomeData(
+                        limear2,
+                        128,
+                        Blocks.BLACKSTONE,
+                        Blocks.BLACKSTONE,
+                        Blocks.TUFF,
+                        (float)0,
+                        (float) 0,
+                        0
+                )
+        );
+
+        apitoBiomeDataMap.put(
+                limear3,
+                new ApitoBiomeData(
+                        limear3,
+                        48,
+                        Blocks.BLACKSTONE,
+                        Blocks.BLACKSTONE,
+                        Blocks.TUFF,
+                        (float)0,
+                        (float) 0,
+                        0
+                )
+        );
+
+        apitoBiomeDataMap.put(
+                marDeCadaveres,
+                new ApitoBiomeData(
+                        marDeCadaveres,
+                        -60,
+                        Blocks.BLACKSTONE,
+                        Blocks.BLACKSTONE,
+                        Blocks.TUFF,
+                        (float)0,
+                        (float) 0,
+                        -32
+                )
+        );
     }
 
     public ApitoBiomeData getBiomeData(RegistryEntry<Biome> biome) {
@@ -246,66 +352,26 @@ public class ApitoBiomeSource extends BiomeSource {
 
         double celular1 = Noises.cellularSample(seed, blockX, blockZ, 5000);
         double celular2 = Noises.cellularSample(seed, blockX, blockZ, 1000);
-        double n = Noises.doublePerlinSample(DoublePerlinNoise, blockX, 0, blockZ, 0.15);
+        double perlin1 = Noises.doublePerlinSample(DoublePerlinNoise1, blockX, 0, blockZ, 0.15);
+        double perlin2 = Noises.doublePerlinSample(DoublePerlinNoise2, blockX, 0, blockZ, 0.15);
+        double perlin3 = Noises.doublePerlinSample(DoublePerlinNoise3, blockX, 0, blockZ, 0.15);
 
 
         float areaCidades = 0f;
         double areaReservatorio = 0.1;
 
-        switch (descobrirCamada(blockY)) {
-            case Camada.SUPERFICIE:
-                if(celular1 > areaReservatorio) {
-                    if (n < areaCidades) {
+        switch (descobrirCamada(y)) {
+            case LIMEAR_3 ->
+            {
+                return limear3;
 
-                        return fendaBiome;
-                    }
+            }
 
-                    if(n < areaCidades+0.01 && n > areaCidades) {
+            case MAR_DE_CADAVERES ->
+            {
+                return marDeCadaveres;
+            }
 
-                        return bordaBiome;
-                    }
-
-                    if(n > areaCidades+0.01) {
-                        return nuloBiome;
-                    }
-                }
-
-                if(celular1 < areaReservatorio && celular1 > areaReservatorio*0.95) {
-                    return promontorio;
-                }
-
-                if(celular1 < areaReservatorio*0.95) {
-                    return reservatorio_profundo;
-                }
-
-            case Camada.SUBTERRANEO:
-                if(celular1 > areaReservatorio) {
-                    if (n < areaCidades) {
-
-                        return fendaBiome;
-                    }
-
-                    if(n < areaCidades+0.01 && n > areaCidades) {
-
-                        return bordaBiome;
-                    }
-
-                    if(n > areaCidades+0.01) {
-                        if(celular2 > 0.1) {
-                            return labirinto_de_flores;
-                        } else {
-                            return arboredo;
-                        }
-                    }
-                }
-
-                if(celular1 < areaReservatorio && celular1 > areaReservatorio*0.95) {
-                    return promontorio;
-                }
-
-                if(celular1 <areaReservatorio - areaReservatorio*0.95) {
-                    return reservatorio_profundo;
-                }
         }
 
 
@@ -314,28 +380,47 @@ public class ApitoBiomeSource extends BiomeSource {
 
     public enum Camada {
         SUPERFICIE,
-        SUBTERRANEO,
-        BEQUINHOS,
+        LIMEAR_1,
+        PSEUDO_CIDADES,
+        LIMEAR_2,
+        LABIRINTOS,
+        LIMEAR_3,
         MAR_DE_CADAVERES,
         DEU_RUIM
     }
 
-    public static int superficie = 224;
-    public static int subterraneo = 64;
-    public static int bequinhos = 0;
+    public static int superficie = 272;
+    public static int limear_1 = 240;
+    public static int pseudo_cidades = 144;
+    public static int limear_2 = 112;
+    public static int labirintos = 48;
+    public static int limear_3 = 32;
     public static int mar_de_cadaveres = -64;
 
     public Camada descobrirCamada(int y) {
+
         if (y > superficie) {
             return Camada.SUPERFICIE;
         }
 
-        if (y > subterraneo) {
-            return Camada.SUBTERRANEO;
+        if (y > limear_1) {
+            return Camada.LIMEAR_1;
         }
 
-        if (y > bequinhos) {
-            return Camada.BEQUINHOS;
+        if (y > pseudo_cidades) {
+            return Camada.PSEUDO_CIDADES;
+        }
+
+        if (y > limear_2) {
+            return Camada.LIMEAR_2;
+        }
+
+        if (y > labirintos) {
+            return Camada.LABIRINTOS;
+        }
+
+        if (y > limear_3) {
+            return Camada.LIMEAR_3;
         }
 
         if (y > mar_de_cadaveres) {

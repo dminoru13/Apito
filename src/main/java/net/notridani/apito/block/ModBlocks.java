@@ -82,13 +82,30 @@ public class ModBlocks implements BlockRegistryContainer {
                     .noCollision()
                     .luminance(state -> 10));
 
-    public static final Block FOG_BLOCK =
-            new FogBlock(AbstractBlock.Settings.create()
-                    .strength(-1.0F, 3600000.0F)
-                    .nonOpaque()
-                    .noCollision()
-            );
+    //LIQUIDOS
 
+    public static final Block FOG_BLOCK =
+            new FogFluidBlock(
+                    ModFluids.STILL_FOG,
+                    AbstractBlock.Settings.create()
+                            .noCollision()
+                            .nonOpaque()
+                            .strength(100f)
+                            .replaceable()
+                            .liquid()
+                            .dynamicBounds()
+
+                            // NÃO BLOQUEIA LUZ
+                            .solidBlock((state, world, pos) -> false)
+                            .blockVision((state, world, pos) -> false)
+                            .suffocates((state, world, pos) -> false)
+
+                            // REMOVE SOMBRA
+                            .allowsSpawning((state, world, pos, type) -> false)
+
+                            // IMPORTANTE
+                            .luminance(state -> 0)
+            );
 
     // 🔥 controle do BlockItem
     @Override

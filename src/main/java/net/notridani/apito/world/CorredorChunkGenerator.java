@@ -32,6 +32,7 @@ import net.notridani.apito.world.noises.Noises;
 import net.notridani.apito.world.biome.ApitoBiomeData;
 import net.notridani.apito.world.biome.ApitoBiomeSource;
 
+import javax.management.openmbean.ArrayType;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -130,6 +131,19 @@ public class CorredorChunkGenerator extends ChunkGenerator {
     }
 
 
+    int[] listaCamadas = {
+            ApitoBiomeSource.superficie,
+            ApitoBiomeSource.limear_1,
+            ApitoBiomeSource.pseudo_cidades,
+            ApitoBiomeSource.limear_2,
+            ApitoBiomeSource.labirintos,
+            ApitoBiomeSource.limear_3,
+            ApitoBiomeSource.mar_de_cadaveres
+    };
+
+
+
+    //TUDO A ABAIXO DESSE COMENTARIO NÂO DEVE SER ALTERADO
 
     @Override
     public CompletableFuture<Chunk> populateNoise(
@@ -152,97 +166,8 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
 
                 for(int camada = 0; camada < ApitoBiomeSource.Camada.values().length - 1; camada++ ) {
-                    int altura_superficie = ApitoBiomeSource.superficie;
-                    int altura_subterraneo = ApitoBiomeSource.subterraneo;
-                    int altura_bequinhos = ApitoBiomeSource.bequinhos;
-                    int altura_mar_de_cadaveres = ApitoBiomeSource.mar_de_cadaveres;
 
-                    if(camada == 0) {
-                        TerrainData terrain = sampleTerrain(
-                                worldX,
-                                altura_superficie+20,
-                                worldZ,
-                                noiseConfig
-                        );
-
-                        if (terrain == null) {
-                            return CompletableFuture.completedFuture(chunk);
-                        }
-
-                        int altura_maxima = terrain.altura;
-
-                        Block bloco_base = terrain.biomeData.bloco_base;
-
-                        for (int y = altura_superficie; y <= altura_maxima; y++) {
-                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
-                        }
-                    }
-
-                    if(camada == 1) {
-                        TerrainData terrain = sampleTerrain(
-                                worldX,
-                                altura_subterraneo+20,
-                                worldZ,
-                                noiseConfig
-                        );
-
-                        if (terrain == null) {
-                            return CompletableFuture.completedFuture(chunk);
-                        }
-
-                        int altura_maxima = min(terrain.altura, altura_superficie);
-
-                        Block bloco_base = terrain.biomeData.bloco_base;
-
-
-                        for (int y = altura_subterraneo; y <= altura_maxima; y++) {
-                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
-                        }
-                    }
-
-                    if(camada == 2) {
-                        TerrainData terrain = sampleTerrain(
-                                worldX,
-                                altura_bequinhos+20,
-                                worldZ,
-                                noiseConfig
-                        );
-
-                        if (terrain == null) {
-                            return CompletableFuture.completedFuture(chunk);
-                        }
-
-                        int altura_maxima = min(terrain.altura, altura_subterraneo);
-
-                        Block bloco_base = terrain.biomeData.bloco_base;
-
-
-                        for (int y = altura_bequinhos; y <= altura_maxima; y++) {
-                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
-                        }
-                    }
-
-                    if(camada == 3) {
-                        TerrainData terrain = sampleTerrain(
-                                worldX,
-                                altura_mar_de_cadaveres+20,
-                                worldZ,
-                                noiseConfig
-                        );
-
-                        if (terrain == null) {
-                            return CompletableFuture.completedFuture(chunk);
-                        }
-
-                        int altura_maxima = min(terrain.altura, altura_bequinhos);
-
-                        Block bloco_base = terrain.biomeData.bloco_base;
-
-
-                        for (int y = altura_mar_de_cadaveres; y <= altura_maxima; y++) {
-                            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
-                        }
-                    }
+                    gerarBlocoBase(listaCamadas[camada], worldX, worldZ, x, z, noiseConfig, chunk, pos);
                 }
 
 
@@ -281,16 +206,10 @@ public class CorredorChunkGenerator extends ChunkGenerator {
                 int worldX = chunkPos.getStartX() + x;
                 int worldZ = chunkPos.getStartZ() + z;
 
-                int altura_superficie = ApitoBiomeSource.superficie;
-                int altura_subterraneo = ApitoBiomeSource.subterraneo;
-                int altura_bequinhos = ApitoBiomeSource.bequinhos;
-                int altura_mar_de_cadaveres = ApitoBiomeSource.mar_de_cadaveres;
+                for(int camada = 0; camada < listaCamadas.length; camada++) {
+                    criar_camada(listaCamadas[camada], x, z, worldX, worldZ, chunk,pos,noiseConfig);
+                }
 
-
-                criar_camada(altura_superficie, x, z, worldX, worldZ, chunk,pos,noiseConfig);
-                criar_camada(altura_subterraneo, x, z, worldX, worldZ, chunk,pos,noiseConfig);
-                criar_camada(altura_bequinhos, x, z, worldX, worldZ, chunk,pos,noiseConfig);
-                criar_camada(altura_mar_de_cadaveres, x, z, worldX, worldZ, chunk,pos,noiseConfig);
 
             }
         }
@@ -298,6 +217,32 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
 
     //METODOS HELPER
+
+    //BLOCO BASE
+
+    private CompletableFuture<Chunk> gerarBlocoBase(int alturaAtual, int worldX, int worldZ, int x, int z, NoiseConfig noiseConfig, Chunk chunk, BlockPos.Mutable pos) {
+        TerrainData terrain = sampleTerrain(
+                worldX,
+                alturaAtual+20,
+                worldZ,
+                noiseConfig
+        );
+
+        if (terrain == null) {
+            return CompletableFuture.completedFuture(chunk);
+        }
+
+        int altura_maxima = min(terrain.altura, alturaAtual);
+
+        Block bloco_base = terrain.biomeData.bloco_base;
+
+
+        for (int y = alturaAtual; y <= altura_maxima; y++) {
+            chunk.setBlockState(pos.set(x, y, z), bloco_base.getDefaultState(), false);
+        }
+
+        return null;
+    }
 
     //TERRENO
 

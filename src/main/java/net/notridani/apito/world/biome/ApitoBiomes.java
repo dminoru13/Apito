@@ -60,6 +60,25 @@ public class ApitoBiomes {
                     Identifier.of(Apito.MOD_ID, "mar_de_cadaveres")
             );
 
+    public static final RegistryKey<Biome> LIMEAR_1 =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "limear1")
+            );
+
+    public static final RegistryKey<Biome> LIMEAR_2 =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "limear2")
+            );
+
+    public static final RegistryKey<Biome> LIMEAR_3 =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "limear2")
+            );
+
+
     public static void bootstrap(Registerable<Biome> context) {
 
         context.register(
@@ -94,6 +113,21 @@ public class ApitoBiomes {
 
         context.register(
                 MAR_DE_CADAVERES,
+                createMarDeCadaveres(context)
+        );
+
+        context.register(
+                LIMEAR_1,
+                createMarDeCadaveres(context)
+        );
+
+        context.register(
+                LIMEAR_2,
+                createMarDeCadaveres(context)
+        );
+
+        context.register(
+                LIMEAR_3,
                 createMarDeCadaveres(context)
         );
     }

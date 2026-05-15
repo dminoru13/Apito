@@ -19,6 +19,11 @@ public class ApitoDimensionEffects extends DimensionEffects {
     }
 
     @Override
+    public float getCloudsHeight() {
+        return Float.NaN;
+    }
+
+    @Override
     public Vec3d adjustFogColor(Vec3d color, float sunHeight) {
 
         MinecraftClient client = MinecraftClient.getInstance();

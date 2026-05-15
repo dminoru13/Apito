@@ -13,7 +13,9 @@ import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.notridani.apito.block.ModBlocks;
+import net.notridani.apito.block.ModFluids;
 import net.notridani.apito.block.entity.ModBlockEntities;
 import net.notridani.apito.block.entity.renderer.ForgeInputEntityRenderer;
 import net.notridani.apito.block.entity.renderer.WhistleForgeEntityRenderer;
@@ -41,7 +43,12 @@ public class ApitoClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PETRIFIED_TREE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHISTLE_FORGE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FORGE_INPUT, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FOG_BLOCK, RenderLayer.getTranslucent());
+
+        BlockRenderLayerMap.INSTANCE.putFluids(
+                RenderLayer.getTranslucent(),
+                ModFluids.STILL_FOG,
+                ModFluids.FLOWING_FOG
+        );
 
         ModModelPredicates.registerModelPredicates();
 
@@ -57,6 +64,53 @@ public class ApitoClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandler.CARVING_BENCH_SCREEN_HANDLER, CarvingBenchScreen::new);
 
         ModelLoadingPlugin.register(new WhistleModelLoader());
+
+        FluidRenderHandlerRegistry.INSTANCE.register(
+                ModFluids.STILL_FOG,
+                ModFluids.FLOWING_FOG,
+                new SimpleFluidRenderHandler(
+                        Identifier.of("apito:block/fog_still"),
+                        Identifier.of("apito:block/fog_flow"),
+                        0x11FFFFFF
+                )
+        );
+
+        ColorProviderRegistry.BLOCK.register(
+
+                (state, world, pos, tintIndex) -> {
+
+                    if (world == null || pos == null) {
+                        return 0xFFFFFFFF;
+                    }
+
+                    int depth = 0;
+
+                    BlockPos.Mutable mutable = pos.mutableCopy();
+
+                    while (depth < 16) {
+
+                        mutable.move(0, 1, 0);
+
+                        if (world.getBlockState(mutable).isOf(ModBlocks.FOG_BLOCK)) {
+                            depth++;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    int brightness = 255 - depth * 12;
+                    brightness = Math.max(brightness, 80);
+
+                    return (
+                            255 << 24 |
+                                    brightness << 16 |
+                                    brightness << 8 |
+                                    brightness
+                    );
+                },
+
+                ModBlocks.FOG_BLOCK
+        );
 
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
