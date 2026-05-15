@@ -167,7 +167,11 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
                 for(int camada = 0; camada < ApitoBiomeSource.Camada.values().length - 1; camada++ ) {
 
-                    gerarBlocoBase(listaCamadas[camada], worldX, worldZ, x, z, noiseConfig, chunk, pos);
+                    if (camada == 0) {
+                        gerarBlocoBase(listaCamadas[camada], 319, worldX, worldZ, x, z, noiseConfig, chunk, pos);
+                    } else {
+                        gerarBlocoBase(listaCamadas[camada], listaCamadas[camada-1], worldX, worldZ, x, z, noiseConfig, chunk, pos);
+                    }
                 }
 
 
@@ -220,7 +224,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
 
     //BLOCO BASE
 
-    private CompletableFuture<Chunk> gerarBlocoBase(int alturaAtual, int worldX, int worldZ, int x, int z, NoiseConfig noiseConfig, Chunk chunk, BlockPos.Mutable pos) {
+    private CompletableFuture<Chunk> gerarBlocoBase(int alturaAtual, int alturaAnterior, int worldX, int worldZ, int x, int z, NoiseConfig noiseConfig, Chunk chunk, BlockPos.Mutable pos) {
         TerrainData terrain = sampleTerrain(
                 worldX,
                 alturaAtual+20,
@@ -232,7 +236,7 @@ public class CorredorChunkGenerator extends ChunkGenerator {
             return CompletableFuture.completedFuture(chunk);
         }
 
-        int altura_maxima = min(terrain.altura, alturaAtual);
+        int altura_maxima = min(terrain.altura, alturaAnterior);
 
         Block bloco_base = terrain.biomeData.bloco_base;
 

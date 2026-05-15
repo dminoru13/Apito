@@ -304,7 +304,7 @@ public class ApitoBiomeSource extends BiomeSource {
                         limear3,
                         48,
                         Blocks.BLACKSTONE,
-                        Blocks.BLACKSTONE,
+                        Blocks.TUFF,
                         Blocks.TUFF,
                         (float)0,
                         (float) 0,
@@ -363,8 +363,9 @@ public class ApitoBiomeSource extends BiomeSource {
         switch (descobrirCamada(y)) {
             case LIMEAR_3 ->
             {
-                return limear3;
-
+                if(perlin1 > 0.5) {
+                    return limear3;
+                }
             }
 
             case MAR_DE_CADAVERES ->

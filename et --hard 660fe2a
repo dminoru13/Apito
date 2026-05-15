@@ -1,0 +1,92 @@
+[33m0314bc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{0}: reset: moving to 0314bc3604d6c750b588fe750a8f0c139238c0f2
+[33m660fe2a[m HEAD@{1}: commit: o chunk generator tá meio esquisito
+[33m0314bc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{2}: commit: nevoa bloco
+[33mcaffee6[m HEAD@{3}: commit (merge): Merge remote-tracking branch 'origin/master'
+[33m6dd9df5[m HEAD@{4}: commit: eba camadas
+[33macd07e3[m HEAD@{5}: reset: moving to acd07e3907752b924f574f49356f894c891f5aea
+[33macd07e3[m HEAD@{6}: reset: moving to acd07e3907752b924f574f49356f894c891f5aea
+[33m523b293[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{7}: commit: ufa
+[33macd07e3[m HEAD@{8}: commit: map acurated
+[33mcd6bf80[m HEAD@{9}: commit: o mundo cresce
+[33m0e07d65[m HEAD@{10}: commit: labirintei
+[33m716f752[m HEAD@{11}: commit: labirintei
+[33m5efa496[m HEAD@{12}: commit: preciso labirintar
+[33m2066385[m HEAD@{13}: commit: se pá que eu vou registrar meus biomas direito
+[33mcee7682[m HEAD@{14}: commit: PREDRIOS DAHORAS ADICIONADOS HELL YEAH
+[33m30d9851[m HEAD@{15}: commit: na proxima criar arranhceus
+[33mfe10041[m HEAD@{16}: commit: A ESTRUTURA CRESCE
+[33m2819bdd[m HEAD@{17}: commit: CORREDOR INFINITO
+[33m354fd14[m HEAD@{18}: commit (merge): Merge remote-tracking branch 'origin/master'
+[33m24c4db3[m HEAD@{19}: commit: eba dimencao e construcao
+[33m464f397[m[33m ([m[1;31morigin/apito-render[m[33m, [m[1;32mapito-render[m[33m)[m HEAD@{20}: merge apito-render: Fast-forward
+[33m75cba30[m HEAD@{21}: checkout: moving from apito-render to master
+[33m464f397[m[33m ([m[1;31morigin/apito-render[m[33m, [m[1;32mapito-render[m[33m)[m HEAD@{22}: checkout: moving from master to apito-render
+[33m75cba30[m HEAD@{23}: checkout: moving from apito-render to master
+[33m464f397[m[33m ([m[1;31morigin/apito-render[m[33m, [m[1;32mapito-render[m[33m)[m HEAD@{24}: commit: OS APITOS FUNCIONARAM
+[33m1bafbdb[m HEAD@{25}: commit: eba corzinha
+[33m3039d4e[m HEAD@{26}: commit: começando a fazer os apitos em 3d....
+[33me3d6c2f[m HEAD@{27}: commit: talvez eu faça os apitos em 3d...
+[33m43a7131[m HEAD@{28}: commit: EU TO VENDO A PONTINH
+[33m9a87668[m[33m ([m[1;32msem-owo[m[33m)[m HEAD@{29}: checkout: moving from sem-owo to apito-render
+[33m9a87668[m[33m ([m[1;32msem-owo[m[33m)[m HEAD@{30}: reset: moving to 9a876680bcdd17933486b1cb8a1c8c33891ade9f
+[33md85f5bf[m HEAD@{31}: reset: moving to d85f5bfc42e4bdd5685eca73e817456dde8e7018
+[33m2b032a0[m[33m ([m[1;31morigin/sem-owo[m[33m)[m HEAD@{32}: reset: moving to 2b032a0817c1a6e68b757c951c84e3a9a771b939
+[33m2b032a0[m[33m ([m[1;31morigin/sem-owo[m[33m)[m HEAD@{33}: commit: ta dando certo talzez????
+[33md85f5bf[m HEAD@{34}: commit: ta dando certo talzez????
+[33m9a87668[m[33m ([m[1;32msem-owo[m[33m)[m HEAD@{35}: commit: e la vou eu tentar criar um forma melhor de renderizar os apitos
+[33m4e0dd8d[m HEAD@{36}: commit: falta só mais um pouquinho..........
+[33ma134341[m HEAD@{37}: commit: botoes posicionados (porem só tocam sonzinho e não fazem mais nada)
+[33m031e7fb[m HEAD@{38}: commit: livretinho
+[33m65ecd77[m HEAD@{39}: commit: BOTOES INVISIVEIS
+[33m208446a[m HEAD@{40}: commit: arrumando minha querida UI
+[33m75cba30[m HEAD@{41}: checkout: moving from master to sem-owo
+[33m75cba30[m HEAD@{42}: commit: arrumando minha querida UI
+[33m4dfb560[m HEAD@{43}: commit: o owo foi um erro, e eu estou mais feliz sem ele
+[33m3f51797[m HEAD@{44}: reset: moving to 3f517978d57e6ccca400ca1d7fef4777d0404255
+[33m2cd757a[m HEAD@{45}: commit: O OWO DÀ MUITA DOR DE CABEÇA!!!!
+[33m6b61a65[m HEAD@{46}: commit: O OWO DÀ MUITA DOR DE CABEÇA!!!!
+[33m6b1d22e[m HEAD@{47}: commit: owo instalado
+[33m412782d[m HEAD@{48}: commit: owo instalado
+[33m3f51797[m HEAD@{49}: commit: O entalhamenrto tá vindo
+[33ma26888d[m HEAD@{50}: commit: UI novinha na bancada de entalhe
+[33m025ff8a[m HEAD@{51}: commit: UI novinha na bancada de entalhe
+[33maace835[m HEAD@{52}: commit: forja adicionada
+[33mbd42ebb[m HEAD@{53}: commit: forja adicionada
+[33m5084a2e[m HEAD@{54}: commit: bancada de entalhe
+[33m6b5deb8[m HEAD@{55}: commit: bancada de entalhe
+[33md056a63[m HEAD@{56}: commit: MUITO APITO
+[33me1656c0[m HEAD@{57}: commit: MUITO APITO
+[33mf872a13[m HEAD@{58}: commit: golbo
+[33mf66e9b3[m HEAD@{59}: commit: golbo
+[33m6b5223d[m HEAD@{60}: commit: aquele cara foi adicionado
+[33me047b29[m HEAD@{61}: commit: aquele cara foi adicionado
+[33me4f687d[m HEAD@{62}: commit: mininoru animado e teleportante
+[33m4671650[m HEAD@{63}: commit: mininoru
+[33m4c802a6[m HEAD@{64}: commit: mininoru
+[33m4f74b08[m HEAD@{65}: commit: as avrris simus nozis
+[33m338f3e4[m HEAD@{66}: commit: as avrris simus nozis
+[33ma861a6f[m HEAD@{67}: commit: yey minérios e world gen
+[33md4aa226[m HEAD@{68}: commit: yey minérios e world gen
+[33me2be907[m HEAD@{69}: commit: arbustos adicionados
+[33mfba6d1b[m HEAD@{70}: commit: arbustos adicionados
+[33m7f323c2[m HEAD@{71}: commit: adeflagração de energia adicionada
+[33m7cb55a4[m HEAD@{72}: commit: adeflagração de energia adicionada
+[33m381f780[m HEAD@{73}: commit: abraço eterno musicas
+[33maa99cd8[m HEAD@{74}: commit: abraço eterno musicas
+[33m568d6ee[m HEAD@{75}: commit: sonzinhos
+[33m9a937f0[m HEAD@{76}: commit: Coroa ed Mecha Azazeth adicionada 2
+[33m0f4b0e8[m HEAD@{77}: commit: Coroa ed Mecha Azazeth adicionada
+[33m30f59ae[m HEAD@{78}: commit: giz
+[33m48ef0bf[m HEAD@{79}: commit: giz
+[33m5457cc1[m HEAD@{80}: commit: felpo lampada '-'
+[33m9719c3b[m HEAD@{81}: commit: felpo lampada '-'
+[33m9926b50[m HEAD@{82}: commit: datagen é algo lindo
+[33me9a1420[m HEAD@{83}: commit: datagen é algo lindo
+[33m1b2cb45[m HEAD@{84}: commit: hmmmmm golbo frito
+[33m6a628b8[m HEAD@{85}: commit (merge): Merge remote-tracking branch 'origin/master'
+[33mb4853a2[m HEAD@{86}: commit: hmmmmm golbo frito
+[33m74338ea[m HEAD@{87}: commit (amend): hmmmmm golbo frito
+[33me3bb0bf[m HEAD@{88}: commit: apito ta apitando melhor
+[33mce43ed9[m HEAD@{89}: commit: apito ta apitando
+[33me6f1a8d[m HEAD@{90}: commit: criei um item yey
+[33m07278d0[m HEAD@{91}: commit (initial): Initial commit
