@@ -44,8 +44,6 @@ public class Apito implements ModInitializer {
 
 
 
-
-
 		ModPotions.registerPotion();
 		ModEffects.registerEffects();
 
@@ -68,6 +66,9 @@ public class Apito implements ModInitializer {
 		ApitoWorldgen.register();
 
 		ApitoProcessors.register();
+
+
+
 
 
 		PayloadTypeRegistry.playC2S().register(

@@ -2,11 +2,16 @@ package net.notridani.apito.block;
 
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.notridani.apito.Apito;
 import net.notridani.apito.block.custom.*;
 import net.notridani.apito.world.tree.ModSaplingGenerators;
 
@@ -77,9 +82,18 @@ public class ModBlocks implements BlockRegistryContainer {
                     .noCollision()
                     .luminance(state -> 10));
 
+    public static final Block FOG_BLOCK =
+            new FogBlock(AbstractBlock.Settings.create()
+                    .strength(-1.0F, 3600000.0F)
+                    .nonOpaque()
+                    .noCollision()
+            );
+
+
     // 🔥 controle do BlockItem
     @Override
     public BlockItem createBlockItem(Block block, String identifier) {
+
         return new BlockItem(block, new Item.Settings());
     }
 }

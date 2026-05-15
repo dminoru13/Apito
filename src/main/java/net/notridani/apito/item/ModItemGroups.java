@@ -27,6 +27,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ROSELITA_BLOCK);
                         entries.add(ModBlocks.SCRAP_ORE);
                         entries.add(ModBlocks.FELPS_LAMP);
+                        entries.add(ModBlocks.FOG_BLOCK);
 
                         //Entity Blocks
 
@@ -55,8 +56,6 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLBO_NUGGET);
                         entries.add(ModItems.SNAIL_BERRY);
                         entries.add(ModItems.VAMPIRIC_BERRY);
-
-                        //ferramentas
 
                         //apitos
 

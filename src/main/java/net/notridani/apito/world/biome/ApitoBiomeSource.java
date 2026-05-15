@@ -244,16 +244,17 @@ public class ApitoBiomeSource extends BiomeSource {
         int blockZ = BiomeCoords.toBlock(z);
         int blockY = BiomeCoords.toBlock(y);
 
-        double celular1 = Noises.cellularSample(seed, blockX, blockZ, 7000);
+        double celular1 = Noises.cellularSample(seed, blockX, blockZ, 5000);
         double celular2 = Noises.cellularSample(seed, blockX, blockZ, 1000);
         double n = Noises.doublePerlinSample(DoublePerlinNoise, blockX, 0, blockZ, 0.15);
 
 
         float areaCidades = 0f;
+        double areaReservatorio = 0.1;
 
         switch (descobrirCamada(blockY)) {
             case Camada.SUPERFICIE:
-                if(celular1 > 0.05) {
+                if(celular1 > areaReservatorio) {
                     if (n < areaCidades) {
 
                         return fendaBiome;
@@ -269,16 +270,16 @@ public class ApitoBiomeSource extends BiomeSource {
                     }
                 }
 
-                if(celular1 < 0.05 && celular1 > 0.04) {
+                if(celular1 < areaReservatorio && celular1 > areaReservatorio*0.95) {
                     return promontorio;
                 }
 
-                if(celular1 < 0.04) {
+                if(celular1 < areaReservatorio*0.95) {
                     return reservatorio_profundo;
                 }
 
             case Camada.SUBTERRANEO:
-                if(celular1 > 0.05) {
+                if(celular1 > areaReservatorio) {
                     if (n < areaCidades) {
 
                         return fendaBiome;
@@ -298,11 +299,11 @@ public class ApitoBiomeSource extends BiomeSource {
                     }
                 }
 
-                if(celular1 < 0.05 && celular1 > 0.04) {
+                if(celular1 < areaReservatorio && celular1 > areaReservatorio*0.95) {
                     return promontorio;
                 }
 
-                if(celular1 < 0.04) {
+                if(celular1 <areaReservatorio - areaReservatorio*0.95) {
                     return reservatorio_profundo;
                 }
         }

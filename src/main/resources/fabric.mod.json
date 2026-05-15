@@ -26,7 +26,8 @@
 		]
 	},
 	"mixins": [
-		"apito.mixins.json"
+		"apito.mixins.json",
+		"apito.client.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.19.1",

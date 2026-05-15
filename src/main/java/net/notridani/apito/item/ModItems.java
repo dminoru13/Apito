@@ -2,6 +2,10 @@ package net.notridani.apito.item;
 
 import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
+import net.notridani.apito.Apito;
 import net.notridani.apito.block.ModBlocks;
 import net.notridani.apito.entity.ModEntities;
 import net.notridani.apito.item.custom.ModArmorItem;

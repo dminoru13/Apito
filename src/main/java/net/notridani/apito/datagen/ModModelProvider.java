@@ -33,6 +33,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCRAP_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ROSELITA_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FOG_BLOCK);
 
         Identifier FelpsLamp0 = TexturedModel.CUBE_ALL.upload(ModBlocks.FELPS_LAMP, blockStateModelGenerator.modelCollector);
         Identifier FelpsLamp1 = blockStateModelGenerator.createSubModel(ModBlocks.FELPS_LAMP, "1", Models.CUBE_ALL, TextureMap::all);
@@ -96,6 +97,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.WHISTLE_FORGE);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.FORGE_INPUT);
+
+
     }
 
     @Override
@@ -118,6 +121,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.GOLBO_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+
 
 
     }
