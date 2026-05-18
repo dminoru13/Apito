@@ -6,16 +6,15 @@
       "type": "apito:apito_biome_source",
       "biomes": [
         "apito:nulo",
-        "apito:borda",
-        "apito:arboredo",
+        "apito:pseudo_city",
+        "apito:grime_garden",
         "apito:labirinto_de_flores",
         "apito:reservatorio_profundo",
         "apito:promontorio",
         "apito:mar_de_cadaveres",
         "apito:limear1",
         "apito:limear2",
-        "apito:limear3",
-        "apito:fenda"
+        "apito:limear3"
       ]
     }
   }

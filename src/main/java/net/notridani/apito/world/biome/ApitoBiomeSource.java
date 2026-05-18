@@ -38,15 +38,14 @@ public class ApitoBiomeSource extends BiomeSource {
     private final RegistryEntryList<Biome> biomes;
 
     private final RegistryEntry<Biome> nuloBiome;
-    private final RegistryEntry<Biome> fendaBiome;
-    private final RegistryEntry<Biome> bordaBiome;
-    private final RegistryEntry<Biome> arboredo;
+    private final RegistryEntry<Biome> grime_garden;
     private final RegistryEntry<Biome> labirinto_de_flores;
     private final RegistryEntry<Biome> reservatorio_profundo;
     private final RegistryEntry<Biome> promontorio;
 
     //NOVOS
     private final RegistryEntry<Biome> limear1;
+    private final RegistryEntry<Biome> pseudo_city;
     private final RegistryEntry<Biome> limear2;
     private final RegistryEntry<Biome> limear3;
     private final RegistryEntry<Biome> marDeCadaveres;
@@ -106,21 +105,9 @@ public class ApitoBiomeSource extends BiomeSource {
                 .findFirst()
                 .orElseThrow();
 
-        this.bordaBiome = biomes.stream()
+        this.grime_garden = biomes.stream()
                 .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "borda")))
-                .findFirst()
-                .orElseThrow();
-
-        this.fendaBiome = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "fenda")))
-                .findFirst()
-                .orElseThrow();
-
-        this.arboredo = biomes.stream()
-                .filter(b -> b.matchesId(
-                        net.minecraft.util.Identifier.of("apito", "arboredo")))
+                        net.minecraft.util.Identifier.of("apito", "grime_garden")))
                 .findFirst()
                 .orElseThrow();
 
@@ -147,6 +134,12 @@ public class ApitoBiomeSource extends BiomeSource {
         this.limear1 = biomes.stream()
                 .filter(b -> b.matchesId(
                         net.minecraft.util.Identifier.of(Apito.MOD_ID, "limear1")))
+                .findFirst()
+                .orElseThrow();
+
+        this.pseudo_city = biomes.stream()
+                .filter(b -> b.matchesId(
+                        net.minecraft.util.Identifier.of(Apito.MOD_ID, "pseudo_city")))
                 .findFirst()
                 .orElseThrow();
 
@@ -185,37 +178,9 @@ public class ApitoBiomeSource extends BiomeSource {
         );
 
         apitoBiomeDataMap.put(
-                bordaBiome,
+                grime_garden,
                 new ApitoBiomeData(
-                        bordaBiome,
-                        240,
-                        Blocks.BASALT,
-                        Blocks.BASALT,
-                        Blocks.BASALT,
-                        (float)10.0,
-                        (float) 10.0,
-                        null
-                )
-        );
-
-        apitoBiomeDataMap.put(
-                fendaBiome,
-                new ApitoBiomeData(
-                        fendaBiome,
-                        240,
-                        Blocks.STONE_BRICKS,
-                        Blocks.TUFF_BRICKS,
-                        Blocks.STONE,
-                        (float) 0.0,
-                        (float) 0.0,
-                        null
-                )
-        );
-
-        apitoBiomeDataMap.put(
-                arboredo,
-                new ApitoBiomeData(
-                        arboredo,
+                        grime_garden,
                         96,
                         Blocks.GRASS_BLOCK,
                         Blocks.DIRT,
@@ -230,7 +195,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 labirinto_de_flores,
                 new ApitoBiomeData(
                         labirinto_de_flores,
-                        80,
+                        50,
                         Blocks.PACKED_MUD,
                         Blocks.GRANITE,
                         Blocks.TUFF,
@@ -285,10 +250,25 @@ public class ApitoBiomeSource extends BiomeSource {
         );
 
         apitoBiomeDataMap.put(
+                pseudo_city,
+                new ApitoBiomeData(
+                        pseudo_city,
+                        pseudo_cidades+3,
+                        Blocks.STONE_BRICKS,
+                        Blocks.STONE_BRICKS,
+                        Blocks.TUFF,
+                        (float)0,
+                        (float) 0,
+                        0
+                )
+        );
+
+
+        apitoBiomeDataMap.put(
                 limear2,
                 new ApitoBiomeData(
                         limear2,
-                        128,
+                        pseudo_cidades,
                         Blocks.BLACKSTONE,
                         Blocks.BLACKSTONE,
                         Blocks.TUFF,
@@ -353,7 +333,7 @@ public class ApitoBiomeSource extends BiomeSource {
         double celular1 = Noises.cellularSample(seed, blockX, blockZ, 5000);
         double celular2 = Noises.cellularSample(seed, blockX, blockZ, 1000);
         double perlin1 = Noises.doublePerlinSample(DoublePerlinNoise1, blockX, 0, blockZ, 0.3);
-        double perlin2 = Noises.doublePerlinSample(DoublePerlinNoise2, blockX, 0, blockZ, 0.3);
+        double perlin2 = Noises.doublePerlinSample(DoublePerlinNoise2, blockX, 0, blockZ, 0.1);
         double perlin3 = Noises.doublePerlinSample(DoublePerlinNoise3, blockX, 0, blockZ, 0.3);
 
 
@@ -376,7 +356,9 @@ public class ApitoBiomeSource extends BiomeSource {
 
             case PSEUDO_CIDADES ->
             {
-
+                if(perlin2 < 0) {
+                    return pseudo_city;
+                }
             }
 
             case LIMEAR_2 ->
@@ -388,7 +370,9 @@ public class ApitoBiomeSource extends BiomeSource {
 
             case LABIRINTOS ->
             {
-
+                if(perlin3 < 0) {
+                    return labirinto_de_flores;
+                }
             }
 
             case LIMEAR_3 ->

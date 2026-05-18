@@ -13,9 +13,7 @@ public class ApitoFlores {
 
         BiomeModifications.addFeature(
                 BiomeSelectors.includeByKey(
-                        ApitoBiomes.ARBOREDO,
-                        ApitoBiomes.BORDA,
-                        ApitoBiomes.LABIRINTO_DE_FLORES),
+                        ApitoBiomes.GRIME_GARDEN),
 
                 GenerationStep.Feature.VEGETAL_DECORATION,
 

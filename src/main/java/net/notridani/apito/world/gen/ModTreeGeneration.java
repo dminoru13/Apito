@@ -12,7 +12,7 @@ public class ModTreeGeneration {
     public static void generateTrees() {
 
         BiomeModifications.addFeature(
-                BiomeSelectors.includeByKey(ApitoBiomes.ARBOREDO),
+                BiomeSelectors.includeByKey(ApitoBiomes.GRIME_GARDEN),
 
                 GenerationStep.Feature.VEGETAL_DECORATION,
 

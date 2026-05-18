@@ -18,28 +18,16 @@ import net.notridani.apito.world.ApitoPlacedFeatures;
 
 public class ApitoBiomes {
 
-    public static final RegistryKey<Biome> ARBOREDO =
+    public static final RegistryKey<Biome> GRIME_GARDEN =
             RegistryKey.of(
                     RegistryKeys.BIOME,
-                    Identifier.of(Apito.MOD_ID, "arboredo")
+                    Identifier.of(Apito.MOD_ID, "grime_garden")
             );
 
     public static final RegistryKey<Biome> NULO =
             RegistryKey.of(
                     RegistryKeys.BIOME,
                     Identifier.of(Apito.MOD_ID, "nulo")
-            );
-
-    public static final RegistryKey<Biome> LABIRINTO_DE_FLORES =
-            RegistryKey.of(
-                    RegistryKeys.BIOME,
-                    Identifier.of(Apito.MOD_ID, "labirinto_de_flores")
-            );
-
-    public static final RegistryKey<Biome> BORDA =
-            RegistryKey.of(
-                    RegistryKeys.BIOME,
-                    Identifier.of(Apito.MOD_ID, "borda")
             );
 
     public static final RegistryKey<Biome> RESERVATORIO_PROFUNDO =
@@ -66,6 +54,12 @@ public class ApitoBiomes {
                     Identifier.of(Apito.MOD_ID, "limear1")
             );
 
+    public static final RegistryKey<Biome> PSEUDO_CITY =
+            RegistryKey.of(
+                    RegistryKeys.BIOME,
+                    Identifier.of(Apito.MOD_ID, "pseudo_city")
+            );
+
     public static final RegistryKey<Biome> LIMEAR_2 =
             RegistryKey.of(
                     RegistryKeys.BIOME,
@@ -81,24 +75,10 @@ public class ApitoBiomes {
 
     public static void bootstrap(Registerable<Biome> context) {
 
-        context.register(
-                ARBOREDO,
-                createArboredo(context)
-        );
 
         context.register(
                 NULO,
                 createNulo(context)
-        );
-
-        context.register(
-                LABIRINTO_DE_FLORES,
-                createLabirinto(context)
-        );
-
-        context.register(
-                BORDA,
-                createBorda(context)
         );
 
         context.register(
@@ -112,13 +92,13 @@ public class ApitoBiomes {
         );
 
         context.register(
-                MAR_DE_CADAVERES,
+                LIMEAR_1,
                 createMarDeCadaveres(context)
         );
 
         context.register(
-                LIMEAR_1,
-                createMarDeCadaveres(context)
+                PSEUDO_CITY,
+                createPseudoCity(context)
         );
 
         context.register(
@@ -127,12 +107,22 @@ public class ApitoBiomes {
         );
 
         context.register(
+                GRIME_GARDEN,
+                createGrimeGarden(context)
+        );
+
+        context.register(
                 LIMEAR_3,
+                createMarDeCadaveres(context)
+        );
+
+        context.register(
+                MAR_DE_CADAVERES,
                 createMarDeCadaveres(context)
         );
     }
 
-    public static Biome createArboredo(Registerable<Biome> context) {
+    public static Biome createGrimeGarden(Registerable<Biome> context) {
 
         RegistryEntryLookup<PlacedFeature> placedFeatures =
                 context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -221,7 +211,7 @@ public class ApitoBiomes {
                 .build();
     }
 
-    public static Biome createLabirinto(Registerable<Biome> context) {
+    public static Biome createPseudoCity(Registerable<Biome> context) {
 
         RegistryEntryLookup<PlacedFeature> placedFeatures =
                 context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -241,49 +231,6 @@ public class ApitoBiomes {
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 ApitoPlacedFeatures.PETRIFIED_TREE_KEY
         );
-
-        // spawn
-
-        SpawnSettings.Builder spawn =
-                new SpawnSettings.Builder();
-
-        // biome
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .temperature(0.7f)
-                .downfall(0.8f)
-                .effects(
-                        new BiomeEffects.Builder()
-                                .skyColor(0x77adff)
-                                .fogColor(0xc0d8ff)
-                                .waterColor(0x3f76e4)
-                                .waterFogColor(0x050533)
-                                .moodSound(BiomeMoodSound.CAVE)
-                                .build()
-                )
-                .spawnSettings(spawn.build())
-                .generationSettings(generation.build())
-                .build();
-    }
-
-    public static Biome createBorda(Registerable<Biome> context) {
-
-        RegistryEntryLookup<PlacedFeature> placedFeatures =
-                context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
-
-        RegistryEntryLookup<ConfiguredCarver<?>> carvers =
-                context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
-
-        // generation
-
-        GenerationSettings.LookupBackedBuilder generation =
-                new GenerationSettings.LookupBackedBuilder(
-                        placedFeatures,
-                        carvers
-                );
-
-
 
         // spawn
 

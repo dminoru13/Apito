@@ -6,7 +6,7 @@
   "start_pool": "apito:labirinto_anchor_pool",
   "size": 10  ,
   "start_height": {
-    "absolute": 81
+    "absolute": 52
   },
   "max_distance_from_center": 128,
   "use_expansion_hack": false
