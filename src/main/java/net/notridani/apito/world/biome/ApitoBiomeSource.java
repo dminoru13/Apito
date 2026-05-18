@@ -86,15 +86,15 @@ public class ApitoBiomeSource extends BiomeSource {
 
         this.DoublePerlinNoise2 = Noises.createPerlinNoise(
                 seed,
-                23,
-                0,
+                88,
+                -6,
                 1.0, 0.5, 0.25
         );
 
         this.DoublePerlinNoise3 = Noises.createPerlinNoise(
                 seed,
-                23,
-                3,
+                53,
+                -7,
                 1.0, 0.5, 0.25
         );
 
@@ -302,7 +302,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 limear3,
                 new ApitoBiomeData(
                         limear3,
-                        48,
+                        48                   ,
                         Blocks.BLACKSTONE,
                         Blocks.TUFF,
                         Blocks.TUFF,
@@ -352,24 +352,55 @@ public class ApitoBiomeSource extends BiomeSource {
 
         double celular1 = Noises.cellularSample(seed, blockX, blockZ, 5000);
         double celular2 = Noises.cellularSample(seed, blockX, blockZ, 1000);
-        double perlin1 = Noises.doublePerlinSample(DoublePerlinNoise1, blockX, 0, blockZ, 0.15);
-        double perlin2 = Noises.doublePerlinSample(DoublePerlinNoise2, blockX, 0, blockZ, 0.15);
-        double perlin3 = Noises.doublePerlinSample(DoublePerlinNoise3, blockX, 0, blockZ, 0.15);
+        double perlin1 = Noises.doublePerlinSample(DoublePerlinNoise1, blockX, 0, blockZ, 0.3);
+        double perlin2 = Noises.doublePerlinSample(DoublePerlinNoise2, blockX, 0, blockZ, 0.3);
+        double perlin3 = Noises.doublePerlinSample(DoublePerlinNoise3, blockX, 0, blockZ, 0.3);
 
 
         float areaCidades = 0f;
         double areaReservatorio = 0.1;
 
-        switch (descobrirCamada(y)) {
+        switch (descobrirCamada(blockY)) {
+
+            case SUPERFICIE ->
+            {
+
+            }
+
+            case LIMEAR_1 ->
+            {
+                if(perlin1 < 0) {
+                    return limear1;
+                }
+            }
+
+            case PSEUDO_CIDADES ->
+            {
+
+            }
+
+            case LIMEAR_2 ->
+            {
+                if(perlin2 < 0) {
+                    return limear2;
+                }
+            }
+
+            case LABIRINTOS ->
+            {
+
+            }
+
             case LIMEAR_3 ->
             {
-                if(perlin1 > 0.5) {
+                if(perlin3 < 0) {
                     return limear3;
                 }
             }
 
             case MAR_DE_CADAVERES ->
             {
+
                 return marDeCadaveres;
             }
 
@@ -395,39 +426,40 @@ public class ApitoBiomeSource extends BiomeSource {
     public static int pseudo_cidades = 144;
     public static int limear_2 = 112;
     public static int labirintos = 48;
-    public static int limear_3 = 32;
+    public static int limear_3 = 16;
     public static int mar_de_cadaveres = -64;
 
     public Camada descobrirCamada(int y) {
 
-        if (y > superficie) {
+        if (y >= superficie) {
             return Camada.SUPERFICIE;
         }
 
-        if (y > limear_1) {
+        if (y >= limear_1) {
             return Camada.LIMEAR_1;
         }
 
-        if (y > pseudo_cidades) {
+        if (y >= pseudo_cidades) {
             return Camada.PSEUDO_CIDADES;
         }
 
-        if (y > limear_2) {
+        if (y >= limear_2) {
             return Camada.LIMEAR_2;
         }
 
-        if (y > labirintos) {
+        if (y >= labirintos) {
             return Camada.LABIRINTOS;
         }
 
-        if (y > limear_3) {
+        if (y >= limear_3) {
             return Camada.LIMEAR_3;
         }
 
-        if (y > mar_de_cadaveres) {
+        if (y >= mar_de_cadaveres) {
             return Camada.MAR_DE_CADAVERES;
         }
 
+        System.out.println("DEU RUIM");
         return Camada.DEU_RUIM;
     }
 
