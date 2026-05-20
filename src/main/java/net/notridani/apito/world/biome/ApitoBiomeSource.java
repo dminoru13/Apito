@@ -254,7 +254,7 @@ public class ApitoBiomeSource extends BiomeSource {
                 new ApitoBiomeData(
                         pseudo_city,
                         pseudo_cidades+3,
-                        Blocks.STONE_BRICKS,
+                        Blocks.POLISHED_TUFF,
                         Blocks.STONE_BRICKS,
                         Blocks.TUFF,
                         (float)0,

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "apito:pseudo_city",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "start_pool": "apito:pseudo_city_anchor_pool",
+  "size": 20,
+  "start_height": {
+    "absolute": 148
+  },
+  "max_distance_from_center": 64,
+  "use_expansion_hack": false
+}

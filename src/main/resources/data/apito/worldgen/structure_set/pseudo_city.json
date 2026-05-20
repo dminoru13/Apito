@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "apito:torre_pequena",
+      "structure": "apito:pseudo_city",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 1,
-    "separation": 0,
+    "spacing": 8,
+    "separation": 7,
     "salt": 12345
   }
 }
