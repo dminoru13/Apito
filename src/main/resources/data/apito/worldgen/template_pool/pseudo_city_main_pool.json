@@ -5,7 +5,7 @@
     {
       "weight": 4,
       "element": {
-        "location": "apito:pseudocity/pseudo_city_rua1",
+        "location": "apito:pseudocity/pseudo_city_rua",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -14,7 +14,7 @@
     {
       "weight": 4,
       "element": {
-        "location": "apito:pseudocity/pseudo_city_rua2",
+        "location": "apito:pseudocity/pseudo_city_predio_base1",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -23,51 +23,7 @@
     {
       "weight": 4,
       "element": {
-        "location": "apito:pseudocity/pseudo_city_rua3",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },{
-      "weight": 4,
-      "element": {
-        "location": "apito:pseudocity/pseudo_city_rua4",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "apito:pseudocity/pseudo_city_rua_escada1",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "apito:pseudocity/pseudo_city_rua_escada2",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "apito:pseudocity/pseudo_city_casa1",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "apito:pseudocity/pseudo_city_casa2",
+        "location": "apito:pseudocity/pseudo_city_predio_terreo1",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -76,7 +32,7 @@
     {
       "weight": 4,
       "element": {
-        "location": "apito:pseudocity/pseudo_city_casa3",
+        "location": "apito:pseudocity/pseudo_city_predio_terreo2",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -85,7 +41,106 @@
     {
       "weight": 4,
       "element": {
-        "location": "apito:pseudocity/pseudo_city_casa4",
+        "location": "apito:pseudocity/pseudo_city_predio_terreo3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_terreo4",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_andar1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_andar2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_andar3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_andar4",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_base1_escada",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_terreo1_escada",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_terreo2_escada",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_andar1_escada",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_predio_andar2_escada",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "apito:pseudocity/pseudo_city_poste",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
